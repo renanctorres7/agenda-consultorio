@@ -13,10 +13,10 @@ class SignUpRepositoryImpl implements SignUpRepository {
   @override
   Future<Either<FailureError, SignUpEntity>> signUp(SignUpEntity params) async {
     try {
-      final result = await datasource.signUp(SignUpModel.fromEntity(params));
+      final result = await datasource.signUp(params);
       return result != null ? Right(result) : Left(NullError());
     } catch (e) {
-      throw Left(DataSourceError());
+      return Left(DataSourceError());
     }
   }
 }
