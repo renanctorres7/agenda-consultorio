@@ -18,4 +18,16 @@ class SignUpModel extends SignUpEntity {
   factory SignUpModel.fromJson(Map<String, dynamic> json) =>
       _$SignUpModelFromJson(json);
   Map<String, dynamic> toJson() => _$SignUpModelToJson(this);
+
+  factory SignUpModel.fromEntity(SignUpEntity entity) {
+    return SignUpModel(
+        company: entity.company,
+        email: entity.email,
+        fullName: entity.fullName,
+        password: entity.password,
+        phone: entity.phone,
+        specialty: entity.specialty,
+        token: entity.token,
+        objectId: entity.objectId);
+  }
 }
