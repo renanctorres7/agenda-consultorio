@@ -2,6 +2,8 @@ import 'package:dartz/dartz.dart';
 
 import '../../domain/entities/entities.dart';
 import '../../domain/errors/errors.dart';
+import '../../domain/repositories/respositories.dart';
+import '../datasources/datasources.dart';
 
 class LoginRepositoryImpl implements LoginRepository {
   final LoginDatasource datasource;
