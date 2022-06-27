@@ -6,7 +6,7 @@ import 'package:office_schedule/app/features/domain/errors/errors.dart';
 import 'package:office_schedule/app/features/domain/repositories/respositories.dart';
 import 'package:office_schedule/app/features/domain/usecases/sign_up_usecase.dart';
 
-class SignUpEntityMock extends Mock implements SignUpEntity {}
+import '../../../../mocks/mocks_class.dart';
 
 class SignUpRepositoryMock extends Mock implements SignUpRepository {}
 

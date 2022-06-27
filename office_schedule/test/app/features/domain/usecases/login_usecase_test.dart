@@ -1,21 +1,27 @@
 import 'package:dartz/dartz.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:mocktail/mocktail.dart';
-import 'package:office_schedule/app/features/domain/entities/entities.dart';
 import 'package:office_schedule/app/features/domain/repositories/respositories.dart';
 import 'package:office_schedule/app/features/domain/usecases/usecases.dart';
 
-class LoginRepositoryMock extends Mock implements LoginRepository {}
+import '../../../../mocks/mocks_class.dart';
 
-class LoginEntityMock extends Mock implements LoginEntity {}
+class LoginRepositoryMock extends Mock implements LoginRepository {}
 
 void main() {
   final repository = LoginRepositoryMock();
   final usecase = LoginUsecaseImpl(repository);
   final loginEntity = LoginEntityMock();
+  final signUpEntity = SignUpEntityMock();
 
   test("Should return Login Entity", () async {
     when(() => repository.login(loginEntity))
-        .thenAnswer((invocation) async => Right(entity));
+        .thenAnswer((invocation) async => Right(signUpEntity));
+
+    final result = await usecase(loginEntity);
+
+    expect(result, Right(signUpEntity));
+
+    verify(() => repository.login(loginEntity)).called(1);
   });
 }
