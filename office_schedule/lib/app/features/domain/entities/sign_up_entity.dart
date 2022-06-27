@@ -1,4 +1,4 @@
-abstract class UserSignUpEntity {
+abstract class SignUpEntity {
   final String email;
   final String password;
   final String fullName;
@@ -8,7 +8,7 @@ abstract class UserSignUpEntity {
   final String? objectId;
   final String? token;
 
-  const UserSignUpEntity(
+  const SignUpEntity(
       {required this.email,
       required this.password,
       required this.fullName,

@@ -4,16 +4,16 @@ import 'package:mocktail/mocktail.dart';
 import 'package:office_schedule/app/features/domain/entities/entities.dart';
 import 'package:office_schedule/app/features/domain/errors/errors.dart';
 import 'package:office_schedule/app/features/domain/repositories/respositories.dart';
-import 'package:office_schedule/app/features/domain/usecases/user_signup_usecase.dart';
+import 'package:office_schedule/app/features/domain/usecases/sign_up_usecase.dart';
 
-class UserSignUpEntityMock extends Mock implements UserSignUpEntity {}
+class SignUpEntityMock extends Mock implements SignUpEntity {}
 
-class UserSignUpRepositoryMock extends Mock implements UserSignUpRepository {}
+class SignUpRepositoryMock extends Mock implements SignUpRepository {}
 
 void main() {
-  final repository = UserSignUpRepositoryMock();
+  final repository = SignUpRepositoryMock();
   final usecase = UserSignUpUsecaseImpl(repository);
-  final params = UserSignUpEntityMock();
+  final params = SignUpEntityMock();
   test("Should return an UserSignUp Entity", () async {
     when(() => repository.signUp(params))
         .thenAnswer((_) async => Right(params));

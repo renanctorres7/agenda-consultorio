@@ -1,11 +1,11 @@
 import 'package:json_annotation/json_annotation.dart';
 import 'package:office_schedule/app/features/domain/entities/entities.dart';
 
-part 'user_signup_model.g.dart';
+part 'sign_up_model.g.dart';
 
 @JsonSerializable()
-class UserSignUpModel extends UserSignUpEntity {
-  const UserSignUpModel(
+class SignUpModel extends SignUpEntity {
+  const SignUpModel(
       {required super.email,
       required super.password,
       required super.fullName,
@@ -15,7 +15,7 @@ class UserSignUpModel extends UserSignUpEntity {
       super.objectId,
       super.token});
 
-  factory UserSignUpModel.fromJson(Map<String, dynamic> json) =>
-      _$UserSignUpModelFromJson(json);
-  Map<String, dynamic> toJson() => _$UserSignUpModelToJson(this);
+  factory SignUpModel.fromJson(Map<String, dynamic> json) =>
+      _$SignUpModelFromJson(json);
+  Map<String, dynamic> toJson() => _$SignUpModelToJson(this);
 }

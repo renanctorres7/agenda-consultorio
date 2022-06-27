@@ -1,13 +1,12 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 
-part of 'user_signup_model.dart';
+part of 'sign_up_model.dart';
 
 // **************************************************************************
 // JsonSerializableGenerator
 // **************************************************************************
 
-UserSignUpModel _$UserSignUpModelFromJson(Map<String, dynamic> json) =>
-    UserSignUpModel(
+SignUpModel _$SignUpModelFromJson(Map<String, dynamic> json) => SignUpModel(
       email: json['email'] as String,
       password: json['password'] as String,
       fullName: json['fullName'] as String,
@@ -18,7 +17,7 @@ UserSignUpModel _$UserSignUpModelFromJson(Map<String, dynamic> json) =>
       token: json['token'] as String?,
     );
 
-Map<String, dynamic> _$UserSignUpModelToJson(UserSignUpModel instance) =>
+Map<String, dynamic> _$SignUpModelToJson(SignUpModel instance) =>
     <String, dynamic>{
       'email': instance.email,
       'password': instance.password,
