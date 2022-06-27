@@ -8,6 +8,8 @@ import 'package:office_schedule/app/features/infra/datasources/sign_up_datasourc
 import 'package:office_schedule/app/features/infra/models/sign_up/sign_up_model.dart';
 import 'package:office_schedule/app/features/infra/repositories/sign_up_repository_impl.dart';
 
+import '../../../../mocks/mocks.dart';
+
 class SignUpDatasourceMock extends Mock implements SignUpDatasource {}
 
 class SignUpEntityMock extends Mock implements SignUpEntity {}
@@ -15,43 +17,37 @@ class SignUpEntityMock extends Mock implements SignUpEntity {}
 void main() {
   final datasource = SignUpDatasourceMock();
   final repository = SignUpRepositoryImpl(datasource);
-  final model = SignUpModel(
-      email: faker.internet.email(),
-      password: faker.internet.password(),
-      fullName: faker.person.name(),
-      phone: faker.phoneNumber.us(),
-      company: faker.company.name(),
-      specialty: faker.company.position(),
-      token: "",
-      objectId: "");
+  final signUpModel = MocksModels.signUpModel;
 
   test("Should return SignUp Model", () async {
-    when(() => datasource.signUp(model)).thenAnswer((_) async => model);
+    when(() => datasource.signUp(signUpModel))
+        .thenAnswer((_) async => signUpModel);
 
-    final result = await repository.signUp(model);
+    final result = await repository.signUp(signUpModel);
 
-    expect(result, Right(model));
+    expect(result, Right(signUpModel));
 
-    verify(() => datasource.signUp(model)).called(1);
+    verify(() => datasource.signUp(signUpModel)).called(1);
   });
 
   test("Should return Null Error if returns null", () async {
-    when(() => datasource.signUp(model)).thenAnswer((_) async => null);
+    when(() => datasource.signUp(signUpModel)).thenAnswer((_) async => null);
 
-    final result = await repository.signUp(model);
+    final result = await repository.signUp(signUpModel);
 
     expect(result, Left(NullError()));
 
-    verify(() => datasource.signUp(model)).called(1);
+    verify(() => datasource.signUp(signUpModel)).called(1);
   });
 
   test("Should return DataSource Error if returns error", () async {
-    when(() => datasource.signUp(model)).thenThrow(Left(DataSourceError()));
+    when(() => datasource.signUp(signUpModel))
+        .thenThrow(Left(DataSourceError()));
 
-    final result = await repository.signUp(model);
+    final result = await repository.signUp(signUpModel);
 
     expect(result, Left(DataSourceError()));
 
-    verify(() => datasource.signUp(model)).called(1);
+    verify(() => datasource.signUp(signUpModel)).called(1);
   });
 }
