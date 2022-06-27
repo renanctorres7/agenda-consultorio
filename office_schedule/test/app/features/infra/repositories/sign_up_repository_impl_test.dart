@@ -3,6 +3,7 @@ import 'package:faker/faker.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:mocktail/mocktail.dart';
 import 'package:office_schedule/app/features/domain/entities/entities.dart';
+import 'package:office_schedule/app/features/domain/errors/errors.dart';
 import 'package:office_schedule/app/features/infra/datasources/sign_up_datasource.dart';
 import 'package:office_schedule/app/features/infra/models/sign_up/sign_up_model.dart';
 import 'package:office_schedule/app/features/infra/repositories/sign_up_repository_impl.dart';
@@ -30,6 +31,26 @@ void main() {
     final result = await repository.signUp(model);
 
     expect(result, Right(model));
+
+    verify(() => datasource.signUp(model)).called(1);
+  });
+
+  test("Should return Null Error if returns null", () async {
+    when(() => datasource.signUp(model)).thenAnswer((_) async => null);
+
+    final result = await repository.signUp(model);
+
+    expect(result, Left(NullError()));
+
+    verify(() => datasource.signUp(model)).called(1);
+  });
+
+  test("Should return DataSource Error if returns error", () async {
+    when(() => datasource.signUp(model)).thenThrow(Left(DataSourceError()));
+
+    final result = await repository.signUp(model);
+
+    expect(result, Left(DataSourceError()));
 
     verify(() => datasource.signUp(model)).called(1);
   });
