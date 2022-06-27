@@ -15,7 +15,7 @@ void main() {
   final loginEntity = LoginEntityMock();
   final signUpEntity = SignUpEntityMock();
 
-  test("Should return Login Entity", () async {
+  test("Should input a Login Entity and return a SignUp Entity", () async {
     when(() => repository.login(loginEntity))
         .thenAnswer((invocation) async => Right(signUpEntity));
 
