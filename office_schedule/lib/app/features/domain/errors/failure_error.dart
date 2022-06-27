@@ -11,3 +11,8 @@ class NullError extends FailureError {
   @override
   List<Object?> get props => [];
 }
+
+class DataSourceError extends FailureError {
+  @override
+  List<Object?> get props => [];
+}

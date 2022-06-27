@@ -1,18 +1,22 @@
-import 'package:office_schedule/app/features/domain/errors/failure_error.dart';
-import 'package:office_schedule/app/features/domain/entities/sign_up_entity.dart';
 import 'package:dartz/dartz.dart';
-import 'package:office_schedule/app/features/domain/repositories/respositories.dart';
-import 'package:office_schedule/app/features/infra/models/sign_up/sign_up_model.dart';
 
+import '../../domain/entities/entities.dart';
+import '../../domain/errors/errors.dart';
+import '../../domain/repositories/respositories.dart';
 import '../datasources/datasources.dart';
+import '../models/models.dart';
 
 class SignUpRepositoryImpl implements SignUpRepository {
   final SignUpDatasource datasource;
+
+  SignUpRepositoryImpl(this.datasource);
   @override
   Future<Either<FailureError, SignUpEntity>> signUp(SignUpEntity params) async {
     try {
       final result = await datasource.signUp(SignUpModel.fromEntity(params));
       return result != null ? Right(result) : Left(NullError());
-    } catch (e) {}
+    } catch (e) {
+      throw Left(DataSourceError());
+    }
   }
 }
