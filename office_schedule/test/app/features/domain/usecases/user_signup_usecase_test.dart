@@ -13,9 +13,21 @@ void main() {
   final repository = UserSignUpRepositoryMock();
   final usecase = UserSignUpUsecaseImpl(repository);
   final params = UserSignUpEntityMock();
-  test("Should return an UserSignUp Entity", () {
-    final result = usecase(params: params);
+  test("Should return an UserSignUp Entity", () async {
+    when(() => repository.signUp(params))
+        .thenAnswer((_) async => Right(params));
+    final result = await usecase(params: params);
 
     expect(result, Right(params));
+    verify(() => repository.signUp(params)).called(1);
+  });
+
+  test("Should return an Failure Error", () async {
+    when(() => repository.signUp(params))
+        .thenAnswer((_) async => Right(params));
+    final result = await usecase(params: params);
+
+    expect(result, Right(params));
+    verify(() => repository.signUp(params)).called(1);
   });
 }
