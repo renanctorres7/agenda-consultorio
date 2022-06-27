@@ -17,7 +17,7 @@ void main() {
   test("Should return an UserSignUp Entity", () async {
     when(() => repository.signUp(params))
         .thenAnswer((_) async => Right(params));
-    final result = await usecase(params: params);
+    final result = await usecase(params);
 
     expect(result, Right(params));
     verify(() => repository.signUp(params)).called(1);
@@ -26,7 +26,7 @@ void main() {
   test("Should return Failure Error", () async {
     when(() => repository.signUp(params))
         .thenAnswer((_) async => Left(ServerError()));
-    final result = await usecase(params: params);
+    final result = await usecase(params);
 
     expect(result, Left(ServerError()));
     verify(() => repository.signUp(params)).called(1);

@@ -5,8 +5,7 @@ import '../errors/errors.dart';
 import '../repositories/respositories.dart';
 
 abstract class SignUpUsecase {
-  Future<Either<FailureError, SignUpEntity>> call(
-      {required SignUpEntity params});
+  Future<Either<FailureError, SignUpEntity>> call(SignUpEntity params);
 }
 
 class UserSignUpUsecaseImpl implements SignUpUsecase {
@@ -14,8 +13,7 @@ class UserSignUpUsecaseImpl implements SignUpUsecase {
 
   UserSignUpUsecaseImpl(this.repository);
   @override
-  Future<Either<FailureError, SignUpEntity>> call(
-      {required SignUpEntity params}) async {
+  Future<Either<FailureError, SignUpEntity>> call(SignUpEntity params) async {
     return await repository.signUp(params);
   }
 }
