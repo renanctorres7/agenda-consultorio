@@ -17,5 +17,10 @@ void main() {
   test("Should input a Login Entity and return a Sign Up Model", () async {
     when(() => datasource.login(loginEntity))
         .thenAnswer((invocation) async => signUpModel);
+
+    final result = await repository.login(loginEntity);
+
+    expect(result, Right(signUpModel));
+    verify(() => datasource.login(loginEntity)).called(1);
   });
 }
