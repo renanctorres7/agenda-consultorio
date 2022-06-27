@@ -25,7 +25,7 @@ void main() {
 
   test("Should return Failure Error", () async {
     when(() => repository.signUp(params))
-        .thenAnswer((_) async => Left(ServerError()));
+        .thenAnswer((_) async => Left(DomainError()));
     final result = await usecase(params);
 
     expect(result, Left(ServerError()));
