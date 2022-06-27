@@ -1,6 +1,4 @@
-import 'package:equatable/equatable.dart';
-
-abstract class UserSignUpEntity extends Equatable {
+abstract class UserSignUpEntity {
   final String email;
   final String password;
   final String fullName;
