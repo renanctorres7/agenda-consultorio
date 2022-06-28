@@ -1,10 +1,10 @@
-abstract class NewPassword {
+abstract class NewPasswordEntity {
   final String currentEmail;
   final String newEmail;
   final String currentPassword;
   final String newPassword;
 
-  NewPassword(
+  NewPasswordEntity(
       {required this.currentEmail,
       required this.newEmail,
       required this.currentPassword,
