@@ -6,12 +6,12 @@ part 'sign_up_model.g.dart';
 @JsonSerializable()
 class SignUpModel extends SignUpEntity {
   const SignUpModel(
-      {required super.email,
-      required super.password,
-      required super.fullName,
-      required super.phone,
-      required super.company,
-      required super.specialty,
+      {super.email,
+      super.password,
+      super.fullName,
+      super.phone,
+      super.company,
+      super.specialty,
       super.objectId,
       super.token});
 

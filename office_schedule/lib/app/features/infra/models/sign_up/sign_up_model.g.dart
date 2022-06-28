@@ -7,12 +7,12 @@ part of 'sign_up_model.dart';
 // **************************************************************************
 
 SignUpModel _$SignUpModelFromJson(Map<String, dynamic> json) => SignUpModel(
-      email: json['email'] as String,
-      password: json['password'] as String,
-      fullName: json['fullName'] as String,
-      phone: json['phone'] as String,
-      company: json['company'] as String,
-      specialty: json['specialty'] as String,
+      email: json['email'] as String?,
+      password: json['password'] as String?,
+      fullName: json['fullName'] as String?,
+      phone: json['phone'] as String?,
+      company: json['company'] as String?,
+      specialty: json['specialty'] as String?,
       objectId: json['objectId'] as String?,
       token: json['token'] as String?,
     );
