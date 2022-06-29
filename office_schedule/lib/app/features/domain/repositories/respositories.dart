@@ -4,3 +4,4 @@ export './update_profile_repository.dart';
 export './change_password_repository.dart';
 export './reset_password_repository.dart';
 export './get_user_repository.dart';
+export './users_list_repository.dart';
