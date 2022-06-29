@@ -29,3 +29,5 @@ class UsersEntityMock extends Mock implements UsersEntity {}
 class GetUserRepositoryMock extends Mock implements GetUserRepository {}
 
 class GetUserDatasourceMock extends Mock implements GetUserDatasource {}
+
+class UsersListRepositoryMock extends Mock implements UsersListRepository {}
