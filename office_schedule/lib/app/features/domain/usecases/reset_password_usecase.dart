@@ -1,4 +1,5 @@
 import 'package:dartz/dartz.dart';
+import 'package:office_schedule/app/features/domain/repositories/reset_password_repository.dart';
 import 'package:office_schedule/app/features/domain/success/successful_response.dart';
 
 import '../errors/errors.dart';
@@ -8,9 +9,11 @@ abstract class ResetPasswordUsecase {
 }
 
 class ResetPasswordUsecaseImpl extends ResetPasswordUsecase {
+  final ResetPasswordRepository repository;
+
+  ResetPasswordUsecaseImpl(this.repository);
   @override
   Future<Either<FailureError, Success>> call(String email) {
-    // TODO: implement call
-    throw UnimplementedError();
+    return repository.resetPassword(email);
   }
 }

@@ -17,3 +17,6 @@ class NewPasswordEntityMock extends Mock implements NewPasswordEntity {}
 
 class ChangePasswordDatasourceMock extends Mock
     implements ChangePasswordDatasource {}
+
+class ResetPasswordRepositoryMock extends Mock
+    implements ResetPasswordRepository {}

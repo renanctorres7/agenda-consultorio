@@ -13,5 +13,5 @@ class NewPasswordModel extends NewPasswordEntity {
 
   factory NewPasswordModel.fromJson(Map<String, dynamic> json) =>
       _$NewPasswordModelFromJson(json);
-  Map<String, dynamic> toJson() => _$NewPasswordModelToJson(super);
+  Map<String, dynamic> toJson() => _$NewPasswordModelToJson(this);
 }
