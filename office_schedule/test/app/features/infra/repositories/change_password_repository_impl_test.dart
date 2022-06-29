@@ -15,7 +15,7 @@ void main() {
 
   test("Should input a Login Entity and return a Sign Up Model", () async {
     when(() => datasource.changePasswordEmail(newPasswordModel))
-        .thenAnswer((invocation) async => SuccessfulResponse());
+        .thenAnswer((_) async => SuccessfulResponse());
 
     final result = await repository.changePasswordEmail(newPasswordModel);
 

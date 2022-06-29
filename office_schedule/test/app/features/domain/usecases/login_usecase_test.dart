@@ -17,7 +17,7 @@ void main() {
 
   test("Should input a Login Entity and return a SignUp Entity", () async {
     when(() => repository.login(loginEntity))
-        .thenAnswer((invocation) async => Right(signUpEntity));
+        .thenAnswer((_) async => Right(signUpEntity));
 
     final result = await usecase(loginEntity);
 
@@ -28,7 +28,7 @@ void main() {
 
   test("Should return Domain Error when gets error", () async {
     when(() => repository.login(loginEntity))
-        .thenAnswer((invocation) async => Left(DomainError()));
+        .thenAnswer((_) async => Left(DomainError()));
 
     final result = await usecase(loginEntity);
 

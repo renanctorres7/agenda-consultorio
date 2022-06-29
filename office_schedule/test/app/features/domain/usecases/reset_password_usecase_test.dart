@@ -15,7 +15,7 @@ void main() {
   String email = faker.internet.email();
   test("Should input an e-mail and return a Successful Response", () async {
     when(() => repository.resetPassword(email))
-        .thenAnswer((invocation) async => Right(SuccessfulResponse()));
+        .thenAnswer((_) async => Right(SuccessfulResponse()));
 
     final result = await usecase(email);
 
@@ -26,7 +26,7 @@ void main() {
 
   test("Should return Domain Error when gets error", () async {
     when(() => repository.resetPassword(email))
-        .thenAnswer((invocation) async => Left(DomainError()));
+        .thenAnswer((_) async => Left(DomainError()));
 
     final result = await usecase(email);
 

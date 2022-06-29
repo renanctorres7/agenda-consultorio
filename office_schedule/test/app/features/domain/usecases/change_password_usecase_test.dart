@@ -15,7 +15,7 @@ void main() {
   test("Should input a New Password Entity and return a Successful Response",
       () async {
     when(() => repository.changePasswordEmail(newPasswordEntity))
-        .thenAnswer((invocation) async => Right(SuccessfulResponse()));
+        .thenAnswer((_) async => Right(SuccessfulResponse()));
 
     final result = await usecase(newPasswordEntity);
 
@@ -26,7 +26,7 @@ void main() {
 
   test("Should return Domain Error when gets error", () async {
     when(() => repository.changePasswordEmail(newPasswordEntity))
-        .thenAnswer((invocation) async => Left(DomainError()));
+        .thenAnswer((_) async => Left(DomainError()));
 
     final result = await usecase(newPasswordEntity);
 

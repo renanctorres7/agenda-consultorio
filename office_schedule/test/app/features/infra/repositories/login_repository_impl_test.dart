@@ -17,7 +17,7 @@ void main() {
 
   test("Should input a Login Entity and return a Sign Up Model", () async {
     when(() => datasource.login(loginEntity))
-        .thenAnswer((invocation) async => signUpModel);
+        .thenAnswer((_) async => signUpModel);
 
     final result = await repository.login(loginEntity);
 
@@ -26,8 +26,7 @@ void main() {
   });
 
   test("Should return a Null Error if gets null", () async {
-    when(() => datasource.login(loginEntity))
-        .thenAnswer((invocation) async => null);
+    when(() => datasource.login(loginEntity)).thenAnswer((_) async => null);
 
     final result = await repository.login(loginEntity);
 

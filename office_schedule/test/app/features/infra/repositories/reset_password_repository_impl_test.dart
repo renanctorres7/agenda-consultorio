@@ -16,7 +16,7 @@ void main() {
 
   test("Should input an e-mail and return a Successful Response", () async {
     when(() => datasource.resetPassword(email))
-        .thenAnswer((invocation) async => SuccessfulResponse());
+        .thenAnswer((_) async => SuccessfulResponse());
 
     final result = await repository.resetPassword(email);
 
