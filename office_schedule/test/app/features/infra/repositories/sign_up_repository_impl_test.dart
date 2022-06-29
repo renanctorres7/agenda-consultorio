@@ -1,11 +1,9 @@
 import 'package:dartz/dartz.dart';
-import 'package:faker/faker.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:mocktail/mocktail.dart';
 import 'package:office_schedule/app/features/domain/entities/entities.dart';
 import 'package:office_schedule/app/features/domain/errors/errors.dart';
 import 'package:office_schedule/app/features/infra/datasources/sign_up_datasource.dart';
-import 'package:office_schedule/app/features/infra/models/sign_up/sign_up_model.dart';
 import 'package:office_schedule/app/features/infra/repositories/sign_up_repository_impl.dart';
 
 import '../../../../mocks/mocks.dart';

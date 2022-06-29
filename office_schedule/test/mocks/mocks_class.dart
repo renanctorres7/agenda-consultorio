@@ -20,3 +20,6 @@ class ChangePasswordDatasourceMock extends Mock
 
 class ResetPasswordRepositoryMock extends Mock
     implements ResetPasswordRepository {}
+
+class ResetPasswordDatasourceMock extends Mock
+    implements ResetPasswordDatasource {}
