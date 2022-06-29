@@ -11,4 +11,11 @@ class MocksModels {
       specialty: faker.company.position(),
       token: "",
       objectId: "");
+
+  static final newPasswordModel = NewPasswordModel(
+    currentEmail: faker.internet.email(),
+    newEmail: faker.internet.email(),
+    currentPassword: faker.internet.password(),
+    newPassword: faker.internet.password(),
+  );
 }
