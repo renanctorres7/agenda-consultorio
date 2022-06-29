@@ -14,6 +14,7 @@ class LoginUsecaseImpl extends LoginUsecase {
   LoginUsecaseImpl(this.repository);
   @override
   Future<Either<FailureError, SignUpEntity>> call(LoginEntity entity) async {
-    return repository.login(entity);
+    final result = await repository.login(entity);
+    return result;
   }
 }

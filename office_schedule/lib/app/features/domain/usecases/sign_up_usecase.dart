@@ -14,6 +14,7 @@ class UserSignUpUsecaseImpl implements SignUpUsecase {
   UserSignUpUsecaseImpl(this.repository);
   @override
   Future<Either<FailureError, SignUpEntity>> call(SignUpEntity params) async {
-    return await repository.signUp(params);
+    final result = await repository.signUp(params);
+    return result;
   }
 }

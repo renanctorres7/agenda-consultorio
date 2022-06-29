@@ -16,6 +16,7 @@ class ChangePasswordUsecaseImpl extends ChangePasswordUsecase {
   @override
   Future<Either<FailureError, Success>> call(
       NewPasswordEntity newPassword) async {
-    return repository.changePasswordEmail(newPassword);
+    final result = await repository.changePasswordEmail(newPassword);
+    return result;
   }
 }

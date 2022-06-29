@@ -13,7 +13,8 @@ class ResetPasswordUsecaseImpl extends ResetPasswordUsecase {
 
   ResetPasswordUsecaseImpl(this.repository);
   @override
-  Future<Either<FailureError, Success>> call(String email) {
-    return repository.resetPassword(email);
+  Future<Either<FailureError, Success>> call(String email) async {
+    final result = await repository.resetPassword(email);
+    return result;
   }
 }

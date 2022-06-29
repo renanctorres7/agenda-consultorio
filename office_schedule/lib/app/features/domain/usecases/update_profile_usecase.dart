@@ -14,6 +14,7 @@ class UpdateProfileUsecaseImpl implements UpdateProfileUsecase {
   UpdateProfileUsecaseImpl(this.repository);
   @override
   Future<Either<FailureError, SignUpEntity>> call(SignUpEntity params) async {
-    return await repository.updateProfile(params);
+    final result = await repository.updateProfile(params);
+    return result;
   }
 }

@@ -13,7 +13,8 @@ class GetUserUsecaseImpl extends GetUserUsecase {
 
   GetUserUsecaseImpl(this.repository);
   @override
-  Future<Either<FailureError, UsersEntity>> call(String objectId) {
-    return repository.getUserProfile(objectId);
+  Future<Either<FailureError, UsersEntity>> call(String objectId) async {
+    final result = await repository.getUserProfile(objectId);
+    return result;
   }
 }
