@@ -27,3 +27,5 @@ class ResetPasswordDatasourceMock extends Mock
 class UsersEntityMock extends Mock implements UsersEntity {}
 
 class GetUserRepositoryMock extends Mock implements GetUserRepository {}
+
+class GetUserDatasourceMock extends Mock implements GetUserDatasource {}

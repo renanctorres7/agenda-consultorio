@@ -18,4 +18,14 @@ class MocksModels {
     currentPassword: faker.internet.password(),
     newPassword: faker.internet.password(),
   );
+
+  static final usersModel = UsersModel(
+      email: faker.internet.email(),
+      password: faker.internet.password(),
+      fullName: faker.person.name(),
+      phone: faker.phoneNumber.us(),
+      company: faker.company.name(),
+      specialty: faker.company.position(),
+      token: "",
+      objectId: "");
 }
