@@ -33,3 +33,8 @@ class GetUserDatasourceMock extends Mock implements GetUserDatasource {}
 class UsersListRepositoryMock extends Mock implements UsersListRepository {}
 
 class UsersListDatasourceMock extends Mock implements UsersListDatasource {}
+
+class CreateScheduleRepositoryMock extends Mock
+    implements CreateScheduleRepository {}
+
+class ScheduleCreateEntityMock extends Mock implements ScheduleCreateEntity {}
