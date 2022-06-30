@@ -1,6 +1,6 @@
-import '../../../domain/entities/entities.dart';
 import '../../../domain/success/success.dart';
+import '../../models/models.dart';
 
 abstract class CreateScheduleDatasource {
-  Future<Success> createSchedule(ScheduleCreateEntity scheduleCreateEntity);
+  Future<Success> createSchedule(ScheduleCreateModel scheduleCreateModel);
 }
