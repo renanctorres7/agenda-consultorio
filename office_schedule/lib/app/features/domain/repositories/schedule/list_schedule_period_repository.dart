@@ -3,7 +3,7 @@ import 'package:dartz/dartz.dart';
 import '../../entities/entities.dart';
 import '../../errors/errors.dart';
 
-abstract class ListSchedulePeriodUsecase {
-  Future<Either<FailureError, List<ScheduleEntity>>> call(
+abstract class ListSchedulePeriodRepository {
+  Future<Either<FailureError, List<ScheduleEntity>>> getScheduleListByPeriod(
       SchedulePeriodEntity schedulePeriodEntity);
 }
