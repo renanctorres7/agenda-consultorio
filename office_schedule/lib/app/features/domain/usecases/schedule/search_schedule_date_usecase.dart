@@ -1,4 +1,5 @@
 import 'package:dartz/dartz.dart';
+import 'package:office_schedule/app/features/domain/repositories/schedule/schedule.dart';
 
 import '../../entities/entities.dart';
 import '../../errors/errors.dart';
@@ -9,10 +10,13 @@ abstract class SearchScheduleDateUsecase {
 }
 
 class SearchScheduleDateUsecaseMock extends SearchScheduleDateUsecase {
+  final SearchScheduleDateRepository repository;
+
+  SearchScheduleDateUsecaseMock(this.repository);
   @override
   Future<Either<FailureError, List<ScheduleEntity>>> call(
-      ScheduleDateEntity scheduleDateEntity) {
-    // TODO: implement call
-    throw UnimplementedError();
+      ScheduleDateEntity scheduleDateEntity) async {
+    final result = await repository.searchScheduleFromDate(scheduleDateEntity);
+    return result;
   }
 }
