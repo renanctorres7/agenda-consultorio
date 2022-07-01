@@ -1,9 +1,9 @@
-import 'package:office_schedule/app/features/domain/errors/failure_error.dart';
-import 'package:office_schedule/app/features/domain/entities/schedules/schedule_filter_entity.dart';
-import 'package:office_schedule/app/features/domain/entities/schedules/schedule_entity.dart';
 import 'package:dartz/dartz.dart';
-import 'package:office_schedule/app/features/domain/repositories/respositories.dart';
-import 'package:office_schedule/app/features/infra/datasources/schedules/list_schedule_filter_datasource.dart';
+
+import '../../../domain/entities/entities.dart';
+import '../../../domain/errors/errors.dart';
+import '../../../domain/repositories/respositories.dart';
+import '../../datasources/schedules/schedules.dart';
 
 class ListScheduleFilterRepositoryImpl extends ListScheduleFilterRepository {
   final ListScheduleFilterDatasource datasource;
