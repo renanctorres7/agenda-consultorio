@@ -1,7 +1,8 @@
 import 'package:dartz/dartz.dart';
-import 'package:office_schedule/app/features/domain/entities/entities.dart';
 
+import '../../entities/entities.dart';
 import '../../errors/errors.dart';
+import '../../repositories/schedule/update_schedule_repository.dart';
 import '../../success/success.dart';
 
 abstract class UpdateScheduleUsecase {
@@ -10,10 +11,13 @@ abstract class UpdateScheduleUsecase {
 }
 
 class UpdateScheduleUsecaseImpl extends UpdateScheduleUsecase {
+  final UpdateScheduleRepository repository;
+
+  UpdateScheduleUsecaseImpl(this.repository);
   @override
   Future<Either<FailureError, Success>> call(
-      ScheduleUpdateEntity scheduleUpdateEntity) {
-    // TODO: implement call
-    throw UnimplementedError();
+      ScheduleUpdateEntity scheduleUpdateEntity) async {
+    final result = await repository.updateSchedule(scheduleUpdateEntity);
+    return result;
   }
 }
