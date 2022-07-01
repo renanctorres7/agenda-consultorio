@@ -36,4 +36,6 @@ class MocksModels {
       paymentStatus: "paymentStatus",
       scheduleStatus: "scheduleStatus",
       description: "");
+
+  static final scheduleUpdateModel = ScheduleUpdateModel(objectId: '');
 }
