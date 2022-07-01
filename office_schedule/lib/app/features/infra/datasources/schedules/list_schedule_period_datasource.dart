@@ -1,6 +1,5 @@
-import 'package:office_schedule/app/features/infra/models/models.dart';
-
 import '../../../domain/entities/entities.dart';
+import '../../models/models.dart';
 
 abstract class ListSchedulePeriodDatasource {
   Future<List<ScheduleModel>?> getScheduleListByPeriod(

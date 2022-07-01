@@ -1,4 +1,3 @@
-import 'package:office_schedule/app/features/domain/errors/failure_error.dart';
 import 'package:dartz/dartz.dart';
 
 import '../../../domain/errors/errors.dart';

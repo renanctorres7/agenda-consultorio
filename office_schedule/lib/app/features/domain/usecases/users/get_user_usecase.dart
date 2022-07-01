@@ -1,6 +1,6 @@
 import 'package:dartz/dartz.dart';
-import 'package:office_schedule/app/features/domain/entities/entities.dart';
 
+import '../../entities/entities.dart';
 import '../../errors/errors.dart';
 import '../../repositories/respositories.dart';
 

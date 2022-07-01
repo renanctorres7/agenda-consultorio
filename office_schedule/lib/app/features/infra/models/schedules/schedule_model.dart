@@ -1,6 +1,7 @@
 import 'package:json_annotation/json_annotation.dart';
-import 'package:office_schedule/app/features/domain/entities/entities.dart';
-import 'package:office_schedule/app/features/infra/models/models.dart';
+
+import '../../../domain/entities/entities.dart';
+import '../models.dart';
 
 part 'schedule_model.g.dart';
 

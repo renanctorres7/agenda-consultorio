@@ -1,4 +1,4 @@
-import 'package:office_schedule/app/features/domain/entities/entities.dart';
+import '../entities.dart';
 
 abstract class ScheduleEntity {
   final String objectId;

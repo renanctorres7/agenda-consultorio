@@ -1,9 +1,10 @@
-import 'package:office_schedule/app/features/domain/errors/failure_error.dart';
-import 'package:office_schedule/app/features/domain/entities/schedules/schedule_create_entity.dart';
 import 'package:dartz/dartz.dart';
-import 'package:office_schedule/app/features/domain/repositories/respositories.dart';
-import 'package:office_schedule/app/features/domain/success/successful_response.dart';
-import 'package:office_schedule/app/features/infra/datasources/schedules/schedules.dart';
+
+import '../../../domain/entities/entities.dart';
+import '../../../domain/errors/errors.dart';
+import '../../../domain/repositories/respositories.dart';
+import '../../../domain/success/success.dart';
+import '../../datasources/schedules/schedules.dart';
 
 class CreateScheduleRepositoryImpl extends CreateScheduleRepository {
   final CreateScheduleDatasource datasource;

@@ -1,5 +1,4 @@
-import 'package:office_schedule/app/features/domain/entities/entities.dart';
-
+import '../../../domain/entities/entities.dart';
 import '../../models/models.dart';
 
 abstract class SignUpDatasource {

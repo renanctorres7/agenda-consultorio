@@ -1,9 +1,9 @@
 import 'package:dartz/dartz.dart';
-import 'package:office_schedule/app/features/domain/success/success.dart';
 
 import '../../../domain/entities/entities.dart';
 import '../../../domain/errors/errors.dart';
 import '../../../domain/repositories/respositories.dart';
+import '../../../domain/success/success.dart';
 import '../../datasources/datasources.dart';
 
 class ChangePasswordRepositoryImpl implements ChangePasswordRepository {
