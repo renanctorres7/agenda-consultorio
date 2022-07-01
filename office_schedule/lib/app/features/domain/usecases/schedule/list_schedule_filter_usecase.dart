@@ -7,3 +7,12 @@ abstract class ListScheduleFilterUsecase {
   Future<Either<FailureError, List<ScheduleEntity>>> call(
       ScheduleFilterEntity scheduleFilterEntity);
 }
+
+class ListScheduleFilterUsecaseImpl implements ListScheduleFilterUsecase {
+  @override
+  Future<Either<FailureError, List<ScheduleEntity>>> call(
+      ScheduleFilterEntity scheduleFilterEntity) {
+    // TODO: implement call
+    throw UnimplementedError();
+  }
+}
