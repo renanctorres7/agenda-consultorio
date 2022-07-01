@@ -6,7 +6,7 @@ import '../../../domain/repositories/respositories.dart';
 import '../../../domain/success/success.dart';
 import '../../datasources/schedules/schedules.dart';
 
-class UpdateScheduleRepositoryImpl extends UpdateScheduleRepository {
+class UpdateScheduleRepositoryImpl implements UpdateScheduleRepository {
   final UpdateScheduleDatasource datasource;
 
   UpdateScheduleRepositoryImpl(this.datasource);

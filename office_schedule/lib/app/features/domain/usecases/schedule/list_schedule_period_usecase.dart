@@ -9,7 +9,7 @@ abstract class ListSchedulePeriodUsecase {
       SchedulePeriodEntity schedulePeriodEntity);
 }
 
-class ListSchedulePeriodUsecaseImpl extends ListSchedulePeriodUsecase {
+class ListSchedulePeriodUsecaseImpl implements ListSchedulePeriodUsecase {
   final ListSchedulePeriodRepository repository;
 
   ListSchedulePeriodUsecaseImpl(this.repository);

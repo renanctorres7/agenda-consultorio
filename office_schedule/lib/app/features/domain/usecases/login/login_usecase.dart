@@ -8,7 +8,7 @@ abstract class LoginUsecase {
   Future<Either<FailureError, SignUpEntity>> call(LoginEntity entity);
 }
 
-class LoginUsecaseImpl extends LoginUsecase {
+class LoginUsecaseImpl implements LoginUsecase {
   final LoginRepository repository;
 
   LoginUsecaseImpl(this.repository);

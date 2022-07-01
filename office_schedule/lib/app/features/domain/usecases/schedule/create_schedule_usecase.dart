@@ -10,7 +10,7 @@ abstract class CreateScheduleUsecase {
       ScheduleCreateEntity scheduleCreateEntity);
 }
 
-class CreateScheduleUsecaseImpl extends CreateScheduleUsecase {
+class CreateScheduleUsecaseImpl implements CreateScheduleUsecase {
   final CreateScheduleRepository repository;
 
   CreateScheduleUsecaseImpl(this.repository);

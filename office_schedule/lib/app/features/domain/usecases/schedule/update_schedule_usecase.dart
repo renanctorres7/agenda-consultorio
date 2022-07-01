@@ -10,7 +10,7 @@ abstract class UpdateScheduleUsecase {
       ScheduleUpdateEntity scheduleUpdateEntity);
 }
 
-class UpdateScheduleUsecaseImpl extends UpdateScheduleUsecase {
+class UpdateScheduleUsecaseImpl implements UpdateScheduleUsecase {
   final UpdateScheduleRepository repository;
 
   UpdateScheduleUsecaseImpl(this.repository);

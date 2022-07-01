@@ -8,7 +8,7 @@ abstract class ResetPasswordUsecase {
   Future<Either<FailureError, Success>> call(String email);
 }
 
-class ResetPasswordUsecaseImpl extends ResetPasswordUsecase {
+class ResetPasswordUsecaseImpl implements ResetPasswordUsecase {
   final ResetPasswordRepository repository;
 
   ResetPasswordUsecaseImpl(this.repository);

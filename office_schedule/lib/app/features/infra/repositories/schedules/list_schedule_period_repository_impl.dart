@@ -6,7 +6,7 @@ import 'package:office_schedule/app/features/domain/repositories/respositories.d
 
 import '../../datasources/schedules/list_schedule_period_datasource.dart';
 
-class ListSchedulePeriodRepositoryImpl extends ListSchedulePeriodRepository {
+class ListSchedulePeriodRepositoryImpl implements ListSchedulePeriodRepository {
   final ListSchedulePeriodDatasource datasource;
 
   ListSchedulePeriodRepositoryImpl(this.datasource);

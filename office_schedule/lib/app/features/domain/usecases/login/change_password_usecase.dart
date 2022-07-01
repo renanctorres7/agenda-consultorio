@@ -9,7 +9,7 @@ abstract class ChangePasswordUsecase {
   Future<Either<FailureError, Success>> call(NewPasswordEntity newPassword);
 }
 
-class ChangePasswordUsecaseImpl extends ChangePasswordUsecase {
+class ChangePasswordUsecaseImpl implements ChangePasswordUsecase {
   final ChangePasswordRepository repository;
 
   ChangePasswordUsecaseImpl(this.repository);

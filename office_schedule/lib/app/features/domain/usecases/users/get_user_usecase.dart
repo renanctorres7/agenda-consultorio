@@ -8,7 +8,7 @@ abstract class GetUserUsecase {
   Future<Either<FailureError, UsersEntity>> call(String objectId);
 }
 
-class GetUserUsecaseImpl extends GetUserUsecase {
+class GetUserUsecaseImpl implements GetUserUsecase {
   final GetUserRepository repository;
 
   GetUserUsecaseImpl(this.repository);

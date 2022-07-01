@@ -5,7 +5,7 @@ import '../../../domain/repositories/respositories.dart';
 import '../../../domain/success/success.dart';
 import '../../datasources/datasources.dart';
 
-class ResetPasswordRepositoryImpl extends ResetPasswordRepository {
+class ResetPasswordRepositoryImpl implements ResetPasswordRepository {
   final ResetPasswordDatasource datasource;
 
   ResetPasswordRepositoryImpl(this.datasource);

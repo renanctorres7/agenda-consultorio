@@ -5,7 +5,7 @@ import '../../../domain/errors/errors.dart';
 import '../../../domain/repositories/respositories.dart';
 import '../../datasources/datasources.dart';
 
-class UsersListRepositoryImpl extends UsersListRepository {
+class UsersListRepositoryImpl implements UsersListRepository {
   final UsersListDatasource datasource;
 
   UsersListRepositoryImpl(this.datasource);

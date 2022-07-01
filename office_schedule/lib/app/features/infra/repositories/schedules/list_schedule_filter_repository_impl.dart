@@ -5,7 +5,7 @@ import '../../../domain/errors/errors.dart';
 import '../../../domain/repositories/respositories.dart';
 import '../../datasources/schedules/schedules.dart';
 
-class ListScheduleFilterRepositoryImpl extends ListScheduleFilterRepository {
+class ListScheduleFilterRepositoryImpl implements ListScheduleFilterRepository {
   final ListScheduleFilterDatasource datasource;
 
   ListScheduleFilterRepositoryImpl(this.datasource);

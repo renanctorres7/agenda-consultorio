@@ -5,7 +5,7 @@ import '../../../domain/errors/errors.dart';
 import '../../../domain/repositories/respositories.dart';
 import '../../datasources/datasources.dart';
 
-class GetUserRepositoryImpl extends GetUserRepository {
+class GetUserRepositoryImpl implements GetUserRepository {
   final GetUserDatasource datasource;
 
   GetUserRepositoryImpl(this.datasource);

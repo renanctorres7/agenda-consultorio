@@ -8,7 +8,7 @@ abstract class UsersListUsecase {
   Future<Either<FailureError, List<UsersEntity>>> call();
 }
 
-class UsersListUsecaseImpl extends UsersListUsecase {
+class UsersListUsecaseImpl implements UsersListUsecase {
   final UsersListRepository repository;
 
   UsersListUsecaseImpl(this.repository);

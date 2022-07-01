@@ -9,10 +9,10 @@ abstract class SearchScheduleDateUsecase {
       ScheduleDateEntity scheduleDateEntity);
 }
 
-class SearchScheduleDateUsecaseMock extends SearchScheduleDateUsecase {
+class SearchScheduleDateUsecaseImpl implements SearchScheduleDateUsecase {
   final SearchScheduleDateRepository repository;
 
-  SearchScheduleDateUsecaseMock(this.repository);
+  SearchScheduleDateUsecaseImpl(this.repository);
   @override
   Future<Either<FailureError, List<ScheduleEntity>>> call(
       ScheduleDateEntity scheduleDateEntity) async {
