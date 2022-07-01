@@ -8,7 +8,7 @@ abstract class ScheduleCreateEntity {
   final String scheduleStatus;
   final String? description;
 
-  ScheduleCreateEntity(
+  const ScheduleCreateEntity(
       {required this.datetime,
       required this.client,
       required this.typePayment,

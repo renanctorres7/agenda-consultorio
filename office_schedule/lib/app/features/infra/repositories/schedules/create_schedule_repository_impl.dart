@@ -5,8 +5,6 @@ import 'package:office_schedule/app/features/domain/repositories/respositories.d
 import 'package:office_schedule/app/features/domain/success/successful_response.dart';
 import 'package:office_schedule/app/features/infra/datasources/schedules/schedules.dart';
 
-import '../../models/models.dart';
-
 class CreateScheduleRepositoryImpl extends CreateScheduleRepository {
   final CreateScheduleDatasource datasource;
 
@@ -14,13 +12,11 @@ class CreateScheduleRepositoryImpl extends CreateScheduleRepository {
   @override
   Future<Either<FailureError, Success>> createSchedule(
       ScheduleCreateEntity scheduleCreateEntity) async {
-    ScheduleCreateModel model =
-        ScheduleCreateModel.fromEntity(scheduleCreateEntity);
     try {
-      await datasource.createSchedule(model);
-      return Right(SuccessfulResponse());
+      final result = await datasource.createSchedule(scheduleCreateEntity);
+      return Right(result);
     } catch (e) {
-      throw Left(DataSourceError());
+      return Left(DataSourceError());
     }
   }
 }

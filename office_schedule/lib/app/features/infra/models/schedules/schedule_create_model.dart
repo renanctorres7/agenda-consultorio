@@ -18,13 +18,12 @@ class ScheduleCreateModel extends ScheduleCreateEntity {
       _$ScheduleCreateModelFromJson(json);
   Map<String, dynamic> toJson() => _$ScheduleCreateModelToJson(this);
 
-  factory ScheduleCreateModel.fromEntity(ScheduleCreateEntity entity) {
-    return ScheduleCreateModel(
-        datetime: entity.datetime,
-        client: entity.client,
-        typePayment: entity.typePayment,
-        paymentStatus: entity.paymentStatus,
-        scheduleStatus: entity.scheduleStatus,
-        description: entity.description);
-  }
+  factory ScheduleCreateModel.fromEntity(ScheduleCreateEntity entity) =>
+      ScheduleCreateModel(
+          datetime: entity.datetime,
+          client: entity.client,
+          typePayment: entity.typePayment,
+          paymentStatus: entity.paymentStatus,
+          scheduleStatus: entity.scheduleStatus,
+          description: entity.description);
 }

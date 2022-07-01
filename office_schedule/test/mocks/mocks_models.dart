@@ -28,4 +28,12 @@ class MocksModels {
       specialty: faker.company.position(),
       token: "",
       objectId: "");
+
+  static final scheduleCreateModel = ScheduleCreateModel(
+      datetime: "datetime",
+      client: "client",
+      typePayment: "typePayment",
+      paymentStatus: "paymentStatus",
+      scheduleStatus: "scheduleStatus",
+      description: "");
 }
