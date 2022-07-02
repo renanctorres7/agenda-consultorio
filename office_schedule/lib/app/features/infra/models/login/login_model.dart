@@ -11,4 +11,7 @@ class LoginModel extends LoginEntity {
   factory LoginModel.fromJson(Map<String, dynamic> json) =>
       _$LoginModelFromJson(json);
   Map<String, dynamic> toJson() => _$LoginModelToJson(this);
+
+  factory LoginModel.fromEntity(LoginEntity entity) =>
+      LoginModel(email: entity.email, password: entity.password);
 }
