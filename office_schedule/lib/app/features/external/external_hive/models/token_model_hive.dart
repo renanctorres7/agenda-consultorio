@@ -8,6 +8,7 @@ part 'token_model_hive.g.dart';
 class TokenModelHive extends HiveObject {
   @HiveField(0)
   final String token;
+
   TokenModelHive({required this.token});
 
   factory TokenModelHive.fromJson(Map<String, dynamic> json) =>
