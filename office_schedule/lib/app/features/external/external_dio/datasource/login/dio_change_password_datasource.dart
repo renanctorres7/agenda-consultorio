@@ -1,10 +1,10 @@
 import 'package:dio/dio.dart';
-import 'package:office_schedule/app/features/external/external_dio/service/login/change_password_service.dart';
-import 'package:office_schedule/app/features/infra/models/models.dart';
 
 import '../../../../domain/entities/entities.dart';
 import '../../../../domain/success/success.dart';
 import '../../../../infra/datasources/datasources.dart';
+import '../../../../infra/models/models.dart';
+import '../../service/service.dart';
 
 class DioChangePasswordDatasource implements ChangePasswordDatasource {
   final ChangePasswordService changePasswordService;
