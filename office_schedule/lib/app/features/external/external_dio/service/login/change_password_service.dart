@@ -1,4 +1,5 @@
 import 'package:dio/dio.dart' hide Headers;
+import 'package:office_schedule/app/core/environments/environments.dart';
 import 'package:office_schedule/app/core/keys/parse_server/parse_headers.dart';
 
 import 'package:retrofit/retrofit.dart';
@@ -7,7 +8,7 @@ import '../../../../domain/entities/entities.dart';
 
 part 'change_password_service.g.dart';
 
-@RestApi(baseUrl: '')
+@RestApi(baseUrl: Environments.baseUrl)
 abstract class ChangePasswordService {
   factory ChangePasswordService(Dio dio) => _ChangePasswordService(dio);
 
