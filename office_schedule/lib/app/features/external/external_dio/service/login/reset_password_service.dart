@@ -12,5 +12,5 @@ abstract class ResetPasswordService {
 
   @POST('/reset-password')
   @Headers(ParseHeaders.header)
-  Future<void> resetPassword(@Body() String email);
+  Future<void> resetPassword(@Body() Map<String, String> email);
 }

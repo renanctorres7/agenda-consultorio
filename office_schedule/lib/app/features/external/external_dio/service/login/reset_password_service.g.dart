@@ -25,7 +25,8 @@ class _ResetPasswordService implements ResetPasswordService {
       r'Content-Type': 'application/json'
     };
     _headers.removeWhere((k, v) => v == null);
-    final _data = email;
+    final _data = <String, dynamic>{};
+    _data.addAll(email);
     await _dio.fetch<void>(_setStreamType<void>(Options(
             method: 'POST',
             headers: _headers,
