@@ -1,6 +1,6 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 
-part of 'change_password_service.dart';
+part of 'get_user_service.dart';
 
 // **************************************************************************
 // RetrofitGenerator
@@ -8,35 +8,37 @@ part of 'change_password_service.dart';
 
 // ignore_for_file: unnecessary_brace_in_string_interps
 
-class _ChangePasswordService implements ChangePasswordService {
-  _ChangePasswordService(this._dio, {this.baseUrl});
+class _GetUserService implements GetUserService {
+  _GetUserService(this._dio, {this.baseUrl});
 
   final Dio _dio;
 
   String? baseUrl;
 
   @override
-  Future<void> changePasswordEmail(sessionToken, newPassword) async {
+  Future<UsersModel?> getUserProfile(objectId) async {
     const _extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{};
     final _headers = <String, dynamic>{
       r'X-Parse-Application-Id': '',
       r'X-Parse-REST-API-Key': '',
-      r'Content-Type': 'application/json',
-      r'X-Parse-Session-Token': sessionToken
+      r'Content-Type': 'application/json'
     };
     _headers.removeWhere((k, v) => v == null);
     final _data = <String, dynamic>{};
-    _data.addAll(newPassword.toJson());
-    await _dio.fetch<void>(_setStreamType<void>(Options(
-            method: 'POST',
-            headers: _headers,
-            extra: _extra,
-            contentType: 'application/json')
-        .compose(_dio.options, '/change-password-email',
-            queryParameters: queryParameters, data: _data)
-        .copyWith(baseUrl: baseUrl ?? _dio.options.baseUrl)));
-    return null;
+    _data.addAll(objectId);
+    final _result = await _dio.fetch<Map<String, dynamic>?>(
+        _setStreamType<UsersModel>(Options(
+                method: 'POST',
+                headers: _headers,
+                extra: _extra,
+                contentType: 'application/json')
+            .compose(_dio.options, '/get-user',
+                queryParameters: queryParameters, data: _data)
+            .copyWith(baseUrl: baseUrl ?? _dio.options.baseUrl)));
+    final value =
+        _result.data == null ? null : UsersModel.fromJson(_result.data!);
+    return value;
   }
 
   RequestOptions _setStreamType<T>(RequestOptions requestOptions) {
