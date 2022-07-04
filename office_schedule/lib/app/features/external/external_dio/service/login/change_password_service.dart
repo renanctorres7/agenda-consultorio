@@ -4,7 +4,7 @@ import 'package:office_schedule/app/core/keys/parse_server/parse_headers.dart';
 
 import 'package:retrofit/retrofit.dart';
 
-import '../../../../domain/entities/entities.dart';
+import '../../../../infra/models/models.dart';
 
 part 'change_password_service.g.dart';
 
@@ -16,5 +16,5 @@ abstract class ChangePasswordService {
   @Headers(ParseHeaders.header)
   Future<void> changePasswordEmail(
       @Header(ParseHeaders.sessionTokenTitle) String sessionToken,
-      @Body() NewPasswordEntity newPassword);
+      @Body() NewPasswordModel newPassword);
 }

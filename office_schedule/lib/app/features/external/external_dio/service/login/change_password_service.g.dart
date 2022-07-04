@@ -26,7 +26,8 @@ class _ChangePasswordService implements ChangePasswordService {
       r'X-Parse-Session-Token': sessionToken
     };
     _headers.removeWhere((k, v) => v == null);
-    final _data = newPassword;
+    final _data = <String, dynamic>{};
+    _data.addAll(newPassword.toJson());
     await _dio.fetch<void>(_setStreamType<void>(Options(
             method: 'POST',
             headers: _headers,
