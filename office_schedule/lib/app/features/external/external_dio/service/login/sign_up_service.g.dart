@@ -1,6 +1,6 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 
-part of 'login_service.dart';
+part of 'sign_up_service.dart';
 
 // **************************************************************************
 // RetrofitGenerator
@@ -8,15 +8,15 @@ part of 'login_service.dart';
 
 // ignore_for_file: unnecessary_brace_in_string_interps
 
-class _LoginService implements LoginService {
-  _LoginService(this._dio, {this.baseUrl});
+class _SignUpService implements SignUpService {
+  _SignUpService(this._dio, {this.baseUrl});
 
   final Dio _dio;
 
   String? baseUrl;
 
   @override
-  Future<SignUpModel> login(loginModel) async {
+  Future<SignUpModel?> signUp(signUpModel) async {
     const _extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{};
     final _headers = <String, dynamic>{
@@ -26,17 +26,18 @@ class _LoginService implements LoginService {
     };
     _headers.removeWhere((k, v) => v == null);
     final _data = <String, dynamic>{};
-    _data.addAll(loginModel.toJson());
-    final _result = await _dio.fetch<Map<String, dynamic>>(
+    _data.addAll(signUpModel.toJson());
+    final _result = await _dio.fetch<Map<String, dynamic>?>(
         _setStreamType<SignUpModel>(Options(
                 method: 'POST',
                 headers: _headers,
                 extra: _extra,
                 contentType: 'application/json')
-            .compose(_dio.options, '/login',
+            .compose(_dio.options, '/signup',
                 queryParameters: queryParameters, data: _data)
             .copyWith(baseUrl: baseUrl ?? _dio.options.baseUrl)));
-    final value = SignUpModel.fromJson(_result.data!);
+    final value =
+        _result.data == null ? null : SignUpModel.fromJson(_result.data!);
     return value;
   }
 
