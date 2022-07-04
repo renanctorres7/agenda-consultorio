@@ -17,7 +17,7 @@ class DioLoginDatasource implements LoginDatasource {
 
       return result;
     } on DioError catch (e) {
-      throw Exception(e.response!.statusMessage);
+      throw DioError(requestOptions: e.requestOptions, response: e.response);
     }
   }
 }

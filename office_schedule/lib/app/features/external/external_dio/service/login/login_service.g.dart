@@ -16,20 +16,19 @@ class _LoginService implements LoginService {
   String? baseUrl;
 
   @override
-  Future<SignUpModel?> login(loginModel) async {
+  Future<SignUpModel> login(loginModel) async {
     const _extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{};
     final _headers = <String, dynamic>{};
     final _data = <String, dynamic>{};
     _data.addAll(loginModel.toJson());
-    final _result = await _dio.fetch<Map<String, dynamic>?>(
+    final _result = await _dio.fetch<Map<String, dynamic>>(
         _setStreamType<SignUpModel>(
             Options(method: 'POST', headers: _headers, extra: _extra)
-                .compose(_dio.options, '',
+                .compose(_dio.options, '/signup',
                     queryParameters: queryParameters, data: _data)
                 .copyWith(baseUrl: baseUrl ?? _dio.options.baseUrl)));
-    final value =
-        _result.data == null ? null : SignUpModel.fromJson(_result.data!);
+    final value = SignUpModel.fromJson(_result.data!);
     return value;
   }
 

@@ -38,4 +38,7 @@ class MocksModels {
       description: "");
 
   static final scheduleUpdateModel = ScheduleUpdateModel(objectId: '');
+
+  static final loginModel = LoginModel(
+      email: faker.internet.email(), password: faker.internet.password());
 }
