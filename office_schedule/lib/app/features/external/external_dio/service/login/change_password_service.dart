@@ -1,4 +1,5 @@
-import 'package:dio/dio.dart';
+import 'package:dio/dio.dart' hide Headers;
+import 'package:office_schedule/app/core/keys/parse_server/parse_headers.dart';
 
 import 'package:retrofit/retrofit.dart';
 
@@ -11,5 +12,8 @@ abstract class ChangePasswordService {
   factory ChangePasswordService(Dio dio) => _ChangePasswordService(dio);
 
   @POST('/change-password-email')
-  Future<void> changePasswordEmail(@Body() NewPasswordEntity newPassword);
+  @Headers(ParseHeaders.header)
+  Future<void> changePasswordEmail(
+      @Header(ParseHeaders.sessionTokenTitle) String sessionToken,
+      @Body() NewPasswordEntity newPassword);
 }

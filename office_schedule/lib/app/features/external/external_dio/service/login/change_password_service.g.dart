@@ -16,16 +16,25 @@ class _ChangePasswordService implements ChangePasswordService {
   String? baseUrl;
 
   @override
-  Future<void> changePasswordEmail(newPassword) async {
+  Future<void> changePasswordEmail(sessionToken, newPassword) async {
     const _extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{};
-    final _headers = <String, dynamic>{};
+    final _headers = <String, dynamic>{
+      r'X-Parse-Application-Id': '',
+      r'X-Parse-REST-API-Key': '',
+      r'Content-Type': 'application/json',
+      r'X-Parse-Session-Token': sessionToken
+    };
+    _headers.removeWhere((k, v) => v == null);
     final _data = newPassword;
-    await _dio.fetch<void>(_setStreamType<void>(
-        Options(method: 'POST', headers: _headers, extra: _extra)
-            .compose(_dio.options, '/change-password-email',
-                queryParameters: queryParameters, data: _data)
-            .copyWith(baseUrl: baseUrl ?? _dio.options.baseUrl)));
+    await _dio.fetch<void>(_setStreamType<void>(Options(
+            method: 'POST',
+            headers: _headers,
+            extra: _extra,
+            contentType: 'application/json')
+        .compose(_dio.options, '/change-password-email',
+            queryParameters: queryParameters, data: _data)
+        .copyWith(baseUrl: baseUrl ?? _dio.options.baseUrl)));
     return null;
   }
 
