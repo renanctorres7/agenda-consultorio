@@ -13,6 +13,18 @@ class UserProfileDatabase extends UserProfileHiveAdapter {
     return db.values.first;
   }
 
+  static Future<UserProfileHive?> getUserProfile() async {
+    final db =
+        await Hive.openBox<UserProfileHive>(DatabaseBoxName.dbUserProfile);
+    if (db.isNotEmpty) {
+      final result = db.get(0);
+
+      return result;
+    } else {
+      return null;
+    }
+  }
+
   static clearUserProfile() {
     final db = Hive.box(DatabaseBoxName.dbUserProfile);
     db.clear();
