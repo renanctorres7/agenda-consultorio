@@ -4,13 +4,16 @@ import 'package:office_schedule/app/features/external/external_hive/models/user_
 import '../../../../core/core.dart';
 
 class UserProfileDatabase extends UserProfileHiveAdapter {
-  saveUserProfile(UserProfileHive userProfileHive) {
-    final db = Hive.box(DatabaseBoxName.dbUserProfile);
-    db.clear();
-    db.putAt(0, userProfileHive);
+  static Future<UserProfileHive> saveUserProfile(
+      UserProfileHive userProfileHive) async {
+    final db =
+        await Hive.openBox<UserProfileHive>(DatabaseBoxName.dbUserProfile);
+    await db.clear();
+    await db.put(0, userProfileHive);
+    return db.values.first;
   }
 
-  clearUserProfile() {
+  static clearUserProfile() {
     final db = Hive.box(DatabaseBoxName.dbUserProfile);
     db.clear();
   }
