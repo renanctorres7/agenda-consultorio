@@ -40,13 +40,38 @@ void main() async {
 
   await initHive();
   group('User Profile Database group test', () {
-    test('Should save Use Profile Hive model value on User Profile database',
+    test('Should save User Profile Hive model value on User Profile database',
         () async {
       when(() => hiveInterfaceMock.openBox(DatabaseBoxName.dbUserProfile))
           .thenAnswer((_) async => hiveBoxMock);
       when(() => hiveBoxMock.put(0, profile)).thenAnswer((_) async => profile);
       final result = await UserProfileDatabase.saveUserProfile(profile);
       expect(result, profile);
+    });
+
+    test('Should return a User Profile Hive model from User Profile database',
+        () async {
+      when(() => hiveInterfaceMock.openBox(DatabaseBoxName.dbUserProfile))
+          .thenAnswer((_) async => hiveBoxMock);
+      when(() => hiveBoxMock.get(0)).thenAnswer((_) async => profile);
+      final result = await UserProfileDatabase.getUserProfile();
+      expect(result, profile);
+    });
+
+    test('Should clear all values from database', () async {
+      when(() => hiveInterfaceMock.openBox(DatabaseBoxName.dbUserProfile))
+          .thenAnswer((_) async => hiveBoxMock);
+      when(() => hiveBoxMock.clear()).thenAnswer((_) async => 0);
+      final result = await UserProfileDatabase.clearUserProfile();
+      expect(result, true);
+    });
+
+    test('Should return null if get null value from database', () async {
+      when(() => hiveInterfaceMock.openBox(DatabaseBoxName.dbUserProfile))
+          .thenAnswer((_) async => hiveBoxMock);
+      when(() => hiveBoxMock.get(0)).thenAnswer((_) async => null);
+      final result = await UserProfileDatabase.getUserProfile();
+      expect(result, null);
     });
   });
 }
