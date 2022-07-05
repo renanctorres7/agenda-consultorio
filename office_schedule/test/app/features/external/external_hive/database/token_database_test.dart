@@ -11,7 +11,9 @@ class HiveBoxMock extends Mock implements Box {}
 
 class HiveInterfaceMock extends Mock implements HiveInterface {}
 
-void main() {
+class HiveErrorMock extends Mock implements HiveError {}
+
+void main() async {
   late HiveInterfaceMock hiveInterfaceMock;
   late HiveBoxMock hiveBoxMock;
 
@@ -25,20 +27,57 @@ void main() {
   }
 
   setUp(() async {
-    await initHive();
     hiveInterfaceMock = HiveInterfaceMock();
     hiveBoxMock = HiveBoxMock();
   });
 
   //final db = Hive.box(DatabaseBoxName.dbToken);
   final token = TokenModelHive(token: faker.guid.guid());
+  await initHive();
+  group('Token Database tests', () {
+    test('Should save the token model value on token database', () async {
+      when(() => hiveInterfaceMock.openBox(DatabaseBoxName.dbToken))
+          .thenAnswer((_) async => hiveBoxMock);
+      when(() => hiveBoxMock.put(0, token)).thenAnswer((_) async => token);
+      final result = await TokenDatabase.saveToken(token);
 
-  test('Should save the token model value on token database', () async {
-    when(() => hiveInterfaceMock.openBox(DatabaseBoxName.dbToken))
-        .thenAnswer((_) async => hiveBoxMock);
-    when(() => hiveBoxMock.put(0, token)).thenAnswer((_) async => token);
-    final result = await TokenDatabase.saveToken(token);
+      expect(result, token);
+    });
 
-    expect(result, token);
+    test('Should return a token model from token database', () async {
+      when(() => hiveInterfaceMock.openBox(DatabaseBoxName.dbToken))
+          .thenAnswer((_) async => hiveBoxMock);
+      when(() => hiveBoxMock.getAt(0)).thenAnswer((_) async => token);
+      final result = await TokenDatabase.getToken();
+
+      expect(result, token);
+    });
+
+    test('Should return a true if has token', () async {
+      when(() => hiveInterfaceMock.openBox(DatabaseBoxName.dbToken))
+          .thenAnswer((_) async => hiveBoxMock);
+      when(() => hiveBoxMock.isNotEmpty).thenAnswer((_) => true);
+      final result = await TokenDatabase.hasToken();
+
+      expect(result, true);
+    });
+
+    test('Should clear all values from token database', () async {
+      when(() => hiveInterfaceMock.openBox(DatabaseBoxName.dbToken))
+          .thenAnswer((_) async => hiveBoxMock);
+      when(() => hiveBoxMock.clear()).thenAnswer((_) async => 0);
+      final result = await TokenDatabase.clearToken();
+
+      expect(result, true);
+    });
+
+    test('Should return null if token database is empty', () async {
+      when(() => hiveInterfaceMock.openBox(DatabaseBoxName.dbToken))
+          .thenAnswer((_) async => hiveBoxMock);
+      when(() => hiveBoxMock.getAt(0)).thenAnswer((_) async => null);
+      final result = await TokenDatabase.getToken();
+
+      expect(result, null);
+    });
   });
 }

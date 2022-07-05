@@ -13,7 +13,7 @@ class TokenDatabase extends TokenModelHiveAdapter {
   }
 
   static Future<TokenModelHive?> getToken() async {
-    final db = Hive.box(DatabaseBoxName.dbToken);
+    final db = await Hive.openBox<TokenModelHive>(DatabaseBoxName.dbToken);
     if (db.isNotEmpty) {
       final result = db.getAt(0);
       return result;
@@ -22,14 +22,16 @@ class TokenDatabase extends TokenModelHiveAdapter {
     }
   }
 
-  static bool hasToken() {
-    final db = Hive.box(DatabaseBoxName.dbToken);
+  static Future<bool> hasToken() async {
+    final db = await Hive.openBox<TokenModelHive>(DatabaseBoxName.dbToken);
 
     return db.isNotEmpty;
   }
 
-  static clearToken() {
-    final db = Hive.box(DatabaseBoxName.dbToken);
-    db.clear();
+  static Future<bool> clearToken() async {
+    final db = await Hive.openBox<TokenModelHive>(DatabaseBoxName.dbToken);
+    await db.clear();
+
+    return db.isEmpty;
   }
 }
