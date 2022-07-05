@@ -4,10 +4,12 @@ import '../../../../core/core.dart';
 import '../models/models.dart';
 
 class TokenDatabase extends TokenModelHiveAdapter {
-  static saveToken(TokenModelHive token) {
-    final db = Hive.box(DatabaseBoxName.dbToken);
-    db.clear();
-    db.putAt(0, token);
+  static Future<TokenModelHive?> saveToken(TokenModelHive token) async {
+    final db = await Hive.openBox<TokenModelHive>(DatabaseBoxName.dbToken);
+    await db.clear();
+    await db.put(0, token);
+    final result = db.values.first;
+    return result;
   }
 
   static Future<TokenModelHive?> getToken() async {
