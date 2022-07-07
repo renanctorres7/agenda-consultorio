@@ -1,4 +1,5 @@
 import 'package:dio/dio.dart' hide Headers;
+import 'package:office_schedule/app/core/endpoints/parse_endpoints.dart';
 import 'package:office_schedule/app/core/environments/environments.dart';
 import 'package:office_schedule/app/core/keys/parse_server/parse_headers.dart';
 
@@ -12,7 +13,7 @@ part 'change_password_service.g.dart';
 abstract class ChangePasswordService {
   factory ChangePasswordService(Dio dio) => _ChangePasswordService(dio);
 
-  @POST('/change-password-email')
+  @POST(ParseEndpoints.changePasswordEmail)
   @Headers(ParseHeaders.header)
   Future<void> changePasswordEmail(
       @Header(ParseHeaders.sessionTokenTitle) String sessionToken,

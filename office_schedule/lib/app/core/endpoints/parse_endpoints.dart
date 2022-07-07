@@ -1,17 +1,17 @@
 abstract class ParseEndpoints {
-  static String changePasswordEmail = '/change-password-email';
-  static String login = '/login';
-  static String resetPassword = '/reset-password';
-  static String signUp = '/signup';
+  static const String changePasswordEmail = '/change-password-email';
+  static const String login = '/login';
+  static const String resetPassword = '/reset-password';
+  static const String signUp = '/signup';
 
-  static String createSchedule = '/create-schedule';
-  static String listScheduleFilter = '/list-schedule';
-  static String listSchedulePeriod = '/list-schedule';
-  static String searchScheduleDate = '/search-schedules-date';
-  static String updateSchedule = '/update-schedule';
-  static String deleteSchedule = '/delete-schedule';
+  static const String createSchedule = '/create-schedule';
+  static const String listScheduleFilter = '/list-schedule';
+  static const String listSchedulePeriod = '/list-schedule';
+  static const String searchScheduleDate = '/search-schedules-date';
+  static const String updateSchedule = '/update-schedule';
+  static const String deleteSchedule = '/delete-schedule';
 
-  static String getUser = '/get-user';
-  static String updateProfile = '/update-profile';
-  static String getUsersList = '/get-users-list';
+  static const String getUser = '/get-user';
+  static const String updateProfile = '/update-profile';
+  static const String getUsersList = '/get-users-list';
 }

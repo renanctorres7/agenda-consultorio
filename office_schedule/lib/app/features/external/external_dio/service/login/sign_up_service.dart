@@ -1,4 +1,5 @@
 import 'package:dio/dio.dart' hide Headers;
+import 'package:office_schedule/app/core/endpoints/parse_endpoints.dart';
 import 'package:retrofit/retrofit.dart';
 
 import '../../../../../core/environments/environments.dart';
@@ -11,7 +12,7 @@ part 'sign_up_service.g.dart';
 abstract class SignUpService {
   factory SignUpService(Dio dio) => _SignUpService(dio);
 
-  @POST('/signup')
+  @POST(ParseEndpoints.signUp)
   @Headers(ParseHeaders.header)
   Future<SignUpModel?> signUp(@Body() SignUpModel signUpModel);
 }
