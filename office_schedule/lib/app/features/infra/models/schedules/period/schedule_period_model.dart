@@ -11,4 +11,7 @@ class SchedulePeriodModel extends SchedulePeriodEntity {
   factory SchedulePeriodModel.fromJson(Map<String, dynamic> json) =>
       _$SchedulePeriodModelFromJson(json);
   Map<String, dynamic> toJson() => _$SchedulePeriodModelToJson(this);
+
+  factory SchedulePeriodModel.fromEntity(SchedulePeriodEntity entity) =>
+      SchedulePeriodModel(page: entity.page, period: entity.period);
 }
