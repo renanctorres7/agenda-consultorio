@@ -41,4 +41,21 @@ class MocksModels {
 
   static final loginModel = LoginModel(
       email: faker.internet.email(), password: faker.internet.password());
+
+  static final scheduleFilterModel = ScheduleFilterModel(
+    page: 0,
+    period: 7,
+  );
+
+  static final scheduleModel = ScheduleModel(
+      objectId: 'objectId',
+      datetime: 'datetime',
+      client: 'client',
+      modifiedByModel: usersModel,
+      userModel: usersModel,
+      typePayment: 'typePayment',
+      paymentStatus: 'paymentStatus',
+      scheduleStatus: 'scheduleStatus',
+      createdAt: 'createdAt',
+      updatedAt: 'updatedAt');
 }
