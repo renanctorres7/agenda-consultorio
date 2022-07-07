@@ -15,8 +15,8 @@ class ScheduleFilterModelMock extends Mock implements ScheduleFilterModel {}
 void main() {
   String sessionToken = faker.guid.guid();
   ScheduleFilterServiceMock scheduleFilterService = ScheduleFilterServiceMock();
-  DioScheduleFilterDatasource datasource =
-      DioScheduleFilterDatasource(scheduleFilterService, sessionToken);
+  DioScheduleFilterDatasource datasource = DioScheduleFilterDatasource(
+      scheduleFilterService: scheduleFilterService, sessionToken: sessionToken);
 
   var scheduleFilterModelMock = ScheduleFilterModelMock();
 

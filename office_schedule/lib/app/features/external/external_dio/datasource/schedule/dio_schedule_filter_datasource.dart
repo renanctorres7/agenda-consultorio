@@ -9,7 +9,8 @@ class DioScheduleFilterDatasource implements ListScheduleFilterDatasource {
   final ScheduleFilterService scheduleFilterService;
   final String sessionToken;
 
-  DioScheduleFilterDatasource(this.scheduleFilterService, this.sessionToken);
+  DioScheduleFilterDatasource(
+      {required this.scheduleFilterService, required this.sessionToken});
   @override
   Future<List<ScheduleModel>?> getListScheduleByFilter(
       ScheduleFilterEntity scheduleFilterEntity) async {
