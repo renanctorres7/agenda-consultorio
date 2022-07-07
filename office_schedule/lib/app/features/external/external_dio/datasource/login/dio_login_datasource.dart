@@ -8,7 +8,7 @@ import '../../external_dio.dart';
 class DioLoginDatasource implements LoginDatasource {
   final LoginService loginService;
 
-  DioLoginDatasource(this.loginService);
+  DioLoginDatasource({required this.loginService});
   @override
   Future<SignUpModel?> login(LoginEntity loginEntity) async {
     LoginModel loginModel = LoginModel.fromEntity(loginEntity);

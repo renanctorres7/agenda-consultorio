@@ -23,7 +23,7 @@ void main() {
     registerFallbackValue(signUpModel);
 
     signUpServiceMock = SignUpServiceMock();
-    datasource = DioSignUpDatasource(signUpServiceMock);
+    datasource = DioSignUpDatasource(signUpService: signUpServiceMock);
   });
 
   test('Should receive a Sign Up Model and return a Sign Up Model', () async {

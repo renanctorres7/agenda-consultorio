@@ -8,7 +8,8 @@ class DioUpdateProfileDatasource implements UpdateProfileDatasource {
   final UpdateProfileService updateProfileService;
   final String sessionToken;
 
-  DioUpdateProfileDatasource(this.updateProfileService, this.sessionToken);
+  DioUpdateProfileDatasource(
+      {required this.updateProfileService, required this.sessionToken});
   @override
   Future<SignUpModel?> updateProfile(SignUpEntity entity) async {
     try {

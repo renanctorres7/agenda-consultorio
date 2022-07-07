@@ -4,14 +4,14 @@ import 'package:office_schedule/app/features/external/external_dio/service/login
 import 'package:office_schedule/app/features/infra/datasources/datasources.dart';
 
 class DioResetPasswordDatasource implements ResetPasswordDatasource {
-  final ResetPasswordService service;
+  final ResetPasswordService resetPasswordService;
 
-  DioResetPasswordDatasource(this.service);
+  DioResetPasswordDatasource({required this.resetPasswordService});
   @override
   Future<Success> resetPassword(String email) async {
     Map<String, String> mapEmail = {'email': email};
     try {
-      await service.resetPassword(mapEmail);
+      await resetPasswordService.resetPassword(mapEmail);
       return SuccessfulResponse();
     } on DioError catch (e) {
       throw DioError(requestOptions: e.requestOptions, response: e.response);

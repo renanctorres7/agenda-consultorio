@@ -9,7 +9,7 @@ class ResetPasswordServiceMock extends Mock implements ResetPasswordService {}
 
 void main() {
   final service = ResetPasswordServiceMock();
-  final datasource = DioResetPasswordDatasource(service);
+  final datasource = DioResetPasswordDatasource(resetPasswordService: service);
   final email = faker.internet.email();
   Map<String, String> mapEmail = {'email': email};
   test('Input a String e-mail and returns Successful Response', () async {

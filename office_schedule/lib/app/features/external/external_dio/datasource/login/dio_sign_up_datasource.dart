@@ -7,7 +7,7 @@ import 'package:office_schedule/app/features/infra/models/sign_up/sign_up_model.
 class DioSignUpDatasource implements SignUpDatasource {
   final SignUpService signUpService;
 
-  DioSignUpDatasource(this.signUpService);
+  DioSignUpDatasource({required this.signUpService});
   @override
   Future<SignUpModel?> signUp(SignUpEntity entity) async {
     SignUpModel signUpModel = SignUpModel.fromEntity(entity);

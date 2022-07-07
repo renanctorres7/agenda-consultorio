@@ -22,7 +22,7 @@ void main() {
     registerFallbackValue(loginModel);
 
     loginService = LoginServiceMock();
-    dioDatasource = DioLoginDatasource(loginService);
+    dioDatasource = DioLoginDatasource(loginService: loginService);
   });
 
   test('Should receive a login model and return a Sign Up Model', () async {

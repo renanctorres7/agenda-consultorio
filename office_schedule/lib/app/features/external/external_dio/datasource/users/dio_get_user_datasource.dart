@@ -6,7 +6,7 @@ import 'package:office_schedule/app/features/infra/models/users/users_model.dart
 class DioGetUserDatasource implements GetUserDatasource {
   final GetUserService getUserService;
 
-  DioGetUserDatasource(this.getUserService);
+  DioGetUserDatasource({required this.getUserService});
   @override
   Future<UsersModel?> getUserProfile(String objectId) async {
     Map<String, String> mapObjectId = {'objectId': objectId};

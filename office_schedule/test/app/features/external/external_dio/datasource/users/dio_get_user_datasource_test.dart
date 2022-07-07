@@ -11,7 +11,7 @@ class GetUserServiceMock extends Mock implements GetUserService {}
 
 void main() {
   final service = GetUserServiceMock();
-  final datasource = DioGetUserDatasource(service);
+  final datasource = DioGetUserDatasource(getUserService: service);
   final objectId = faker.guid.guid();
   final usersModel = MocksModels.usersModel;
 
