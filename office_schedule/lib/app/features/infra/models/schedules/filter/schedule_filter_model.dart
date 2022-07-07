@@ -18,4 +18,15 @@ class ScheduleFilterModel extends ScheduleFilterEntity {
   factory ScheduleFilterModel.fromJson(Map<String, dynamic> json) =>
       _$ScheduleFilterModelFromJson(json);
   Map<String, dynamic> toJson() => _$ScheduleFilterModelToJson(this);
+
+  factory ScheduleFilterModel.fromEntity(ScheduleFilterEntity entity) =>
+      ScheduleFilterModel(
+          page: entity.page,
+          period: entity.period,
+          user: entity.user,
+          modifiedBy: entity.modifiedBy,
+          client: entity.client,
+          scheduleStatus: entity.scheduleStatus,
+          typePayment: entity.typePayment,
+          paymentStatus: entity.paymentStatus);
 }
