@@ -58,4 +58,6 @@ class MocksModels {
       scheduleStatus: 'scheduleStatus',
       createdAt: 'createdAt',
       updatedAt: 'updatedAt');
+
+  static final schedulePeriodModel = SchedulePeriodModel(page: 7, period: 0);
 }
