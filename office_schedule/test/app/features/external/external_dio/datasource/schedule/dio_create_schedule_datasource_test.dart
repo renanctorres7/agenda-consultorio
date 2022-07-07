@@ -15,20 +15,18 @@ class ScheduleCreateModelMock extends Mock implements ScheduleCreateModel {}
 
 void main() {
   String sessionToken = faker.guid.guid();
-  late CreateScheduleServiceMock service;
-  late DioCreateScheduleDatasource datasource;
+  CreateScheduleServiceMock service = CreateScheduleServiceMock();
+  DioCreateScheduleDatasource datasource = DioCreateScheduleDatasource(
+      createScheduleService: service, sessionToken: sessionToken);
 
   final scheduleCreateModel = MocksModels.scheduleCreateModel;
   final modelMock = ScheduleCreateModelMock();
 
-  setUp(() async {
+  setUp(() {
     registerFallbackValue(modelMock);
 
     registerFallbackValue(scheduleCreateModel);
     registerFallbackValue(sessionToken);
-    service = CreateScheduleServiceMock();
-    datasource = DioCreateScheduleDatasource(
-        createScheduleService: service, sessionToken: sessionToken);
   });
 
   test('When input a Create Schedule Model should return a Successful Response',
