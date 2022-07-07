@@ -8,8 +8,8 @@ part of 'delete_schedule_service.dart';
 
 // ignore_for_file: unnecessary_brace_in_string_interps
 
-class _CreateScheduleService implements CreateScheduleService {
-  _CreateScheduleService(this._dio, {this.baseUrl});
+class _DeleteScheduleService implements DeleteScheduleService {
+  _DeleteScheduleService(this._dio, {this.baseUrl});
 
   final Dio _dio;
 

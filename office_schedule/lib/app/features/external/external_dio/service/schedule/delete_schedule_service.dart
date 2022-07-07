@@ -6,8 +6,8 @@ import '../../../../../core/endpoints/parse_endpoints.dart';
 part 'delete_schedule_service.g.dart';
 
 @RestApi(baseUrl: Environments.baseUrl)
-abstract class CreateScheduleService {
-  factory CreateScheduleService(Dio dio) => _CreateScheduleService(dio);
+abstract class DeleteScheduleService {
+  factory DeleteScheduleService(Dio dio) => _DeleteScheduleService(dio);
 
   @POST(ParseEndpoints.deleteSchedule)
   @Headers(ParseHeaders.header)
