@@ -18,4 +18,15 @@ class ScheduleUpdateModel extends ScheduleUpdateEntity {
   factory ScheduleUpdateModel.fromJson(Map<String, dynamic> json) =>
       _$ScheduleUpdateModelFromJson(json);
   Map<String, dynamic> toJson() => _$ScheduleUpdateModelToJson(this);
+
+  factory ScheduleUpdateModel.fromEntity(ScheduleUpdateEntity entity) =>
+      ScheduleUpdateModel(
+        objectId: entity.objectId,
+        datetime: entity.datetime,
+        client: entity.client,
+        typePayment: entity.typePayment,
+        paymentStatus: entity.paymentStatus,
+        scheduleStatus: entity.scheduleStatus,
+        description: entity.description,
+      );
 }
