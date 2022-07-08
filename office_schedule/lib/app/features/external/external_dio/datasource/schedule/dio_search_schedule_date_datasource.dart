@@ -16,7 +16,7 @@ class DioSearchScheduleDateDatasource implements SearchScheduleDateDatasource {
       ScheduleDateEntity scheduleDateEntity) async {
     try {
       final result = await searchScheduleDateService.searchScheduleFromDate(
-          sessionToken, ScheduleDateModel.fromJson(json));
+          sessionToken, ScheduleDateModel.fromEntity(scheduleDateEntity));
       return result;
     } on DioError catch (e) {
       throw DioError(requestOptions: e.requestOptions, response: e.response);

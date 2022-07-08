@@ -10,4 +10,7 @@ class ScheduleDateModel extends ScheduleDateEntity {
   factory ScheduleDateModel.fromJson(Map<String, dynamic> json) =>
       _$ScheduleDateModelFromJson(json);
   Map<String, dynamic> toJson() => _$ScheduleDateModelToJson(this);
+
+  factory ScheduleDateModel.fromEntity(ScheduleDateEntity entity) =>
+      ScheduleDateModel(startDate: entity.startDate, endDate: entity.endDate);
 }
