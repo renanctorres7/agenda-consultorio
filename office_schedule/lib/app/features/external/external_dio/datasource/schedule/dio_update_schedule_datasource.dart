@@ -16,9 +16,9 @@ class DioUpdateScheduleDatasource implements UpdateScheduleDatasource {
   Future<Success> updateSchedule(
       ScheduleUpdateEntity scheduleUpdateEntity) async {
     try {
-      final result = await updateScheduleService.updateSchedule(
-          sessionToken, ScheduleUpdateModel.fromJson(json));
-      return result;
+      await updateScheduleService.updateSchedule(
+          sessionToken, ScheduleUpdateModel.fromEntity(scheduleUpdateEntity));
+      return SuccessfulResponse();
     } on DioError catch (e) {
       throw DioError(requestOptions: e.requestOptions, response: e.response);
     }
