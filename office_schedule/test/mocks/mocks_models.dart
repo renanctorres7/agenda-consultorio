@@ -60,4 +60,7 @@ class MocksModels {
       updatedAt: 'updatedAt');
 
   static final schedulePeriodModel = SchedulePeriodModel(page: 7, period: 0);
+
+  static final scheduleDateModel =
+      ScheduleDateModel(startDate: "2022-03-02", endDate: "2022-03-02");
 }
