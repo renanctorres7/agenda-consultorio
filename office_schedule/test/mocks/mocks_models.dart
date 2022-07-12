@@ -26,7 +26,7 @@ class MocksModels {
     newPassword: faker.internet.password(),
   );
 
-  static final usersModel = UsersModel(
+  static final usersModel = UserModel(
       email: faker.internet.email(),
       password: faker.internet.password(),
       fullName: faker.person.name(),

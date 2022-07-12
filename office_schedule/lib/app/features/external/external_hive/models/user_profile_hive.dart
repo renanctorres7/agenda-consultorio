@@ -1,6 +1,7 @@
 import 'package:hive/hive.dart';
 import 'package:json_annotation/json_annotation.dart';
-import 'package:office_schedule/app/features/infra/models/models.dart';
+
+import '../../../domain/entities/entities.dart';
 
 part 'user_profile_hive.g.dart';
 
@@ -37,7 +38,7 @@ class UserProfileHive extends HiveObject {
       _$UserProfileHiveFromJson(json);
   Map<String, dynamic> toJson() => _$UserProfileHiveToJson(this);
 
-  factory UserProfileHive.fromModel(UsersModel model) => UserProfileHive(
+  factory UserProfileHive.fromModel(UserEntity model) => UserProfileHive(
       email: model.email ?? "",
       fullName: model.fullName ?? "",
       phone: model.phone ?? "",

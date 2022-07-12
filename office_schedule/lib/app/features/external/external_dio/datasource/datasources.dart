@@ -1,2 +1,3 @@
-export './login/login.dart';
-export './users/users.dart';
+export './authentication/authentication.dart';
+export './user/user.dart';
+export './schedule/schedule.dart';

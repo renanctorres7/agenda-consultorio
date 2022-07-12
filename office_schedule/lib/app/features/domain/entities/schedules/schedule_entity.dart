@@ -5,9 +5,9 @@ abstract class ScheduleEntity {
   final String datetime;
   final String client;
 
-  final UsersEntity user;
+  final UserEntity user;
 
-  final UsersEntity modifiedBy;
+  final UserEntity modifiedBy;
 
   final String typePayment;
   final String paymentStatus;
