@@ -16,7 +16,7 @@ class _UpdateProfileService implements UpdateProfileService {
   String? baseUrl;
 
   @override
-  Future<SignUpModel?> updateProfile(sessionToken, signUpModel) async {
+  Future<UsersModel?> updateProfile(sessionToken, userUpdateModel) async {
     const _extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{};
     final _headers = <String, dynamic>{
@@ -27,9 +27,9 @@ class _UpdateProfileService implements UpdateProfileService {
     };
     _headers.removeWhere((k, v) => v == null);
     final _data = <String, dynamic>{};
-    _data.addAll(signUpModel.toJson());
+    _data.addAll(userUpdateModel.toJson());
     final _result = await _dio.fetch<Map<String, dynamic>?>(
-        _setStreamType<SignUpModel>(Options(
+        _setStreamType<UsersModel>(Options(
                 method: 'POST',
                 headers: _headers,
                 extra: _extra,
@@ -38,7 +38,7 @@ class _UpdateProfileService implements UpdateProfileService {
                 queryParameters: queryParameters, data: _data)
             .copyWith(baseUrl: baseUrl ?? _dio.options.baseUrl)));
     final value =
-        _result.data == null ? null : SignUpModel.fromJson(_result.data!);
+        _result.data == null ? null : UsersModel.fromJson(_result.data!);
     return value;
   }
 

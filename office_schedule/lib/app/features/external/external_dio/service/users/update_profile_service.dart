@@ -13,7 +13,7 @@ abstract class UpdateProfileService {
 
   @POST('/update-profile')
   @Headers(ParseHeaders.header)
-  Future<SignUpModel?> updateProfile(
+  Future<UsersModel?> updateProfile(
       @Header(ParseHeaders.sessionTokenTitle) String sessionToken,
-      @Body() SignUpModel signUpModel);
+      @Body() UserUpdateModel userUpdateModel);
 }

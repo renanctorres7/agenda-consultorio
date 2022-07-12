@@ -4,37 +4,35 @@ import 'package:flutter_test/flutter_test.dart';
 import 'package:mocktail/mocktail.dart';
 import 'package:office_schedule/app/features/external/external_dio/datasource/users/dio_update_profile_datasource.dart';
 import 'package:office_schedule/app/features/external/external_dio/service/users/users.dart';
-import 'package:office_schedule/app/features/infra/models/models.dart';
 
-import '../../../../../../mocks/mocks_models.dart';
+import '../../../../../../mocks/mocks.dart';
 
 class UpdateProfileServiceMock extends Mock implements UpdateProfileService {}
-
-class SignUpModelMock extends Mock implements SignUpModel {}
 
 void main() {
   String sessionToken = faker.guid.guid();
   final updateProfileService = UpdateProfileServiceMock();
   final datasource = DioUpdateProfileDatasource(
       updateProfileService: updateProfileService, sessionToken: sessionToken);
-
-  final signUpModel = MocksModels.signUpModel;
-
-  final signUpModelMock = SignUpModelMock();
+  final userUpdateModelMock = UserUpdateModelMock();
+  final userUpdateModel = MocksModels.userUpdateModel;
+  final usersModel = MocksModels.usersModel;
 
   setUp(() {
     registerFallbackValue(sessionToken);
-    registerFallbackValue(signUpModel);
-    registerFallbackValue(signUpModelMock);
+    registerFallbackValue(userUpdateModel);
+    registerFallbackValue(usersModel);
+
+    registerFallbackValue(userUpdateModelMock);
   });
 
   test('When input a Sign Up Model should return a Sign Up Model', () async {
     when(() => updateProfileService.updateProfile(any(), any()))
-        .thenAnswer((_) async => signUpModel);
+        .thenAnswer((_) async => usersModel);
 
-    final result = await datasource.updateProfile(signUpModel);
+    final result = await datasource.updateProfile(userUpdateModel);
 
-    expect(result, signUpModel);
+    expect(result, usersModel);
   });
 
   test('Should throw a Dio Error if gets error', () async {
@@ -48,7 +46,7 @@ void main() {
       ),
     ));
 
-    final result = datasource.updateProfile(signUpModel);
+    final result = datasource.updateProfile(userUpdateModel);
 
     expect(result, throwsA(const TypeMatcher<DioError>()));
   });

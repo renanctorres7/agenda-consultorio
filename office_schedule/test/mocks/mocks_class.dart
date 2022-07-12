@@ -2,6 +2,7 @@ import 'package:mocktail/mocktail.dart';
 import 'package:office_schedule/app/features/domain/entities/entities.dart';
 import 'package:office_schedule/app/features/domain/repositories/respositories.dart';
 import 'package:office_schedule/app/features/infra/datasources/datasources.dart';
+import 'package:office_schedule/app/features/infra/models/users/user_update_model.dart';
 
 class LoginEntityMock extends Mock implements LoginEntity {}
 
@@ -40,3 +41,5 @@ class CreateScheduleRepositoryMock extends Mock
     implements CreateScheduleRepository {}
 
 class ScheduleCreateEntityMock extends Mock implements ScheduleCreateEntity {}
+
+class UserUpdateModelMock extends Mock implements UserUpdateModel {}
