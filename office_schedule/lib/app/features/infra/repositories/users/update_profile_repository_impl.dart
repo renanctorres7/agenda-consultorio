@@ -10,10 +10,10 @@ class UpdateProfileRepositoryImpl implements UpdateProfileRepository {
 
   UpdateProfileRepositoryImpl(this.datasource);
   @override
-  Future<Either<FailureError, SignUpEntity>> updateProfile(
-      SignUpEntity params) async {
+  Future<Either<FailureError, UsersEntity>> updateProfile(
+      UserUpdateEntity userUpdateEntity) async {
     try {
-      final result = await datasource.updateProfile(params);
+      final result = await datasource.updateProfile(userUpdateEntity);
       return result != null ? Right(result) : Left(NullError());
     } catch (e) {
       return Left(DataSourceError());
