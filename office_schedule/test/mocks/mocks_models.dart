@@ -12,6 +12,13 @@ class MocksModels {
       token: "",
       objectId: "");
 
+  static final userUpdateModel = UserUpdateModel(
+    fullName: faker.person.name(),
+    phone: faker.phoneNumber.us(),
+    company: faker.company.name(),
+    specialty: faker.company.position(),
+  );
+
   static final newPasswordModel = NewPasswordModel(
     currentEmail: faker.internet.email(),
     newEmail: faker.internet.email(),

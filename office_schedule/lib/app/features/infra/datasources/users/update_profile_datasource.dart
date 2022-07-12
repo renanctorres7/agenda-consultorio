@@ -1,5 +1,6 @@
+import '../../../domain/entities/entities.dart';
 import '../../models/models.dart';
 
 abstract class UpdateProfileDatasource {
-  Future<UsersModel?> updateProfile(UserUpdateModel userUpdateModel);
+  Future<UsersModel?> updateProfile(UserUpdateEntity userUpdateEntity);
 }
