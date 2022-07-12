@@ -4,5 +4,6 @@ import '../../entities/entities.dart';
 import '../../errors/errors.dart';
 
 abstract class UpdateProfileRepository {
-  Future<Either<FailureError, SignUpEntity>> updateProfile(SignUpEntity params);
+  Future<Either<FailureError, UsersEntity>> updateProfile(
+      UserUpdateEntity userUpdateEntity);
 }
