@@ -10,6 +10,8 @@ class SignUpEntityMock extends Mock implements SignUpEntity {}
 class UpdateProfileDatasourceMock extends Mock
     implements UpdateProfileDatasource {}
 
+class UserUpdateEntityMock extends Mock implements UserUpdateEntity {}
+
 class ChangePasswordRepositoryMock extends Mock
     implements ChangePasswordRepository {}
 
