@@ -42,6 +42,18 @@ void main() {
     expect(result, list);
   });
 
+  test(
+      'When Schedule Period Service gets null value should return a empty list from Datasource',
+      () async {
+    when(() => serviceMock.getScheduleListByPeriod(any(), any()))
+        .thenAnswer((_) async => null);
+
+    final result =
+        await datasource.getScheduleListByPeriod(schedulePeriodModel);
+
+    expect(result, []);
+  });
+
   test('Should throw a DioError if gets error', () async {
     when(() => serviceMock.getScheduleListByPeriod(any(), any()))
         .thenThrow(DioError(

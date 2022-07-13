@@ -42,6 +42,18 @@ void main() {
     expect(result, list);
   });
 
+  test(
+      'When Schedule Filter Service gets null value should return a empty list from Datasource',
+      () async {
+    when(() => scheduleFilterService.getListScheduleByFilter(any(), any()))
+        .thenAnswer((_) async => null);
+
+    final result =
+        await datasource.getListScheduleByFilter(scheduleFilterModel);
+
+    expect(result, []);
+  });
+
   test('Should throw a DioError if gets error', () async {
     when(() => scheduleFilterService.getListScheduleByFilter(any(), any()))
         .thenThrow(DioError(
