@@ -8,17 +8,15 @@ import '../../service/service.dart';
 
 class DioSchedulePeriodDatasource implements ListSchedulePeriodDatasource {
   final SchedulePeriodService schedulePeriodService;
-  final String sessionToken;
 
-  DioSchedulePeriodDatasource(
-      {required this.schedulePeriodService, required this.sessionToken});
+  DioSchedulePeriodDatasource({required this.schedulePeriodService});
 
   @override
   Future<List<ScheduleModel>?> getScheduleListByPeriod(
-      SchedulePeriodEntity schedulePeriodEntity) async {
+      String token, SchedulePeriodEntity schedulePeriodEntity) async {
     try {
       final result = await schedulePeriodService.getScheduleListByPeriod(
-          sessionToken, SchedulePeriodModel.fromEntity(schedulePeriodEntity));
+          token, SchedulePeriodModel.fromEntity(schedulePeriodEntity));
       return result ?? <ScheduleModel>[];
     } on DioError catch (e) {
       throw DioError(requestOptions: e.requestOptions, response: e.response);

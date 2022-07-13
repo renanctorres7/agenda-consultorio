@@ -8,33 +8,33 @@ import 'package:office_schedule/app/features/external/external.dart';
 class DeleteScheduleServiceMock extends Mock implements DeleteScheduleService {}
 
 void main() {
-  String sessionToken = faker.guid.guid();
+  String token = faker.guid.guid();
   String objectId = faker.guid.guid();
   DeleteScheduleServiceMock serviceMock = DeleteScheduleServiceMock();
   DioDeleteScheduleDatasource datasource = DioDeleteScheduleDatasource(
-      deleteScheduleService: serviceMock, sessionToken: sessionToken);
+    deleteScheduleService: serviceMock,
+  );
 
   setUp(() {
-    registerFallbackValue(sessionToken);
+    registerFallbackValue(token);
     registerFallbackValue(objectId);
   });
 
   Map<String, String> objectIdMap = {'objectId': objectId};
 
   test('When input a objectId should return Successful Response', () async {
-    when(() => serviceMock.deleteSchedule(sessionToken, objectIdMap))
+    when(() => serviceMock.deleteSchedule(token, objectIdMap))
         .thenAnswer((_) async {});
 
-    final result = await datasource.deleteSchedule(objectId);
+    final result = await datasource.deleteSchedule(token, objectId);
 
     expect(result, SuccessfulResponse());
 
-    verify(() => serviceMock.deleteSchedule(sessionToken, objectIdMap))
-        .called(1);
+    verify(() => serviceMock.deleteSchedule(token, objectIdMap)).called(1);
   });
 
   test('Should throw a DioError if gets error', () async {
-    when(() => serviceMock.deleteSchedule(sessionToken, objectIdMap))
+    when(() => serviceMock.deleteSchedule(token, objectIdMap))
         .thenThrow(DioError(
       requestOptions: RequestOptions(path: ''),
       response: Response(
@@ -44,11 +44,10 @@ void main() {
       ),
     ));
 
-    final result = datasource.deleteSchedule(objectId);
+    final result = datasource.deleteSchedule(token, objectId);
 
     expect(result, throwsA(const TypeMatcher<DioError>()));
 
-    verify(() => serviceMock.deleteSchedule(sessionToken, objectIdMap))
-        .called(1);
+    verify(() => serviceMock.deleteSchedule(token, objectIdMap)).called(1);
   });
 }

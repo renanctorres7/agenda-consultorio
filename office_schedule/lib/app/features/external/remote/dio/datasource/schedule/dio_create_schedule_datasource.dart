@@ -9,16 +9,14 @@ import '../../service/service.dart';
 
 class DioCreateScheduleDatasource implements CreateScheduleDatasource {
   final CreateScheduleService createScheduleService;
-  final String sessionToken;
 
-  DioCreateScheduleDatasource(
-      {required this.createScheduleService, required this.sessionToken});
+  DioCreateScheduleDatasource({required this.createScheduleService});
   @override
   Future<Success> createSchedule(
-      ScheduleCreateEntity scheduleCreateEntity) async {
+      String token, ScheduleCreateEntity scheduleCreateEntity) async {
     try {
       await createScheduleService.createSchedule(
-          sessionToken, ScheduleCreateModel.fromEntity(scheduleCreateEntity));
+          token, ScheduleCreateModel.fromEntity(scheduleCreateEntity));
       return SuccessfulResponse();
     } on DioError catch (e) {
       throw DioError(requestOptions: e.requestOptions, response: e.response);

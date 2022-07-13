@@ -11,30 +11,31 @@ class DeleteScheduleDatasourceMock extends Mock
     implements DeleteScheduleDatasource {}
 
 void main() {
+  String token = faker.guid.guid();
   final datasource = DeleteScheduleDatasourceMock();
   final repository = DeleteScheduleRepositoryImpl(datasource);
 
   String objectId = faker.guid.guid();
 
   test('Should input a objectId and return a Sucessful Response', () async {
-    when(() => datasource.deleteSchedule(objectId))
+    when(() => datasource.deleteSchedule(token, objectId))
         .thenAnswer((_) async => SuccessfulResponse());
 
-    final result = await repository.deleteSchedule(objectId);
+    final result = await repository.deleteSchedule(token, objectId);
 
     expect(result, Right(SuccessfulResponse()));
 
-    verify(() => datasource.deleteSchedule(objectId)).called(1);
+    verify(() => datasource.deleteSchedule(token, objectId)).called(1);
   });
 
   test('Should return Datasource Error if throws a error', () async {
-    when(() => datasource.deleteSchedule(objectId))
+    when(() => datasource.deleteSchedule(token, objectId))
         .thenThrow(Left(DataSourceError()));
 
-    final result = await repository.deleteSchedule(objectId);
+    final result = await repository.deleteSchedule(token, objectId);
 
     expect(result, Left(DataSourceError()));
 
-    verify(() => datasource.deleteSchedule(objectId)).called(1);
+    verify(() => datasource.deleteSchedule(token, objectId)).called(1);
   });
 }

@@ -15,6 +15,6 @@ abstract class SearchScheduleDateService {
   @POST(ParseEndpoints.searchScheduleDate)
   @Headers(ParseHeaders.header)
   Future<List<ScheduleModel>?> searchScheduleFromDate(
-      @Header(ParseHeaders.sessionTokenTitle) String sessionToken,
+      @Header(ParseHeaders.sessionTokenTitle) String token,
       @Body() ScheduleDateModel scheduleDateModel);
 }

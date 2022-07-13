@@ -17,14 +17,14 @@ class _ScheduleFilterService implements ScheduleFilterService {
 
   @override
   Future<List<ScheduleModel>?> getListScheduleByFilter(
-      sessionToken, scheduleCreateModel) async {
+      token, scheduleCreateModel) async {
     const _extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{};
     final _headers = <String, dynamic>{
       r'X-Parse-Application-Id': '',
       r'X-Parse-REST-API-Key': '',
       r'Content-Type': 'application/json',
-      r'X-Parse-Session-Token': sessionToken
+      r'X-Parse-Session-Token': token
     };
     _headers.removeWhere((k, v) => v == null);
     final _data = <String, dynamic>{};

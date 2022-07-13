@@ -5,5 +5,5 @@ import '../../errors/errors.dart';
 
 abstract class ListScheduleFilterRepository {
   Future<Either<FailureError, List<ScheduleEntity>>> getListScheduleByFilter(
-      ScheduleFilterEntity scheduleFilterEntity);
+      String token, ScheduleFilterEntity scheduleFilterEntity);
 }

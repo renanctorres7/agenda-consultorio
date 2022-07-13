@@ -12,9 +12,10 @@ class CreateScheduleRepositoryImpl implements CreateScheduleRepository {
   CreateScheduleRepositoryImpl(this.datasource);
   @override
   Future<Either<FailureError, Success>> createSchedule(
-      ScheduleCreateEntity scheduleCreateEntity) async {
+      String token, ScheduleCreateEntity scheduleCreateEntity) async {
     try {
-      final result = await datasource.createSchedule(scheduleCreateEntity);
+      final result =
+          await datasource.createSchedule(token, scheduleCreateEntity);
       return Right(result);
     } catch (e) {
       return Left(DataSourceError());

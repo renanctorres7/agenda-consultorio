@@ -10,9 +10,10 @@ class UsersListRepositoryImpl implements UsersListRepository {
 
   UsersListRepositoryImpl(this.datasource);
   @override
-  Future<Either<FailureError, List<UserEntity>>> getUsersList() async {
+  Future<Either<FailureError, List<UserEntity>>> getUsersList(
+      String token) async {
     try {
-      final result = await datasource.getUsersList();
+      final result = await datasource.getUsersList(token);
       return result != null ? Right(result) : Left(NullError());
     } catch (e) {
       return Left(DataSourceError());

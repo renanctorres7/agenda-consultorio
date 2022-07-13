@@ -7,15 +7,13 @@ import '../../service/service.dart';
 
 class DioDeleteScheduleDatasource implements DeleteScheduleDatasource {
   final DeleteScheduleService deleteScheduleService;
-  final String sessionToken;
 
-  DioDeleteScheduleDatasource(
-      {required this.deleteScheduleService, required this.sessionToken});
+  DioDeleteScheduleDatasource({required this.deleteScheduleService});
   @override
-  Future<Success> deleteSchedule(String objectId) async {
+  Future<Success> deleteSchedule(String token, String objectId) async {
     Map<String, String> objectIdMap = {'objectId': objectId};
     try {
-      await deleteScheduleService.deleteSchedule(sessionToken, objectIdMap);
+      await deleteScheduleService.deleteSchedule(token, objectIdMap);
       return SuccessfulResponse();
     } on DioError catch (e) {
       throw DioError(requestOptions: e.requestOptions, response: e.response);

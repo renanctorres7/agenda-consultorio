@@ -11,10 +11,10 @@ class ListScheduleFilterRepositoryImpl implements ListScheduleFilterRepository {
   ListScheduleFilterRepositoryImpl(this.datasource);
   @override
   Future<Either<FailureError, List<ScheduleEntity>>> getListScheduleByFilter(
-      ScheduleFilterEntity scheduleFilterEntity) async {
+      String token, ScheduleFilterEntity scheduleFilterEntity) async {
     try {
       final result =
-          await datasource.getListScheduleByFilter(scheduleFilterEntity);
+          await datasource.getListScheduleByFilter(token, scheduleFilterEntity);
 
       return result != null ? Right(result) : Left(NullError());
     } catch (e) {

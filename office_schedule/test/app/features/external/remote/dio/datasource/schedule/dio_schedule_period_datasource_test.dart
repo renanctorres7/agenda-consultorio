@@ -12,10 +12,10 @@ class SchedulePeriodServiceMock extends Mock implements SchedulePeriodService {}
 class SchedulePeriodModelMock extends Mock implements SchedulePeriodModel {}
 
 void main() {
-  String sessionToken = faker.guid.guid();
+  String token = faker.guid.guid();
   SchedulePeriodServiceMock serviceMock = SchedulePeriodServiceMock();
-  DioSchedulePeriodDatasource datasource = DioSchedulePeriodDatasource(
-      schedulePeriodService: serviceMock, sessionToken: sessionToken);
+  DioSchedulePeriodDatasource datasource =
+      DioSchedulePeriodDatasource(schedulePeriodService: serviceMock);
 
   var schedulePeriodModelMock = SchedulePeriodModelMock();
 
@@ -24,7 +24,7 @@ void main() {
   final list = [MocksModels.scheduleModel];
 
   setUp(() {
-    registerFallbackValue(sessionToken);
+    registerFallbackValue(token);
     registerFallbackValue(schedulePeriodModelMock);
     registerFallbackValue(schedulePeriodModel);
 
@@ -37,7 +37,7 @@ void main() {
         .thenAnswer((_) async => list);
 
     final result =
-        await datasource.getScheduleListByPeriod(schedulePeriodModel);
+        await datasource.getScheduleListByPeriod(token, schedulePeriodModel);
 
     expect(result, list);
   });
@@ -49,7 +49,7 @@ void main() {
         .thenAnswer((_) async => null);
 
     final result =
-        await datasource.getScheduleListByPeriod(schedulePeriodModel);
+        await datasource.getScheduleListByPeriod(token, schedulePeriodModel);
 
     expect(result, []);
   });
@@ -65,7 +65,8 @@ void main() {
       ),
     ));
 
-    final result = datasource.getScheduleListByPeriod(schedulePeriodModel);
+    final result =
+        datasource.getScheduleListByPeriod(token, schedulePeriodModel);
 
     expect(result, throwsA(const TypeMatcher<DioError>()));
   });

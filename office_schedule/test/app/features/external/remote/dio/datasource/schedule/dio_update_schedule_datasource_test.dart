@@ -13,17 +13,17 @@ class UpdateScheduleServiceMock extends Mock implements UpdateScheduleService {}
 class ScheduleUpdateModelMock extends Mock implements ScheduleUpdateModel {}
 
 void main() {
-  String sessionToken = faker.guid.guid();
+  String token = faker.guid.guid();
   final updateScheduleService = UpdateScheduleServiceMock();
 
-  final datasource = DioUpdateScheduleDatasource(
-      updateScheduleService: updateScheduleService, sessionToken: sessionToken);
+  final datasource =
+      DioUpdateScheduleDatasource(updateScheduleService: updateScheduleService);
 
   final scheduleUpdateModel = MocksModels.scheduleUpdateModel;
   final scheduleUpdateModelMock = ScheduleUpdateModelMock();
 
   setUp(() {
-    registerFallbackValue(sessionToken);
+    registerFallbackValue(token);
     registerFallbackValue(scheduleUpdateModel);
     registerFallbackValue(scheduleUpdateModelMock);
   });
@@ -33,7 +33,7 @@ void main() {
     when(() => updateScheduleService.updateSchedule(any(), any()))
         .thenAnswer((_) async {});
 
-    final result = await datasource.updateSchedule(scheduleUpdateModel);
+    final result = await datasource.updateSchedule(token, scheduleUpdateModel);
 
     expect(result, SuccessfulResponse());
     verify(() => updateScheduleService.updateSchedule(any(), any())).called(1);
@@ -50,7 +50,7 @@ void main() {
       ),
     ));
 
-    final result = datasource.updateSchedule(scheduleUpdateModel);
+    final result = datasource.updateSchedule(token, scheduleUpdateModel);
 
     expect(result, throwsA(const TypeMatcher<DioError>()));
     verify(() => updateScheduleService.updateSchedule(any(), any())).called(1);

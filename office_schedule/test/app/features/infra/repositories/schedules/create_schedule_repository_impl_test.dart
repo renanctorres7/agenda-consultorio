@@ -1,4 +1,5 @@
 import 'package:dartz/dartz.dart';
+import 'package:faker/faker.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:mocktail/mocktail.dart';
 import 'package:office_schedule/app/features/domain/errors/errors.dart';
@@ -14,6 +15,7 @@ class CreateScheduleDatasourceMock extends Mock
     implements CreateScheduleDatasource {}
 
 void main() {
+  String token = faker.guid.guid();
   final datasource = CreateScheduleDatasourceMock();
   final repository = CreateScheduleRepositoryImpl(datasource);
 
@@ -21,24 +23,24 @@ void main() {
 
   test('Should input a Schedule Create Model and return a Sucessful Response',
       () async {
-    when(() => datasource.createSchedule(model))
+    when(() => datasource.createSchedule(token, model))
         .thenAnswer((_) async => SuccessfulResponse());
 
-    final result = await repository.createSchedule(model);
+    final result = await repository.createSchedule(token, model);
 
     expect(result, Right(SuccessfulResponse()));
 
-    verify(() => datasource.createSchedule(model)).called(1);
+    verify(() => datasource.createSchedule(token, model)).called(1);
   });
 
   test('Should return Datasource Error if throws a error', () async {
-    when(() => datasource.createSchedule(model))
+    when(() => datasource.createSchedule(token, model))
         .thenThrow(Left(DataSourceError()));
 
-    final result = await repository.createSchedule(model);
+    final result = await repository.createSchedule(token, model);
 
     expect(result, Left(DataSourceError()));
 
-    verify(() => datasource.createSchedule(model)).called(1);
+    verify(() => datasource.createSchedule(token, model)).called(1);
   });
 }

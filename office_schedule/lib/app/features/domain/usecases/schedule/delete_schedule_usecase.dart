@@ -5,7 +5,7 @@ import '../../errors/errors.dart';
 import '../../success/success.dart';
 
 abstract class DeleteScheduleUsecase {
-  Future<Either<FailureError, Success>> call(String objectId);
+  Future<Either<FailureError, Success>> call(String token, String objectId);
 }
 
 class DeleteScheduleUsecaseImpl implements DeleteScheduleUsecase {
@@ -13,8 +13,9 @@ class DeleteScheduleUsecaseImpl implements DeleteScheduleUsecase {
 
   DeleteScheduleUsecaseImpl(this.repository);
   @override
-  Future<Either<FailureError, Success>> call(String objectId) async {
-    final result = await repository.deleteSchedule(objectId);
+  Future<Either<FailureError, Success>> call(
+      String token, String objectId) async {
+    final result = await repository.deleteSchedule(token, objectId);
     return result;
   }
 }

@@ -4,5 +4,5 @@ import '../../entities/entities.dart';
 import '../../errors/errors.dart';
 
 abstract class UsersListRepository {
-  Future<Either<FailureError, List<UserEntity>>> getUsersList();
+  Future<Either<FailureError, List<UserEntity>>> getUsersList(String token);
 }

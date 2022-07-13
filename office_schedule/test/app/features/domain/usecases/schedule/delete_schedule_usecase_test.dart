@@ -11,28 +11,29 @@ class DeleteScheduleRepositoryMock extends Mock
     implements DeleteScheduleRepository {}
 
 void main() {
+  String token = faker.guid.guid();
   final repository = DeleteScheduleRepositoryMock();
   final usecase = DeleteScheduleUsecaseImpl(repository);
   String objectId = faker.guid.guid();
   test('Should input a object id and return a Successful Response ', () async {
-    when(() => repository.deleteSchedule(objectId))
+    when(() => repository.deleteSchedule(token, objectId))
         .thenAnswer((_) async => Right(SuccessfulResponse()));
 
-    final result = await usecase(objectId);
+    final result = await usecase(token, objectId);
 
     expect(result, Right(SuccessfulResponse()));
 
-    verify(() => repository.deleteSchedule(objectId)).called(1);
+    verify(() => repository.deleteSchedule(token, objectId)).called(1);
   });
 
   test('Should return a Domain Error if gets error ', () async {
-    when(() => repository.deleteSchedule(objectId))
+    when(() => repository.deleteSchedule(token, objectId))
         .thenAnswer((_) async => Left(DomainError()));
 
-    final result = await usecase(objectId);
+    final result = await usecase(token, objectId);
 
     expect(result, Left(DomainError()));
 
-    verify(() => repository.deleteSchedule(objectId)).called(1);
+    verify(() => repository.deleteSchedule(token, objectId)).called(1);
   });
 }

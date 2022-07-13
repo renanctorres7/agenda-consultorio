@@ -7,11 +7,10 @@ import '../../service/service.dart';
 
 class DioGetUserDatasource implements GetUserDatasource {
   final GetUserService getUserService;
-  final String token;
 
-  DioGetUserDatasource({required this.getUserService, required this.token});
+  DioGetUserDatasource({required this.getUserService});
   @override
-  Future<UserModel?> getUserProfile(String objectId) async {
+  Future<UserModel?> getUserProfile(String token, String objectId) async {
     Map<String, String> mapObjectId = {'objectId': objectId};
     try {
       final result = await getUserService.getUserProfile(token, mapObjectId);

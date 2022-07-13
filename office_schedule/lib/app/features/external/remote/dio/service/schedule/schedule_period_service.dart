@@ -15,6 +15,6 @@ abstract class SchedulePeriodService {
   @POST(ParseEndpoints.listSchedulePeriod)
   @Headers(ParseHeaders.header)
   Future<List<ScheduleModel>?> getScheduleListByPeriod(
-      @Header(ParseHeaders.sessionTokenTitle) String sessionToken,
+      @Header(ParseHeaders.sessionTokenTitle) String token,
       @Body() SchedulePeriodModel schedulePeriodModel);
 }

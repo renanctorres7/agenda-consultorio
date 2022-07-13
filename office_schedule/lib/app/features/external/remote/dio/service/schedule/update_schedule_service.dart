@@ -15,6 +15,6 @@ abstract class UpdateScheduleService {
   @POST(ParseEndpoints.updateSchedule)
   @Headers(ParseHeaders.header)
   Future<void> updateSchedule(
-      @Header(ParseHeaders.sessionTokenTitle) String sessionToken,
+      @Header(ParseHeaders.sessionTokenTitle) String token,
       @Body() ScheduleUpdateModel scheduleUpdateModel);
 }

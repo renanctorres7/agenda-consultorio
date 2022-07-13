@@ -5,5 +5,5 @@ import '../../errors/errors.dart';
 
 abstract class ListSchedulePeriodRepository {
   Future<Either<FailureError, List<ScheduleEntity>>> getScheduleListByPeriod(
-      SchedulePeriodEntity schedulePeriodEntity);
+      String token, SchedulePeriodEntity schedulePeriodEntity);
 }

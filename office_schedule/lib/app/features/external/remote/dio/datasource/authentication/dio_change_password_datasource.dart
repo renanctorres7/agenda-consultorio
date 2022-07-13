@@ -9,17 +9,15 @@ import '../../service/service.dart';
 
 class DioChangePasswordDatasource implements ChangePasswordDatasource {
   final ChangePasswordService changePasswordService;
-  final String sessionToken;
 
-  DioChangePasswordDatasource(
-      {required this.changePasswordService, required this.sessionToken});
+  DioChangePasswordDatasource({required this.changePasswordService});
   @override
-  Future<Success> changePasswordEmail(NewPasswordEntity newPassword) async {
+  Future<Success> changePasswordEmail(
+      String token, NewPasswordEntity newPassword) async {
     NewPasswordModel newPasswordModel =
         NewPasswordModel.fromEntity(newPassword);
     try {
-      await changePasswordService.changePasswordEmail(
-          sessionToken, newPasswordModel);
+      await changePasswordService.changePasswordEmail(token, newPasswordModel);
       return SuccessfulResponse();
     } on DioError catch (e) {
       throw DioError(requestOptions: e.requestOptions, response: e.response);

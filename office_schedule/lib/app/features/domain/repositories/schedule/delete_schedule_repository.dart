@@ -4,5 +4,6 @@ import '../../errors/errors.dart';
 import '../../success/success.dart';
 
 abstract class DeleteScheduleRepository {
-  Future<Either<FailureError, Success>> deleteSchedule(String objectId);
+  Future<Either<FailureError, Success>> deleteSchedule(
+      String token, String objectId);
 }

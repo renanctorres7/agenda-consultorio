@@ -6,5 +6,5 @@ import '../../success/success.dart';
 
 abstract class UpdateScheduleRepository {
   Future<Either<FailureError, Success>> updateSchedule(
-      ScheduleUpdateEntity scheduleUpdateEntity);
+      String token, ScheduleUpdateEntity scheduleUpdateEntity);
 }

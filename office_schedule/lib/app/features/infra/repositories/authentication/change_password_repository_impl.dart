@@ -12,9 +12,9 @@ class ChangePasswordRepositoryImpl implements ChangePasswordRepository {
   ChangePasswordRepositoryImpl(this.datasource);
   @override
   Future<Either<FailureError, Success>> changePasswordEmail(
-      NewPasswordEntity newPassword) async {
+      String token, NewPasswordEntity newPassword) async {
     try {
-      final result = await datasource.changePasswordEmail(newPassword);
+      final result = await datasource.changePasswordEmail(token, newPassword);
       return Right(result);
     } catch (e) {
       return Left(DataSourceError());

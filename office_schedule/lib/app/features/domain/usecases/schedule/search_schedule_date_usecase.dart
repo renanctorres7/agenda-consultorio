@@ -6,7 +6,7 @@ import '../../errors/errors.dart';
 
 abstract class SearchScheduleDateUsecase {
   Future<Either<FailureError, List<ScheduleEntity>>> call(
-      ScheduleDateEntity scheduleDateEntity);
+      String token, ScheduleDateEntity scheduleDateEntity);
 }
 
 class SearchScheduleDateUsecaseImpl implements SearchScheduleDateUsecase {
@@ -15,8 +15,9 @@ class SearchScheduleDateUsecaseImpl implements SearchScheduleDateUsecase {
   SearchScheduleDateUsecaseImpl(this.repository);
   @override
   Future<Either<FailureError, List<ScheduleEntity>>> call(
-      ScheduleDateEntity scheduleDateEntity) async {
-    final result = await repository.searchScheduleFromDate(scheduleDateEntity);
+      String token, ScheduleDateEntity scheduleDateEntity) async {
+    final result =
+        await repository.searchScheduleFromDate(token, scheduleDateEntity);
     return result;
   }
 }

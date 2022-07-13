@@ -5,5 +5,5 @@ import '../../errors/errors.dart';
 
 abstract class UpdateProfileRepository {
   Future<Either<FailureError, UserEntity>> updateProfile(
-      UserUpdateEntity userUpdateEntity);
+      String token, UserUpdateEntity userUpdateEntity);
 }

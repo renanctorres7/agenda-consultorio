@@ -5,12 +5,10 @@ import 'package:office_schedule/app/features/infra/models/user/model/user_model.
 
 class DioUsersListDatasource implements UsersListDatasource {
   final GetUsersListService getUsersListService;
-  final String token;
 
-  DioUsersListDatasource(
-      {required this.getUsersListService, required this.token});
+  DioUsersListDatasource({required this.getUsersListService});
   @override
-  Future<List<UserModel>?> getUsersList() async {
+  Future<List<UserModel>?> getUsersList(String token) async {
     try {
       final result = await getUsersListService.getUsersList(token);
       return result ?? <UserModel>[];

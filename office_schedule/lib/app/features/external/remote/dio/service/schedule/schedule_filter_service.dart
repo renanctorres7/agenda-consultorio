@@ -15,6 +15,6 @@ abstract class ScheduleFilterService {
   @POST(ParseEndpoints.listScheduleFilter)
   @Headers(ParseHeaders.header)
   Future<List<ScheduleModel>?> getListScheduleByFilter(
-      @Header(ParseHeaders.sessionTokenTitle) String sessionToken,
+      @Header(ParseHeaders.sessionTokenTitle) String token,
       @Body() ScheduleFilterModel scheduleCreateModel);
 }

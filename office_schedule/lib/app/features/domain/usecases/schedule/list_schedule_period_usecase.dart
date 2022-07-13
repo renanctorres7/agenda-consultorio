@@ -6,7 +6,7 @@ import '../../repositories/respositories.dart';
 
 abstract class ListSchedulePeriodUsecase {
   Future<Either<FailureError, List<ScheduleEntity>>> call(
-      SchedulePeriodEntity schedulePeriodEntity);
+      String token, SchedulePeriodEntity schedulePeriodEntity);
 }
 
 class ListSchedulePeriodUsecaseImpl implements ListSchedulePeriodUsecase {
@@ -15,9 +15,9 @@ class ListSchedulePeriodUsecaseImpl implements ListSchedulePeriodUsecase {
   ListSchedulePeriodUsecaseImpl(this.repository);
   @override
   Future<Either<FailureError, List<ScheduleEntity>>> call(
-      SchedulePeriodEntity schedulePeriodEntity) async {
+      String token, SchedulePeriodEntity schedulePeriodEntity) async {
     final result =
-        await repository.getScheduleListByPeriod(schedulePeriodEntity);
+        await repository.getScheduleListByPeriod(token, schedulePeriodEntity);
 
     return result;
   }

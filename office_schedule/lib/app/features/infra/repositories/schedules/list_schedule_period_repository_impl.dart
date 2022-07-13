@@ -12,10 +12,10 @@ class ListSchedulePeriodRepositoryImpl implements ListSchedulePeriodRepository {
   ListSchedulePeriodRepositoryImpl(this.datasource);
   @override
   Future<Either<FailureError, List<ScheduleEntity>>> getScheduleListByPeriod(
-      SchedulePeriodEntity schedulePeriodEntity) async {
+      String token, SchedulePeriodEntity schedulePeriodEntity) async {
     try {
       final result =
-          await datasource.getScheduleListByPeriod(schedulePeriodEntity);
+          await datasource.getScheduleListByPeriod(token, schedulePeriodEntity);
       return result != null ? Right(result) : Left(NullError());
     } catch (e) {
       return Left(DataSourceError());

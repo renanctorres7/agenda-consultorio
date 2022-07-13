@@ -9,6 +9,7 @@ import '../../../../../../../mocks/mocks.dart';
 class GetUserServiceMock extends Mock implements GetUserService {}
 
 void main() {
+  String token = faker.guid.guid();
   final service = GetUserServiceMock();
   final datasource = DioGetUserDatasource(getUserService: service);
   final objectId = faker.guid.guid();
@@ -16,16 +17,16 @@ void main() {
 
   Map<String, String> mapObjectId = {'objectId': objectId};
   test('Input a String e-mail and returns Successful Response', () async {
-    when(() => service.getUserProfile(mapObjectId))
+    when(() => service.getUserProfile(token, mapObjectId))
         .thenAnswer((_) async => usersModel);
 
-    final result = await datasource.getUserProfile(objectId);
+    final result = await datasource.getUserProfile(token, objectId);
 
     expect(result, usersModel);
   });
 
   test('Should throw a Dio Error if gets error', () async {
-    when(() => service.getUserProfile(mapObjectId)).thenThrow(DioError(
+    when(() => service.getUserProfile(token, mapObjectId)).thenThrow(DioError(
       requestOptions: RequestOptions(path: ''),
       response: Response(
         data: 'Something went wrong',
@@ -34,7 +35,7 @@ void main() {
       ),
     ));
 
-    final result = datasource.getUserProfile(objectId);
+    final result = datasource.getUserProfile(token, objectId);
 
     expect(result, throwsA(const TypeMatcher<DioError>()));
   });

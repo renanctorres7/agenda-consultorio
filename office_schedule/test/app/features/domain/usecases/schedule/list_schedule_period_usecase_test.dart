@@ -1,4 +1,5 @@
 import 'package:dartz/dartz.dart';
+import 'package:faker/faker.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:mocktail/mocktail.dart';
 import 'package:office_schedule/app/features/domain/entities/entities.dart';
@@ -12,6 +13,7 @@ class ListSchedulePeriodRepositoryMock extends Mock
 class SchedulePeriodEntityMock extends Mock implements SchedulePeriodEntity {}
 
 void main() {
+  String token = faker.guid.guid();
   final repository = ListSchedulePeriodRepositoryMock();
   final usecase = ListSchedulePeriodUsecaseImpl(repository);
   List<ScheduleEntity> list = [];
@@ -20,26 +22,28 @@ void main() {
   test(
       'Should input a Schedule Period Entity and return a Schedule Entity List',
       () async {
-    when(() => repository.getScheduleListByPeriod(schedulePeriodEntity))
+    when(() => repository.getScheduleListByPeriod(token, schedulePeriodEntity))
         .thenAnswer((_) async => Right(list));
 
-    final result = await usecase(schedulePeriodEntity);
+    final result = await usecase(token, schedulePeriodEntity);
 
     expect(result, Right(list));
 
-    verify(() => repository.getScheduleListByPeriod(schedulePeriodEntity))
+    verify(() =>
+            repository.getScheduleListByPeriod(token, schedulePeriodEntity))
         .called(1);
   });
 
   test('Should return a Domain Error if returns error', () async {
-    when(() => repository.getScheduleListByPeriod(schedulePeriodEntity))
+    when(() => repository.getScheduleListByPeriod(token, schedulePeriodEntity))
         .thenAnswer((_) async => Left(DomainError()));
 
-    final result = await usecase(schedulePeriodEntity);
+    final result = await usecase(token, schedulePeriodEntity);
 
     expect(result, Left(DomainError()));
 
-    verify(() => repository.getScheduleListByPeriod(schedulePeriodEntity))
+    verify(() =>
+            repository.getScheduleListByPeriod(token, schedulePeriodEntity))
         .called(1);
   });
 }

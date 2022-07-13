@@ -13,11 +13,10 @@ class SearchScheduleDateServiceMock extends Mock
 class ScheduleDateModelMock extends Mock implements ScheduleDateModel {}
 
 void main() {
-  String sessionToken = faker.guid.guid();
+  String token = faker.guid.guid();
   final searchScheduleDateService = SearchScheduleDateServiceMock();
   final datasource = DioSearchScheduleDateDatasource(
-      searchScheduleDateService: searchScheduleDateService,
-      sessionToken: sessionToken);
+      searchScheduleDateService: searchScheduleDateService);
 
   var scheduleDateModelMock = ScheduleDateModelMock();
 
@@ -26,7 +25,7 @@ void main() {
   final list = [MocksModels.scheduleModel];
 
   setUp(() {
-    registerFallbackValue(sessionToken);
+    registerFallbackValue(token);
     registerFallbackValue(scheduleDateModelMock);
     registerFallbackValue(scheduleDateModel);
 
@@ -38,7 +37,8 @@ void main() {
     when(() => searchScheduleDateService.searchScheduleFromDate(any(), any()))
         .thenAnswer((_) async => list);
 
-    final result = await datasource.searchScheduleFromDate(scheduleDateModel);
+    final result =
+        await datasource.searchScheduleFromDate(token, scheduleDateModel);
 
     expect(result, list);
   });
@@ -49,7 +49,8 @@ void main() {
     when(() => searchScheduleDateService.searchScheduleFromDate(any(), any()))
         .thenAnswer((_) async => null);
 
-    final result = await datasource.searchScheduleFromDate(scheduleDateModel);
+    final result =
+        await datasource.searchScheduleFromDate(token, scheduleDateModel);
 
     expect(result, []);
   });
@@ -65,7 +66,7 @@ void main() {
       ),
     ));
 
-    final result = datasource.searchScheduleFromDate(scheduleDateModel);
+    final result = datasource.searchScheduleFromDate(token, scheduleDateModel);
 
     expect(result, throwsA(const TypeMatcher<DioError>()));
   });

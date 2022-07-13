@@ -17,6 +17,6 @@ abstract class CreateScheduleService {
   @POST(ParseEndpoints.createSchedule)
   @Headers(ParseHeaders.header)
   Future<void> createSchedule(
-      @Header(ParseHeaders.sessionTokenTitle) String sessionToken,
+      @Header(ParseHeaders.sessionTokenTitle) String token,
       @Body() ScheduleCreateModel scheduleCreateModel);
 }

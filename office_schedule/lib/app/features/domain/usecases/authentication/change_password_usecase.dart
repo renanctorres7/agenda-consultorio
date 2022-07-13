@@ -6,7 +6,8 @@ import '../../repositories/respositories.dart';
 import '../../success/success.dart';
 
 abstract class ChangePasswordUsecase {
-  Future<Either<FailureError, Success>> call(NewPasswordEntity newPassword);
+  Future<Either<FailureError, Success>> call(
+      String token, NewPasswordEntity newPassword);
 }
 
 class ChangePasswordUsecaseImpl implements ChangePasswordUsecase {
@@ -15,8 +16,8 @@ class ChangePasswordUsecaseImpl implements ChangePasswordUsecase {
   ChangePasswordUsecaseImpl(this.repository);
   @override
   Future<Either<FailureError, Success>> call(
-      NewPasswordEntity newPassword) async {
-    final result = await repository.changePasswordEmail(newPassword);
+      String token, NewPasswordEntity newPassword) async {
+    final result = await repository.changePasswordEmail(token, newPassword);
     return result;
   }
 }

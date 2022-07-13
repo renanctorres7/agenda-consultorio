@@ -6,5 +6,5 @@ import '../../success/success.dart';
 
 abstract class ChangePasswordRepository {
   Future<Either<FailureError, Success>> changePasswordEmail(
-      NewPasswordEntity newPassword);
+      String token, NewPasswordEntity newPassword);
 }

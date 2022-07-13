@@ -14,33 +14,32 @@ void main() {
   late DioChangePasswordDatasource datasource;
 
   final newPasswordModelMock = MocksModels.newPasswordModel;
-  String sessionToken = faker.guid.guid();
+  String token = faker.guid.guid();
 
   setUp(() {
     registerFallbackValue(newPasswordModelMock);
 
-    registerFallbackValue(sessionToken);
+    registerFallbackValue(token);
 
     changePasswordServiceMock = ChangePasswordServiceMock();
     datasource = DioChangePasswordDatasource(
-        changePasswordService: changePasswordServiceMock,
-        sessionToken: sessionToken);
+      changePasswordService: changePasswordServiceMock,
+    );
   });
 
   test('Should input a New Password Model and return Successful Response',
       () async {
-    when(() =>
-            changePasswordServiceMock.changePasswordEmail(sessionToken, any()))
+    when(() => changePasswordServiceMock.changePasswordEmail(token, any()))
         .thenAnswer((_) async {});
 
-    final result = await datasource.changePasswordEmail(newPasswordModelMock);
+    final result =
+        await datasource.changePasswordEmail(token, newPasswordModelMock);
 
     expect(result, SuccessfulResponse());
   });
 
   test('Should throw a Dio Error if gets error', () async {
-    when(() =>
-            changePasswordServiceMock.changePasswordEmail(sessionToken, any()))
+    when(() => changePasswordServiceMock.changePasswordEmail(token, any()))
         .thenThrow(DioError(
       requestOptions: RequestOptions(path: ''),
       response: Response(
@@ -50,7 +49,7 @@ void main() {
       ),
     ));
 
-    final result = datasource.changePasswordEmail(newPasswordModelMock);
+    final result = datasource.changePasswordEmail(token, newPasswordModelMock);
 
     expect(result, throwsA(const TypeMatcher<DioError>()));
   });

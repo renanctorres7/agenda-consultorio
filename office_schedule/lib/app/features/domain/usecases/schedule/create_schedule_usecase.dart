@@ -7,7 +7,7 @@ import '../../success/success.dart';
 
 abstract class CreateScheduleUsecase {
   Future<Either<FailureError, Success>> call(
-      ScheduleCreateEntity scheduleCreateEntity);
+      String token, ScheduleCreateEntity scheduleCreateEntity);
 }
 
 class CreateScheduleUsecaseImpl implements CreateScheduleUsecase {
@@ -16,8 +16,8 @@ class CreateScheduleUsecaseImpl implements CreateScheduleUsecase {
   CreateScheduleUsecaseImpl(this.repository);
   @override
   Future<Either<FailureError, Success>> call(
-      ScheduleCreateEntity scheduleCreateEntity) async {
-    final result = await repository.createSchedule(scheduleCreateEntity);
+      String token, ScheduleCreateEntity scheduleCreateEntity) async {
+    final result = await repository.createSchedule(token, scheduleCreateEntity);
     return result;
   }
 }

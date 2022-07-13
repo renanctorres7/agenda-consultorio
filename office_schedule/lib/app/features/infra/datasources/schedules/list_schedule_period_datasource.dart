@@ -3,5 +3,5 @@ import '../../models/models.dart';
 
 abstract class ListSchedulePeriodDatasource {
   Future<List<ScheduleModel>?> getScheduleListByPeriod(
-      SchedulePeriodEntity schedulePeriodEntity);
+      String token, SchedulePeriodEntity schedulePeriodEntity);
 }

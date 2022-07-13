@@ -12,9 +12,10 @@ class UpdateScheduleRepositoryImpl implements UpdateScheduleRepository {
   UpdateScheduleRepositoryImpl(this.datasource);
   @override
   Future<Either<FailureError, Success>> updateSchedule(
-      ScheduleUpdateEntity scheduleUpdateEntity) async {
+      String token, ScheduleUpdateEntity scheduleUpdateEntity) async {
     try {
-      final result = await datasource.updateSchedule(scheduleUpdateEntity);
+      final result =
+          await datasource.updateSchedule(token, scheduleUpdateEntity);
       return Right(result);
     } catch (e) {
       return Left(DataSourceError());

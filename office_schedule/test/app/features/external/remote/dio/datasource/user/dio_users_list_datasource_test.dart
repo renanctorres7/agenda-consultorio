@@ -11,8 +11,8 @@ class GetUsersListServiceMock extends Mock implements GetUsersListService {}
 void main() {
   String token = faker.guid.guid();
   final getUsersListService = GetUsersListServiceMock();
-  final datasource = DioUsersListDatasource(
-      getUsersListService: getUsersListService, token: token);
+  final datasource =
+      DioUsersListDatasource(getUsersListService: getUsersListService);
 
   final list = [MocksModels.usersModel];
 
@@ -20,7 +20,7 @@ void main() {
     when(() => getUsersListService.getUsersList(token))
         .thenAnswer((_) async => list);
 
-    final result = await datasource.getUsersList();
+    final result = await datasource.getUsersList(token);
 
     expect(result, list);
   });

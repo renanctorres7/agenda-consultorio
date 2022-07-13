@@ -11,9 +11,9 @@ class GetUserRepositoryImpl implements GetUserRepository {
   GetUserRepositoryImpl(this.datasource);
   @override
   Future<Either<FailureError, UserEntity>> getUserProfile(
-      String objectId) async {
+      String token, String objectId) async {
     try {
-      final result = await datasource.getUserProfile(objectId);
+      final result = await datasource.getUserProfile(token, objectId);
       return result != null ? Right(result) : Left(NullError());
     } catch (e) {
       return Left(DataSourceError());

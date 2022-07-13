@@ -15,10 +15,10 @@ class SearchScheduleDateRepositoryImpl implements SearchScheduleDateRepository {
   SearchScheduleDateRepositoryImpl(this.datasource);
   @override
   Future<Either<FailureError, List<ScheduleEntity>>> searchScheduleFromDate(
-      ScheduleDateEntity scheduleDateEntity) async {
+      String token, ScheduleDateEntity scheduleDateEntity) async {
     try {
       final result =
-          await datasource.searchScheduleFromDate(scheduleDateEntity);
+          await datasource.searchScheduleFromDate(token, scheduleDateEntity);
       return result != null ? Right(result) : Left(NullError());
     } catch (e) {
       return Left(DataSourceError());

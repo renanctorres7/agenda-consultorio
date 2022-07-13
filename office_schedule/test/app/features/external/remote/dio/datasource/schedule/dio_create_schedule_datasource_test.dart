@@ -13,10 +13,11 @@ class CreateScheduleServiceMock extends Mock implements CreateScheduleService {}
 class ScheduleCreateModelMock extends Mock implements ScheduleCreateModel {}
 
 void main() {
-  String sessionToken = faker.guid.guid();
+  String token = faker.guid.guid();
   CreateScheduleServiceMock service = CreateScheduleServiceMock();
   DioCreateScheduleDatasource datasource = DioCreateScheduleDatasource(
-      createScheduleService: service, sessionToken: sessionToken);
+    createScheduleService: service,
+  );
 
   final scheduleCreateModel = MocksModels.scheduleCreateModel;
   final modelMock = ScheduleCreateModelMock();
@@ -25,14 +26,14 @@ void main() {
     registerFallbackValue(modelMock);
 
     registerFallbackValue(scheduleCreateModel);
-    registerFallbackValue(sessionToken);
+    registerFallbackValue(token);
   });
 
   test('When input a Create Schedule Model should return a Successful Response',
       () async {
     when(() => service.createSchedule(any(), any())).thenAnswer((_) async {});
 
-    final result = await datasource.createSchedule(scheduleCreateModel);
+    final result = await datasource.createSchedule(token, scheduleCreateModel);
 
     expect(result, SuccessfulResponse());
   });
@@ -47,7 +48,7 @@ void main() {
       ),
     ));
 
-    final result = datasource.createSchedule(scheduleCreateModel);
+    final result = datasource.createSchedule(token, scheduleCreateModel);
 
     expect(result, throwsA(const TypeMatcher<DioError>()));
   });

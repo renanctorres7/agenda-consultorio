@@ -16,6 +16,6 @@ abstract class ChangePasswordService {
   @POST(ParseEndpoints.changePasswordEmail)
   @Headers(ParseHeaders.header)
   Future<void> changePasswordEmail(
-      @Header(ParseHeaders.sessionTokenTitle) String sessionToken,
+      @Header(ParseHeaders.sessionTokenTitle) String token,
       @Body() NewPasswordModel newPassword);
 }

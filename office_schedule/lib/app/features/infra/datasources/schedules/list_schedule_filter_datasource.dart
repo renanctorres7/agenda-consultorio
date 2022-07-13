@@ -4,5 +4,5 @@ import '../../../domain/entities/entities.dart';
 
 abstract class ListScheduleFilterDatasource {
   Future<List<ScheduleModel>?> getListScheduleByFilter(
-      ScheduleFilterEntity scheduleFilterEntity);
+      String token, ScheduleFilterEntity scheduleFilterEntity);
 }

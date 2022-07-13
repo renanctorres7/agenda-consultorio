@@ -9,16 +9,16 @@ import '../../../../../../../mocks/mocks.dart';
 class UpdateProfileServiceMock extends Mock implements UpdateProfileService {}
 
 void main() {
-  String sessionToken = faker.guid.guid();
+  String token = faker.guid.guid();
   final updateProfileService = UpdateProfileServiceMock();
-  final datasource = DioUpdateProfileDatasource(
-      updateProfileService: updateProfileService, sessionToken: sessionToken);
+  final datasource =
+      DioUpdateProfileDatasource(updateProfileService: updateProfileService);
   final userUpdateModelMock = UserUpdateModelMock();
   final userUpdateModel = MocksModels.userUpdateModel;
   final usersModel = MocksModels.usersModel;
 
   setUp(() {
-    registerFallbackValue(sessionToken);
+    registerFallbackValue(token);
     registerFallbackValue(userUpdateModel);
     registerFallbackValue(usersModel);
 
@@ -29,7 +29,7 @@ void main() {
     when(() => updateProfileService.updateProfile(any(), any()))
         .thenAnswer((_) async => usersModel);
 
-    final result = await datasource.updateProfile(userUpdateModel);
+    final result = await datasource.updateProfile(token, userUpdateModel);
 
     expect(result, usersModel);
   });
@@ -45,7 +45,7 @@ void main() {
       ),
     ));
 
-    final result = datasource.updateProfile(userUpdateModel);
+    final result = datasource.updateProfile(token, userUpdateModel);
 
     expect(result, throwsA(const TypeMatcher<DioError>()));
   });

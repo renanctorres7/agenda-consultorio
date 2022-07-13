@@ -12,9 +12,10 @@ class DeleteScheduleRepositoryImpl implements DeleteScheduleRepository {
 
   DeleteScheduleRepositoryImpl(this.datasource);
   @override
-  Future<Either<FailureError, Success>> deleteSchedule(String objectId) async {
+  Future<Either<FailureError, Success>> deleteSchedule(
+      String token, String objectId) async {
     try {
-      final result = await datasource.deleteSchedule(objectId);
+      final result = await datasource.deleteSchedule(token, objectId);
       return Right(result);
     } catch (e) {
       return Left(DataSourceError());

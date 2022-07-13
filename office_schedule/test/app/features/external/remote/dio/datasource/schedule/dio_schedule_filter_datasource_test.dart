@@ -12,10 +12,11 @@ class ScheduleFilterServiceMock extends Mock implements ScheduleFilterService {}
 class ScheduleFilterModelMock extends Mock implements ScheduleFilterModel {}
 
 void main() {
-  String sessionToken = faker.guid.guid();
+  String token = faker.guid.guid();
   ScheduleFilterServiceMock scheduleFilterService = ScheduleFilterServiceMock();
   DioScheduleFilterDatasource datasource = DioScheduleFilterDatasource(
-      scheduleFilterService: scheduleFilterService, sessionToken: sessionToken);
+    scheduleFilterService: scheduleFilterService,
+  );
 
   var scheduleFilterModelMock = ScheduleFilterModelMock();
 
@@ -24,7 +25,7 @@ void main() {
   final list = [MocksModels.scheduleModel];
 
   setUp(() {
-    registerFallbackValue(sessionToken);
+    registerFallbackValue(token);
     registerFallbackValue(scheduleFilterModelMock);
     registerFallbackValue(scheduleFilterModel);
 
@@ -37,7 +38,7 @@ void main() {
         .thenAnswer((_) async => list);
 
     final result =
-        await datasource.getListScheduleByFilter(scheduleFilterModel);
+        await datasource.getListScheduleByFilter(token, scheduleFilterModel);
 
     expect(result, list);
   });
@@ -49,7 +50,7 @@ void main() {
         .thenAnswer((_) async => null);
 
     final result =
-        await datasource.getListScheduleByFilter(scheduleFilterModel);
+        await datasource.getListScheduleByFilter(token, scheduleFilterModel);
 
     expect(result, []);
   });
@@ -65,7 +66,8 @@ void main() {
       ),
     ));
 
-    final result = datasource.getListScheduleByFilter(scheduleFilterModel);
+    final result =
+        datasource.getListScheduleByFilter(token, scheduleFilterModel);
 
     expect(result, throwsA(const TypeMatcher<DioError>()));
   });

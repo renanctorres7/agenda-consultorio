@@ -8,15 +8,14 @@ import '../../service/service.dart';
 
 class DioUpdateProfileDatasource implements UpdateProfileDatasource {
   final UpdateProfileService updateProfileService;
-  final String sessionToken;
 
-  DioUpdateProfileDatasource(
-      {required this.updateProfileService, required this.sessionToken});
+  DioUpdateProfileDatasource({required this.updateProfileService});
   @override
-  Future<UserModel?> updateProfile(UserUpdateEntity userUpdateEntity) async {
+  Future<UserModel?> updateProfile(
+      String token, UserUpdateEntity userUpdateEntity) async {
     try {
       final result = await updateProfileService.updateProfile(
-          sessionToken, UserUpdateModel.fromEntity(userUpdateEntity));
+          token, UserUpdateModel.fromEntity(userUpdateEntity));
       return result;
     } on DioError catch (e) {
       throw DioError(requestOptions: e.requestOptions, response: e.response);

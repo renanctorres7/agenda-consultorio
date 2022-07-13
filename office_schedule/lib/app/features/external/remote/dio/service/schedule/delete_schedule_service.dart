@@ -14,6 +14,6 @@ abstract class DeleteScheduleService {
   @POST(ParseEndpoints.deleteSchedule)
   @Headers(ParseHeaders.header)
   Future<void> deleteSchedule(
-      @Header(ParseHeaders.sessionTokenTitle) String sessionToken,
+      @Header(ParseHeaders.sessionTokenTitle) String token,
       @Body() Map<String, String> objectIdMap);
 }

@@ -5,7 +5,7 @@ import '../../errors/errors.dart';
 import '../../repositories/respositories.dart';
 
 abstract class GetUserUsecase {
-  Future<Either<FailureError, UserEntity>> call(String objectId);
+  Future<Either<FailureError, UserEntity>> call(String token, String objectId);
 }
 
 class GetUserUsecaseImpl implements GetUserUsecase {
@@ -13,8 +13,9 @@ class GetUserUsecaseImpl implements GetUserUsecase {
 
   GetUserUsecaseImpl(this.repository);
   @override
-  Future<Either<FailureError, UserEntity>> call(String objectId) async {
-    final result = await repository.getUserProfile(objectId);
+  Future<Either<FailureError, UserEntity>> call(
+      String token, String objectId) async {
+    final result = await repository.getUserProfile(token, objectId);
     return result;
   }
 }

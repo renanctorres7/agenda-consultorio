@@ -6,5 +6,5 @@ import '../../success/success.dart';
 
 abstract class CreateScheduleRepository {
   Future<Either<FailureError, Success>> createSchedule(
-      ScheduleCreateEntity scheduleCreateEntity);
+      String token, ScheduleCreateEntity scheduleCreateEntity);
 }
