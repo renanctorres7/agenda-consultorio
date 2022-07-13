@@ -43,6 +43,17 @@ void main() {
     expect(result, list);
   });
 
+  test(
+      'When Search Schedule Date Service gets null value should return a empty list from Datasource',
+      () async {
+    when(() => searchScheduleDateService.searchScheduleFromDate(any(), any()))
+        .thenAnswer((_) async => null);
+
+    final result = await datasource.searchScheduleFromDate(scheduleDateModel);
+
+    expect(result, []);
+  });
+
   test('Should throw a DioError if gets error', () async {
     when(() => searchScheduleDateService.searchScheduleFromDate(any(), any()))
         .thenThrow(DioError(
