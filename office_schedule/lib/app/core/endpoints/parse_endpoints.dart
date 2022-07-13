@@ -3,6 +3,7 @@ abstract class ParseEndpoints {
   static const String login = '/login';
   static const String resetPassword = '/reset-password';
   static const String signUp = '/signup';
+  static const String validateToken = '/validate-token';
 
   static const String createSchedule = '/create-schedule';
   static const String listScheduleFilter = '/list-schedule';
