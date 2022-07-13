@@ -4,3 +4,4 @@
 2. Login ✅
 3. Change Password/Email ✅
 4. Reset Password ✅
+5. Validate Token ✅
