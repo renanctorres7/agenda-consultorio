@@ -12,7 +12,6 @@ abstract class InitHive {
       Hive.init(pathDir.path);
     }
 
-    Hive.registerAdapter<TokenModelHive>(TokenModelHiveAdapter());
     Hive.registerAdapter<UserProfileHive>(UserProfileHiveAdapter());
 
     // await Hive.openBox<TokenModelHive>(DatabaseBoxName.dbToken);
