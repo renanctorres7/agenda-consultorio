@@ -1,3 +1,4 @@
+import 'package:flutter_secure_storage/flutter_secure_storage.dart';
 import 'package:mocktail/mocktail.dart';
 import 'package:office_schedule/app/features/domain/entities/entities.dart';
 import 'package:office_schedule/app/features/domain/repositories/respositories.dart';
@@ -43,3 +44,5 @@ class CreateScheduleRepositoryMock extends Mock
 class ScheduleCreateEntityMock extends Mock implements ScheduleCreateEntity {}
 
 class UserUpdateModelMock extends Mock implements UserUpdateModel {}
+
+class FlutterSecureStorageMock extends Mock implements FlutterSecureStorage {}

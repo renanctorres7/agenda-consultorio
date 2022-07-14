@@ -1,11 +1,10 @@
 import 'package:faker/faker.dart';
-import 'package:flutter_secure_storage/flutter_secure_storage.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:mocktail/mocktail.dart';
 import 'package:office_schedule/app/features/domain/success/successful_response.dart';
 import 'package:office_schedule/app/features/external/local/secure_storage/token/delete_storage_token_datasource_impl.dart';
 
-class FlutterSecureStorageMock extends Mock implements FlutterSecureStorage {}
+import '../../../../../../mocks/mocks.dart';
 
 void main() {
   final flutterSecureStorage = FlutterSecureStorageMock();
