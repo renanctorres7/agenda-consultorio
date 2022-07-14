@@ -14,7 +14,7 @@ void main() {
   final datasource = DeleteStorageTokenDatasourceMock();
   final repository = DeleteStorageTokenRepositoryImpl(datasource);
 
-  String key = faker.internet.email();
+  final key = faker.guid.guid();
 
   test("Should input a Key and return a Successful Response", () async {
     when(() => datasource.deleteStorageToken(key: key))
