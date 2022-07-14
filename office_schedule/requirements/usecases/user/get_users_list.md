@@ -2,10 +2,10 @@
 
 > ## Caso de sucesso
 
-1. Sistema recupera o token
-2. Sistema envia o token para o servidor
-3. Sistema retorna uma lista com todos os usuários
+1. Sistema recupera o token ✅
+2. Sistema envia o token para o servidor ✅
+3. Sistema retorna uma lista com todos os usuários ✅
 
 > ## Exceção
 
-1. Sistema retorna uma mensagem de erro inesperado
+1. Sistema retorna uma mensagem de erro inesperado ✅

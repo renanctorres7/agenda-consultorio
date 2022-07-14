@@ -1,4 +1,4 @@
-# Login Services
+# Authentication Services
 
 1. Sign Up ✅
 2. Login ✅
