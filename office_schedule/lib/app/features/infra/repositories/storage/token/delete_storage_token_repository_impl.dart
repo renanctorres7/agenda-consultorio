@@ -12,9 +12,9 @@ class DeleteStorageTokenRepositoryImpl implements DeleteStorageTokenRepository {
 
   @override
   Future<Either<FailureError, Success>> deleteStorageToken(
-      {required String key, required String value}) async {
+      {required String key}) async {
     try {
-      await datasource.deleteStorageToken(key: key, value: value);
+      await datasource.deleteStorageToken(key: key);
       return Right(SuccessfulResponse());
     } catch (e) {
       return Left(DataSourceError());
