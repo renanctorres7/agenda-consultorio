@@ -1,3 +1,5 @@
+import '../../../../domain/success/success.dart';
+
 abstract class DeleteStorageTokenDatasource {
-  Future<void> deleteStorageToken({required String key});
+  Future<Success> deleteStorageToken({required String key});
 }

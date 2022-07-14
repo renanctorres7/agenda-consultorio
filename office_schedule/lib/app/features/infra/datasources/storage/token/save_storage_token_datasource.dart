@@ -1,3 +1,6 @@
+import '../../../../domain/success/success.dart';
+
 abstract class SaveStorageTokenDatasource {
-  Future<void> saveStorageToken({required String key, required String value});
+  Future<Success> saveStorageToken(
+      {required String key, required String value});
 }
