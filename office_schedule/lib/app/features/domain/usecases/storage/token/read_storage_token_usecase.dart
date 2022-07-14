@@ -5,7 +5,7 @@ import '../../../success/success.dart';
 import '../../../repositories/respositories.dart';
 
 abstract class ReadStorageTokenUsecase {
-  Future<Either<FailureError, Success>> call({required String key});
+  Future<Either<FailureError, String>> call({required String key});
 }
 
 class ReadStorageTokenUsecaseImpl implements ReadStorageTokenUsecase {
@@ -13,7 +13,7 @@ class ReadStorageTokenUsecaseImpl implements ReadStorageTokenUsecase {
 
   ReadStorageTokenUsecaseImpl(this.repository);
   @override
-  Future<Either<FailureError, Success>> call({required String key}) async {
+  Future<Either<FailureError, String>> call({required String key}) async {
     final result = await repository.readStorageToken(key: key);
     return result;
   }
