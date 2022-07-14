@@ -8,7 +8,11 @@ class ReadStorageTokenDatasourceImpl implements ReadStorageTokenDatasource {
   ReadStorageTokenDatasourceImpl({required this.flutterSecureStorage});
   @override
   Future<String?> readStorageToken({required String key}) async {
-    String? value = await flutterSecureStorage.read(key: key);
-    return value ?? '';
+    try {
+      String? value = await flutterSecureStorage.read(key: key);
+      return value ?? '';
+    } catch (e) {
+      throw Exception('Unknown error on read Storage Token');
+    }
   }
 }
