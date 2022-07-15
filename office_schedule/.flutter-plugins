@@ -1,0 +1,15 @@
+# This is a generated file; do not edit or check into version control.
+<<<<<<< Updated upstream
+flutter_secure_storage=D:\\SDK FLUTTER\\flutter\\.pub-cache\\hosted\\pub.dartlang.org\\flutter_secure_storage-5.0.2\\
+flutter_secure_storage_linux=D:\\SDK FLUTTER\\flutter\\.pub-cache\\hosted\\pub.dartlang.org\\flutter_secure_storage_linux-1.1.0\\
+flutter_secure_storage_macos=D:\\SDK FLUTTER\\flutter\\.pub-cache\\hosted\\pub.dartlang.org\\flutter_secure_storage_macos-1.1.0\\
+flutter_secure_storage_web=D:\\SDK FLUTTER\\flutter\\.pub-cache\\hosted\\pub.dartlang.org\\flutter_secure_storage_web-1.0.2\\
+flutter_secure_storage_windows=D:\\SDK FLUTTER\\flutter\\.pub-cache\\hosted\\pub.dartlang.org\\flutter_secure_storage_windows-1.1.2\\
+=======
+>>>>>>> Stashed changes
+path_provider=D:\\SDK FLUTTER\\flutter\\.pub-cache\\hosted\\pub.dartlang.org\\path_provider-2.0.11\\
+path_provider_android=D:\\SDK FLUTTER\\flutter\\.pub-cache\\hosted\\pub.dartlang.org\\path_provider_android-2.0.16\\
+path_provider_ios=D:\\SDK FLUTTER\\flutter\\.pub-cache\\hosted\\pub.dartlang.org\\path_provider_ios-2.0.10\\
+path_provider_linux=D:\\SDK FLUTTER\\flutter\\.pub-cache\\hosted\\pub.dartlang.org\\path_provider_linux-2.1.7\\
+path_provider_macos=D:\\SDK FLUTTER\\flutter\\.pub-cache\\hosted\\pub.dartlang.org\\path_provider_macos-2.0.6\\
+path_provider_windows=D:\\SDK FLUTTER\\flutter\\.pub-cache\\hosted\\pub.dartlang.org\\path_provider_windows-2.1.0\\
