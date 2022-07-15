@@ -1,0 +1,48 @@
+import 'package:flutter_secure_storage/flutter_secure_storage.dart';
+import 'package:mocktail/mocktail.dart';
+import 'package:office_schedule/app/features/domain/entities/entities.dart';
+import 'package:office_schedule/app/features/domain/repositories/respositories.dart';
+import 'package:office_schedule/app/features/infra/datasources/datasources.dart';
+import 'package:office_schedule/app/features/infra/models/models.dart';
+
+class LoginEntityMock extends Mock implements LoginEntity {}
+
+class SignUpEntityMock extends Mock implements SignUpEntity {}
+
+class UpdateProfileDatasourceMock extends Mock
+    implements UpdateProfileDatasource {}
+
+class UserUpdateEntityMock extends Mock implements UserUpdateEntity {}
+
+class ChangePasswordRepositoryMock extends Mock
+    implements ChangePasswordRepository {}
+
+class NewPasswordEntityMock extends Mock implements NewPasswordEntity {}
+
+class ChangePasswordDatasourceMock extends Mock
+    implements ChangePasswordDatasource {}
+
+class ResetPasswordRepositoryMock extends Mock
+    implements ResetPasswordRepository {}
+
+class ResetPasswordDatasourceMock extends Mock
+    implements ResetPasswordDatasource {}
+
+class UsersEntityMock extends Mock implements UserEntity {}
+
+class GetUserRepositoryMock extends Mock implements GetUserRepository {}
+
+class GetUserDatasourceMock extends Mock implements GetUserDatasource {}
+
+class UsersListRepositoryMock extends Mock implements UsersListRepository {}
+
+class UsersListDatasourceMock extends Mock implements UsersListDatasource {}
+
+class CreateScheduleRepositoryMock extends Mock
+    implements CreateScheduleRepository {}
+
+class ScheduleCreateEntityMock extends Mock implements ScheduleCreateEntity {}
+
+class UserUpdateModelMock extends Mock implements UserUpdateModel {}
+
+class FlutterSecureStorageMock extends Mock implements FlutterSecureStorage {}
