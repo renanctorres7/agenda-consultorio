@@ -6,5 +6,6 @@ import '../../success/success.dart';
 
 abstract class ClientsCreateRepository {
   Future<Either<FailureError, Success>> createClient(
-      String token, ClientsCreateEntity clientsCreateEntity);
+      {required String token,
+      required ClientsCreateEntity clientsCreateEntity});
 }

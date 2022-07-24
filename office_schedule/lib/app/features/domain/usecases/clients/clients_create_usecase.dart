@@ -7,7 +7,8 @@ import '../../success/success.dart';
 
 abstract class ClientsCreateUsecase {
   Future<Either<FailureError, Success>> call(
-      String token, ClientsCreateEntity clientsCreateEntity);
+      {required String token,
+      required ClientsCreateEntity clientsCreateEntity});
 }
 
 class ClientsCreateUsecaseImpl implements ClientsCreateUsecase {
@@ -16,8 +17,10 @@ class ClientsCreateUsecaseImpl implements ClientsCreateUsecase {
   ClientsCreateUsecaseImpl(this.repository);
   @override
   Future<Either<FailureError, Success>> call(
-      String token, ClientsCreateEntity clientsCreateEntity) async {
-    final result = await repository.createClient(token, clientsCreateEntity);
+      {required String token,
+      required ClientsCreateEntity clientsCreateEntity}) async {
+    final result = await repository.createClient(
+        token: token, clientsCreateEntity: clientsCreateEntity);
     return result;
   }
 }
