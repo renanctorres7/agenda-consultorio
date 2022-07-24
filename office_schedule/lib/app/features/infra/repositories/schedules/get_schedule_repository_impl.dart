@@ -10,9 +10,10 @@ class GetScheduleRepositoryImpl implements GetScheduleRepository {
   GetScheduleRepositoryImpl(this.datasource);
   @override
   Future<Either<FailureError, ScheduleEntity>> getSchedule(
-      {required String objectId}) async {
+      {required String token, required String objectId}) async {
     try {
-      final result = await datasource.getSchedule(objectId: objectId);
+      final result =
+          await datasource.getSchedule(objectId: objectId, token: token);
       return result != null ? Right(result) : Left(NullError());
     } catch (e) {
       return Left(DataSourceError());

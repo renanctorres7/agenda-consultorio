@@ -5,7 +5,8 @@ import '../../errors/errors.dart';
 import '../../repositories/respositories.dart';
 
 abstract class GetScheduleUsecase {
-  Future<Either<FailureError, ScheduleEntity>> call({required String objectId});
+  Future<Either<FailureError, ScheduleEntity>> call(
+      {required String token, required String objectId});
 }
 
 class GetScheduleUsecaseImpl implements GetScheduleUsecase {
@@ -14,8 +15,9 @@ class GetScheduleUsecaseImpl implements GetScheduleUsecase {
   GetScheduleUsecaseImpl(this.repository);
   @override
   Future<Either<FailureError, ScheduleEntity>> call(
-      {required String objectId}) async {
-    final result = await repository.getSchedule(objectId: objectId);
+      {required String token, required String objectId}) async {
+    final result =
+        await repository.getSchedule(objectId: objectId, token: token);
     return result;
   }
 }

@@ -5,5 +5,5 @@ import '../../errors/errors.dart';
 
 abstract class GetScheduleRepository {
   Future<Either<FailureError, ScheduleEntity>> getSchedule(
-      {required String objectId});
+      {required String token, required String objectId});
 }

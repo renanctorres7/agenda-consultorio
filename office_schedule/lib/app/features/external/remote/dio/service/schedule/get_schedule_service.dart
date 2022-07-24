@@ -1,4 +1,5 @@
 import 'package:dio/dio.dart' hide Headers;
+import 'package:office_schedule/app/features/infra/models/schedules/schedules.dart';
 import 'package:retrofit/retrofit.dart';
 
 import '../../../../../../core/core.dart';
@@ -12,6 +13,7 @@ abstract class GetScheduleService {
 
   @POST(ParseEndpoints.getSchedule)
   @Headers(ParseHeaders.header)
-  Future<void> getSchedule(@Header(ParseHeaders.sessionTokenTitle) String token,
+  Future<ScheduleModel?> getSchedule(
+      @Header(ParseHeaders.sessionTokenTitle) String token,
       @Body() Map<String, String> objectId);
 }

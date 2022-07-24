@@ -16,25 +16,29 @@ void main() {
   final responseBody = MocksModels.scheduleModel;
 
   String objectId = faker.guid.guid();
+  String token = faker.guid.guid();
+
   test("Should input an object ID and return a Schedule Entity", () async {
-    when(() => repository.getSchedule(objectId: objectId))
+    when(() => repository.getSchedule(token: token, objectId: objectId))
         .thenAnswer((_) async => Right(responseBody));
 
-    final result = await usecase(objectId: objectId);
+    final result = await usecase(token: token, objectId: objectId);
 
     expect(result, Right(responseBody));
 
-    verify(() => repository.getSchedule(objectId: objectId)).called(1);
+    verify(() => repository.getSchedule(token: token, objectId: objectId))
+        .called(1);
   });
 
   test("Should return Domain Error when gets error", () async {
-    when(() => repository.getSchedule(objectId: objectId))
+    when(() => repository.getSchedule(token: token, objectId: objectId))
         .thenAnswer((_) async => Left(DomainError()));
 
-    final result = await usecase(objectId: objectId);
+    final result = await usecase(token: token, objectId: objectId);
 
     expect(result, Left(DomainError()));
 
-    verify(() => repository.getSchedule(objectId: objectId)).called(1);
+    verify(() => repository.getSchedule(token: token, objectId: objectId))
+        .called(1);
   });
 }
