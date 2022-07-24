@@ -3,6 +3,7 @@ abstract class ScheduleUpdateEntity {
 
   final String? datetime;
   final String? client;
+  final String? registeredClient;
 
   final String? typePayment;
   final String? paymentStatus;
@@ -14,6 +15,7 @@ abstract class ScheduleUpdateEntity {
       {required this.objectId,
       this.datetime,
       this.client,
+      this.registeredClient,
       this.typePayment,
       this.paymentStatus,
       this.scheduleStatus,
