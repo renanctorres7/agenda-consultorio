@@ -6,7 +6,7 @@ part 'sign_up_model.g.dart';
 
 @JsonSerializable()
 class SignUpModel extends SignUpEntity {
-  const SignUpModel(
+  SignUpModel(
       {super.email,
       super.password,
       super.fullName,
@@ -14,7 +14,10 @@ class SignUpModel extends SignUpEntity {
       super.company,
       super.specialty,
       super.objectId,
-      super.token});
+      super.token,
+      this.profileImg});
+
+  String? profileImg;
 
   factory SignUpModel.fromJson(Map<String, dynamic> json) =>
       _$SignUpModelFromJson(json);

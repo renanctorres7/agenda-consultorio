@@ -14,7 +14,10 @@ class UserModel extends UserEntity {
       super.company,
       super.specialty,
       super.objectId,
-      super.token});
+      super.token,
+      this.profileImg});
+
+  String? profileImg;
 
   factory UserModel.fromJson(Map<String, dynamic> json) =>
       _$UserModelFromJson(json);

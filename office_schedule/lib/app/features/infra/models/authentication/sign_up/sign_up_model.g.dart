@@ -15,6 +15,7 @@ SignUpModel _$SignUpModelFromJson(Map<String, dynamic> json) => SignUpModel(
       specialty: json['specialty'] as String?,
       objectId: json['objectId'] as String?,
       token: json['token'] as String?,
+      profileImg: json['profileImg'] as String?,
     );
 
 Map<String, dynamic> _$SignUpModelToJson(SignUpModel instance) =>
@@ -27,4 +28,5 @@ Map<String, dynamic> _$SignUpModelToJson(SignUpModel instance) =>
       'specialty': instance.specialty,
       'objectId': instance.objectId,
       'token': instance.token,
+      'profileImg': instance.profileImg,
     };
