@@ -70,4 +70,7 @@ class MocksModels {
 
   static final scheduleDateModel =
       ScheduleDateModel(startDate: "2022-03-02", endDate: "2022-03-02");
+
+  static final clientsCreateModel = ClientsCreateModel(
+      name: faker.person.name(), phone: faker.phoneNumber.us());
 }
