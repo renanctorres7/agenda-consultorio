@@ -11,6 +11,7 @@ abstract class ParseEndpoints {
   static const String searchScheduleDate = '/search-schedules-date';
   static const String updateSchedule = '/update-schedule';
   static const String deleteSchedule = '/delete-schedule';
+  static const String getSchedule = '/get-schedule';
 
   static const String getUser = '/get-user';
   static const String updateProfile = '/update-profile';
