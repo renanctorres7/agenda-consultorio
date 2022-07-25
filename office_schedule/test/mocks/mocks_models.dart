@@ -73,4 +73,9 @@ class MocksModels {
 
   static final clientsCreateModel = ClientsCreateModel(
       name: faker.person.name(), phone: faker.phoneNumber.us());
+
+  static final clientsUpdateModel = ClientsUpdateModel(
+      name: faker.person.name(),
+      phone: faker.phoneNumber.us(),
+      objectId: faker.guid.guid());
 }
