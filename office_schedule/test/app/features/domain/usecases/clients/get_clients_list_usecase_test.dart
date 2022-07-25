@@ -16,15 +16,15 @@ void main() {
   final repository = GetClientsListRepositoryMock();
   final usecase = GetClientsListUsecaseImpl(repository);
 
-  final entity = ClientsListEntityMock();
+  final list = <ClientsListEntityMock>[];
 
   test('Should input a Token and return a Clients List Entity', () async {
     when(() => repository.getClientsList(token: token))
-        .thenAnswer((_) async => Right(entity));
+        .thenAnswer((_) async => Right(list));
 
     final result = await usecase(token: token);
 
-    expect(result, Right(entity));
+    expect(result, Right(list));
 
     verify(() => repository.getClientsList(token: token)).called(1);
   });

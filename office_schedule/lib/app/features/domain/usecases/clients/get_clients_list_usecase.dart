@@ -5,7 +5,8 @@ import 'package:office_schedule/app/features/domain/repositories/clients/get_cli
 import '../../errors/errors.dart';
 
 abstract class GetClientsListUsecase {
-  Future<Either<FailureError, ClientsListEntity>> call({required String token});
+  Future<Either<FailureError, List<ClientsListEntity>>> call(
+      {required String token});
 }
 
 class GetClientsListUsecaseImpl implements GetClientsListUsecase {
@@ -13,7 +14,7 @@ class GetClientsListUsecaseImpl implements GetClientsListUsecase {
 
   GetClientsListUsecaseImpl(this.repository);
   @override
-  Future<Either<FailureError, ClientsListEntity>> call(
+  Future<Either<FailureError, List<ClientsListEntity>>> call(
       {required String token}) async {
     final result = await repository.getClientsList(token: token);
     return result;
