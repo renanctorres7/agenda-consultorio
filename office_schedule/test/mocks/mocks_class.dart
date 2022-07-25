@@ -48,3 +48,5 @@ class UserUpdateModelMock extends Mock implements UserUpdateModel {}
 class FlutterSecureStorageMock extends Mock implements FlutterSecureStorage {}
 
 class ClientsCreateEntityMock extends Mock implements ClientsCreateEntity {}
+
+class ClientsUpdateEntityMock extends Mock implements ClientsUpdateEntity {}
