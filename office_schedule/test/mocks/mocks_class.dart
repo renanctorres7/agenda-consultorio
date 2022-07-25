@@ -52,3 +52,5 @@ class ClientsCreateEntityMock extends Mock implements ClientsCreateEntity {}
 class ClientsUpdateEntityMock extends Mock implements ClientsUpdateEntity {}
 
 class ClientsEntityMock extends Mock implements ClientsEntity {}
+
+class ClientsListEntityMock extends Mock implements ClientsListEntity {}
