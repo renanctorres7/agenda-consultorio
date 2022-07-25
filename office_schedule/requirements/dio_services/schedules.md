@@ -6,4 +6,4 @@
 4. List Schedule (filter) ✅
 5. Search Schedule Date ✅
 6. Delete Schedule ✅
-7. Get Schedule
+7. Get Schedule ✅
