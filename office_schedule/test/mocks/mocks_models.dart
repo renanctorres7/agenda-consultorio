@@ -81,4 +81,13 @@ class MocksModels {
       name: faker.person.name(),
       phone: faker.phoneNumber.us(),
       objectId: faker.guid.guid());
+
+  static final clientsModel = ClientsModel(
+      objectId: objectId,
+      name: 'name',
+      phone: 'phone',
+      createdByModel: usersModel,
+      modifiedByModel: usersModel,
+      createdAt: 'createdAt',
+      updatedAt: 'updatedAt');
 }
