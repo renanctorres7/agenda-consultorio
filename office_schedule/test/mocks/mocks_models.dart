@@ -2,6 +2,9 @@ import 'package:faker/faker.dart';
 import 'package:office_schedule/app/features/infra/models/models.dart';
 
 class MocksModels {
+  static final token = faker.guid.guid();
+  static final objectId = faker.guid.guid();
+
   static final signUpModel = SignUpModel(
       email: faker.internet.email(),
       password: faker.internet.password(),
