@@ -1,7 +1,6 @@
 import 'package:dartz/dartz.dart';
 
 import '../../../../core/errors/errors.dart';
-import '../../../../core/success/success.dart';
 import '../../domain/repository/repository.dart';
 import '../datasources/datasources.dart';
 

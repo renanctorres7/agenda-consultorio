@@ -2,7 +2,6 @@ import 'package:dio/dio.dart';
 import 'package:faker/faker.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:mocktail/mocktail.dart';
-import 'package:office_schedule/app/core/success/success.dart';
 import 'package:office_schedule/app/features/schedules/data/datasource/datasource.dart';
 import 'package:office_schedule/app/features/schedules/data/service/service.dart';
 import 'package:office_schedule/app/features/schedules/infra/models/models.dart';

@@ -1,10 +1,9 @@
 import 'package:dartz/dartz.dart';
 
 import '../../../../core/errors/errors.dart';
+import '../../domain/entities/entities.dart';
 import '../../domain/repository/repository.dart';
 import '../datasources/datasource.dart';
-import '../../../../core/success/success.dart';
-import '../../domain/entities/entities.dart';
 
 class SearchScheduleDateRepositoryImpl implements SearchScheduleDateRepository {
   final SearchScheduleDateDatasource datasource;

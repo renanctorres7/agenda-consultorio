@@ -3,7 +3,6 @@ import 'package:dio/dio.dart' hide Headers;
 
 import '../../../../core/core.dart';
 import '../../../../core/endpoints/parse_endpoints.dart';
-import '../../infra/models/models.dart';
 
 part 'delete_schedule_service.g.dart';
 

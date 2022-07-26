@@ -2,7 +2,6 @@ import 'package:dio/dio.dart';
 import 'package:faker/faker.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:mocktail/mocktail.dart';
-import 'package:office_schedule/app/features/users/data/datasource/dio_get_user_datasource.dart';
 import 'package:office_schedule/app/features/users/data/datasource/dio_users_list_datasource.dart';
 import 'package:office_schedule/app/features/users/data/service/service.dart';
 

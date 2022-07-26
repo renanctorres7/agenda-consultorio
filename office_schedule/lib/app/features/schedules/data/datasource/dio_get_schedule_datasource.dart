@@ -1,6 +1,4 @@
 import 'package:dio/dio.dart';
-import '../../../../core/success/success.dart';
-import '../../domain/entities/entities.dart';
 import '../../infra/datasources/datasource.dart';
 import '../../infra/models/models.dart';
 import '../service/service.dart';

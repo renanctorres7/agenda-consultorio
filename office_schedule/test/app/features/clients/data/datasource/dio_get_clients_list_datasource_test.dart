@@ -1,8 +1,6 @@
 import 'package:dio/dio.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:mocktail/mocktail.dart';
-import 'package:office_schedule/app/core/errors/errors.dart';
-import 'package:office_schedule/app/core/success/success.dart';
 import 'package:office_schedule/app/features/clients/data/datasource/datasource.dart';
 import 'package:office_schedule/app/features/clients/data/service/service.dart';
 import 'package:office_schedule/app/features/clients/infra/models/models.dart';

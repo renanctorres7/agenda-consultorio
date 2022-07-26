@@ -2,7 +2,6 @@ import 'package:dartz/dartz.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:mocktail/mocktail.dart';
 import 'package:office_schedule/app/core/errors/errors.dart';
-import 'package:office_schedule/app/core/success/success.dart';
 import 'package:office_schedule/app/features/auth/domain/entities/entities.dart';
 import 'package:office_schedule/app/features/auth/infra/datasources/sign_up_datasource.dart';
 import 'package:office_schedule/app/features/auth/infra/repository/sign_up_repository_impl.dart';

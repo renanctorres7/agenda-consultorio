@@ -1,7 +1,6 @@
 import 'package:dartz/dartz.dart';
 
 import '../../../../core/errors/errors.dart';
-import '../../../../core/success/success.dart';
 import '../repository/repository.dart';
 
 abstract class ReadStorageTokenUsecase {
