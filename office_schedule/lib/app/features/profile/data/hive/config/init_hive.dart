@@ -3,7 +3,7 @@ import 'package:hive/hive.dart';
 import 'package:path_provider/path_provider.dart' as path_provider;
 import 'package:flutter/foundation.dart' show kIsWeb;
 
-import '../../local.dart';
+import '../../../infra/models/user_profile_hive.dart';
 
 abstract class InitHive {
   static Future<void> initHive() async {

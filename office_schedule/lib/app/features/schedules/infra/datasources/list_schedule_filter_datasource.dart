@@ -1,6 +1,6 @@
-import 'package:office_schedule/app/features/infra/models/models.dart';
-
-import '../../../domain/entities/entities.dart';
+import '../../../../core/success/success.dart';
+import '../../domain/entities/entities.dart';
+import '../models/models.dart';
 
 abstract class ListScheduleFilterDatasource {
   Future<List<ScheduleModel>?> getListScheduleByFilter(

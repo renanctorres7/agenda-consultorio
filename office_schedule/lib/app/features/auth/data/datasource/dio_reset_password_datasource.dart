@@ -1,8 +1,9 @@
 import 'package:dio/dio.dart';
 
-import '../../../../../domain/success/success.dart';
-import '../../../../../infra/datasources/datasources.dart';
-import '../../../remote.dart';
+import '../../../../core/success/success.dart';
+
+import '../../infra/datasources/reset_password_datasource.dart';
+import '../service/reset_password_service.dart';
 
 class DioResetPasswordDatasource implements ResetPasswordDatasource {
   final ResetPasswordService resetPasswordService;

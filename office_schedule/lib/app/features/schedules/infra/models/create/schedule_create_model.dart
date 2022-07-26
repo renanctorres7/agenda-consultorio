@@ -1,6 +1,6 @@
 import 'package:json_annotation/json_annotation.dart';
 
-import '../../../../domain/entities/entities.dart';
+import '../../../domain/entities/entities.dart';
 
 part 'schedule_create_model.g.dart';
 

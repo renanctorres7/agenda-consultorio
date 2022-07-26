@@ -1,9 +1,9 @@
 import 'package:dartz/dartz.dart';
 
-import '../../entities/entities.dart';
-import '../../errors/errors.dart';
-import '../../repositories/schedule/update_schedule_repository.dart';
-import '../../success/success.dart';
+import '../../../../core/errors/errors.dart';
+import '../../../../core/success/success.dart';
+import '../entities/entities.dart';
+import '../repository/repository.dart';
 
 abstract class UpdateScheduleUsecase {
   Future<Either<FailureError, Success>> call(

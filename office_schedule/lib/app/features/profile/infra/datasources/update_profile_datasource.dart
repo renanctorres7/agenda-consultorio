@@ -1,5 +1,5 @@
-import '../../../domain/entities/entities.dart';
-import '../../models/models.dart';
+import '../../../users/infra/models/user_model.dart';
+import '../../domain/entities/user_update_entity.dart';
 
 abstract class UpdateProfileDatasource {
   Future<UserModel?> updateProfile(

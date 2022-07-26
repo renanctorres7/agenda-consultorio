@@ -1,8 +1,8 @@
 import 'package:dartz/dartz.dart';
-import 'package:office_schedule/app/features/domain/repositories/respositories.dart';
 
-import '../../errors/errors.dart';
-import '../../success/success.dart';
+import '../../../../core/errors/errors.dart';
+import '../../../../core/success/success.dart';
+import '../repository/repository.dart';
 
 abstract class DeleteScheduleUsecase {
   Future<Either<FailureError, Success>> call(String token, String objectId);

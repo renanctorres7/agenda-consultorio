@@ -1,11 +1,10 @@
 import 'package:dio/dio.dart';
-import 'package:office_schedule/app/features/domain/success/successful_response.dart';
 
-import 'package:office_schedule/app/features/domain/entities/clients/clients_update_entity.dart';
-import 'package:office_schedule/app/features/external/remote/dio/service/clients/update_client_service.dart';
-import 'package:office_schedule/app/features/infra/models/clients/clients_update_model.dart';
-
-import '../../../../../infra/datasources/datasources.dart';
+import '../../../../core/success/success.dart';
+import '../../domain/entities/entities.dart';
+import '../../infra/datasources/datasource.dart';
+import '../../infra/models/models.dart';
+import '../service/service.dart';
 
 class DioUpdateClientDatasource implements ClientsUpdateDatasource {
   final UpdateClientService updateClientService;

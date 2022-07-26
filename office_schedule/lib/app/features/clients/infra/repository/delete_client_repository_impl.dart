@@ -1,11 +1,9 @@
-import 'package:office_schedule/app/features/domain/success/successful_response.dart';
-
-import 'package:office_schedule/app/features/domain/errors/failure_error.dart';
-
 import 'package:dartz/dartz.dart';
-import 'package:office_schedule/app/features/infra/datasources/datasources.dart';
 
-import '../../../domain/repositories/clients/clients.dart';
+import '../../../../core/errors/errors.dart';
+import '../../../../core/success/success.dart';
+import '../../domain/repository/repository.dart';
+import '../datasources/datasource.dart';
 
 class DeleteClientRepositoryImpl implements DeleteClientRepository {
   final DeleteClientDatasource datasource;

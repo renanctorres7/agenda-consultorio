@@ -1,8 +1,9 @@
 import 'package:flutter_secure_storage/flutter_secure_storage.dart';
 
-import '../../../../domain/success/success.dart';
+import '../../../../core/success/success.dart';
+import '../../infra/datasources/datasources.dart';
 
-import '../../../../infra/datasources/storage/storage.dart';
+
 
 class DeleteStorageTokenDatasourceImpl implements DeleteStorageTokenDatasource {
   final FlutterSecureStorage flutterSecureStorage;

@@ -1,9 +1,9 @@
 import 'package:dartz/dartz.dart';
-
-import '../../../domain/entities/entities.dart';
-import '../../../domain/errors/errors.dart';
-import '../../../domain/repositories/respositories.dart';
-import '../../datasources/schedules/schedules.dart';
+import '../../../../core/errors/errors.dart';
+import '../../domain/repository/repository.dart';
+import '../datasources/datasource.dart';
+import '../../../../core/success/success.dart';
+import '../../domain/entities/entities.dart';
 
 class ListScheduleFilterRepositoryImpl implements ListScheduleFilterRepository {
   final ListScheduleFilterDatasource datasource;

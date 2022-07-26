@@ -1,9 +1,10 @@
 import 'package:dartz/dartz.dart';
 
-import '../../../domain/entities/entities.dart';
-import '../../../domain/errors/errors.dart';
-import '../../../domain/repositories/respositories.dart';
-import '../../datasources/datasources.dart';
+import '../../../../core/errors/errors.dart';
+import '../../domain/entities/user_entity.dart';
+import '../../domain/repository/repository.dart';
+import '../datasources/datasources.dart';
+import '../models/user_model.dart';
 
 class GetUserRepositoryImpl implements GetUserRepository {
   final GetUserDatasource datasource;

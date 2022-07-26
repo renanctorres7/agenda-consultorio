@@ -1,7 +1,7 @@
 import 'package:hive/hive.dart';
 
 import '../../../../../core/core.dart';
-import '../../local.dart';
+import '../../../infra/models/user_profile_hive.dart';
 
 class UserProfileDatabase extends UserProfileHiveAdapter {
   static Future<UserProfileHive> saveUserProfile(

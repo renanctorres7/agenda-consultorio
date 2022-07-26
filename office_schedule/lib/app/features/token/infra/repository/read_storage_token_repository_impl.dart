@@ -1,8 +1,9 @@
 import 'package:dartz/dartz.dart';
 
-import '../../../../domain/errors/errors.dart';
-import '../../../../domain/repositories/respositories.dart';
-import '../../../datasources/storage/storage.dart';
+import '../../../../core/errors/errors.dart';
+import '../../../../core/success/success.dart';
+import '../../domain/repository/repository.dart';
+import '../datasources/datasources.dart';
 
 class ReadStorageTokenRepositoryImpl implements ReadStorageTokenRepository {
   final ReadStorageTokenDatasource datasource;

@@ -1,9 +1,10 @@
 import 'package:dartz/dartz.dart';
 
-import '../../../domain/entities/entities.dart';
-import '../../../domain/errors/errors.dart';
-import '../../../domain/repositories/respositories.dart';
-import '../../datasources/datasources.dart';
+import '../../../../core/errors/errors.dart';
+import '../../../users/domain/entities/user_entity.dart';
+import '../../domain/entities/user_update_entity.dart';
+import '../../domain/repository/update_profile_repository.dart';
+import '../datasources/update_profile_datasource.dart';
 
 class UpdateProfileRepositoryImpl implements UpdateProfileRepository {
   final UpdateProfileDatasource datasource;

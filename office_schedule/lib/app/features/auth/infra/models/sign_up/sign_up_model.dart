@@ -1,6 +1,6 @@
 import 'package:json_annotation/json_annotation.dart';
 
-import '../../../../domain/entities/entities.dart';
+import 'package:office_schedule/app/features/auth/domain/entities/entities.dart';
 
 part 'sign_up_model.g.dart';
 

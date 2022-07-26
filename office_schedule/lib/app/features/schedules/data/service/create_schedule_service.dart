@@ -3,10 +3,10 @@ import 'package:office_schedule/app/core/endpoints/parse_endpoints.dart';
 
 import 'package:retrofit/retrofit.dart';
 
-import '../../../../../../core/endpoints/parse_endpoints.dart';
-import '../../../../../../core/environments/environments.dart';
-import '../../../../../../core/keys/parse_server/parse_headers.dart';
-import '../../../../../infra/models/models.dart';
+import '../../../../core/core.dart';
+import '../../infra/models/models.dart';
+
+
 
 part 'create_schedule_service.g.dart';
 

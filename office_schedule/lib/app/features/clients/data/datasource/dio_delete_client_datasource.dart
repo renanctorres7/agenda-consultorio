@@ -1,8 +1,8 @@
 import 'package:dio/dio.dart';
-import 'package:office_schedule/app/features/domain/success/successful_response.dart';
-import 'package:office_schedule/app/features/external/remote/dio/service/clients/delete_client_service.dart';
+import '../../../../core/success/success.dart';
+import '../../infra/datasources/datasource.dart';
 
-import '../../../../../infra/datasources/datasources.dart';
+import '../service/service.dart';
 
 class DioDeleteClientDatasource implements DeleteClientDatasource {
   final DeleteClientService deleteClientService;

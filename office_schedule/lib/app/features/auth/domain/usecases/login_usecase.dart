@@ -1,8 +1,9 @@
 import 'package:dartz/dartz.dart';
 
-import '../../entities/entities.dart';
-import '../../errors/errors.dart';
-import '../../repositories/respositories.dart';
+import 'package:office_schedule/app/core/errors/failure_error.dart';
+
+import 'package:office_schedule/app/features/auth/domain/entities/entities.dart';
+import 'package:office_schedule/app/features/auth/domain/repository/login_repository.dart';
 
 abstract class LoginUsecase {
   Future<Either<FailureError, SignUpEntity>> call(LoginEntity entity);

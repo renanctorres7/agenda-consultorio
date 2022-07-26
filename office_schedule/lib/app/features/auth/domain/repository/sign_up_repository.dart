@@ -1,7 +1,7 @@
 import 'package:dartz/dartz.dart';
 
-import '../../entities/entities.dart';
-import '../../errors/errors.dart';
+import 'package:office_schedule/app/core/errors/failure_error.dart';
+import 'package:office_schedule/app/features/auth/domain/entities/entities.dart';
 
 abstract class SignUpRepository {
   Future<Either<FailureError, SignUpEntity>> signUp(SignUpEntity params);

@@ -1,11 +1,10 @@
 import 'package:dio/dio.dart';
 
-import '../../../../../infra/datasources/datasources.dart';
-import '../../../../../domain/entities/entities.dart';
-import '../../../../../domain/success/success.dart';
-
-import '../../../../../infra/models/models.dart';
-import '../../service/service.dart';
+import '../../../../core/success/success.dart';
+import '../../domain/entities/entities.dart';
+import '../../infra/datasources/datasource.dart';
+import '../../infra/models/models.dart';
+import '../service/service.dart';
 
 class DioCreateScheduleDatasource implements CreateScheduleDatasource {
   final CreateScheduleService createScheduleService;

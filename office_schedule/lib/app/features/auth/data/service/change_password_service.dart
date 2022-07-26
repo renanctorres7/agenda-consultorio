@@ -5,7 +5,7 @@ import 'package:office_schedule/app/core/keys/parse_server/parse_headers.dart';
 
 import 'package:retrofit/retrofit.dart';
 
-import '../../../../../infra/models/models.dart';
+import '../../infra/models/models.dart';
 
 part 'change_password_service.g.dart';
 

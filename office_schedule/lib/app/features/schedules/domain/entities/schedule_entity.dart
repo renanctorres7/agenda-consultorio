@@ -1,4 +1,5 @@
-import '../entities.dart';
+import '../../../users/domain/entities/user_entity.dart';
+
 
 abstract class ScheduleEntity {
   final String objectId;

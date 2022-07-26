@@ -1,9 +1,8 @@
 import 'package:dio/dio.dart';
 
-import '../../../../../infra/datasources/datasources.dart';
-
-import '../../../../../infra/models/models.dart';
-import '../../service/service.dart';
+import '../../infra/datasources/datasources.dart';
+import '../../infra/models/user_model.dart';
+import '../service/service.dart';
 
 class DioGetUserDatasource implements GetUserDatasource {
   final GetUserService getUserService;

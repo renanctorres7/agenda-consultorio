@@ -1,4 +1,5 @@
-import 'package:office_schedule/app/features/infra/models/models.dart';
+
+import '../models/models.dart';
 
 abstract class GetScheduleDatasource {
   Future<ScheduleModel?> getSchedule(

@@ -1,10 +1,10 @@
 import 'package:dio/dio.dart' hide Headers;
 import 'package:retrofit/retrofit.dart';
 
-import '../../../../../../core/endpoints/parse_endpoints.dart';
-import '../../../../../../core/environments/environments.dart';
-import '../../../../../../core/keys/parse_server/parse_headers.dart';
-import '../../../../../infra/models/models.dart';
+import '../../../../core/core.dart';
+import '../../../../core/endpoints/parse_endpoints.dart';
+import '../../../users/infra/models/user_model.dart';
+import '../../infra/models/user_update_model.dart';
 
 part 'update_profile_service.g.dart';
 

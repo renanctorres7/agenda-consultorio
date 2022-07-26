@@ -1,11 +1,12 @@
-import 'package:office_schedule/app/features/domain/errors/failure_error.dart';
 
-import 'package:office_schedule/app/features/domain/entities/clients/clients_list_entity.dart';
 
 import 'package:dartz/dartz.dart';
-import 'package:office_schedule/app/features/infra/datasources/clients/clients.dart';
 
-import '../../../domain/repositories/clients/clients.dart';
+
+import '../../../../core/errors/errors.dart';
+import '../../domain/entities/entities.dart';
+import '../../domain/repository/repository.dart';
+import '../datasources/datasource.dart';
 
 class GetClientsListRepositoryImpl implements GetClientsListRepository {
   final GetClientsListDatasource datasource;

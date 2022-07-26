@@ -1,7 +1,7 @@
 import 'package:flutter_secure_storage/flutter_secure_storage.dart';
 
-import '../../../../domain/success/success.dart';
-import '../../../../infra/datasources/storage/storage.dart';
+import '../../../../core/success/success.dart';
+import '../../infra/datasources/datasources.dart';
 
 class SaveStorageTokenDatasourceImpl implements SaveStorageTokenDatasource {
   final FlutterSecureStorage flutterSecureStorage;

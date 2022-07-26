@@ -1,8 +1,8 @@
 import 'package:dartz/dartz.dart';
 
-import '../../errors/errors.dart';
-import '../../repositories/respositories.dart';
-import '../../success/success.dart';
+import 'package:office_schedule/app/core/errors/failure_error.dart';
+import 'package:office_schedule/app/core/success/successful_response.dart';
+import 'package:office_schedule/app/features/auth/domain/repository/reset_password_repository.dart';
 
 abstract class ResetPasswordUsecase {
   Future<Either<FailureError, Success>> call(String email);

@@ -1,7 +1,8 @@
 import 'package:dio/dio.dart';
-import 'package:office_schedule/app/features/external/remote/dio/service/user/get_users_list_service.dart';
-import 'package:office_schedule/app/features/infra/datasources/user/users_list_datasource.dart';
-import 'package:office_schedule/app/features/infra/models/user/model/user_model.dart';
+
+import '../../infra/datasources/datasources.dart';
+import '../../infra/models/user_model.dart';
+import '../service/service.dart';
 
 class DioUsersListDatasource implements UsersListDatasource {
   final GetUsersListService getUsersListService;

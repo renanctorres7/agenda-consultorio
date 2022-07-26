@@ -1,8 +1,9 @@
 import 'package:dio/dio.dart';
-import 'package:office_schedule/app/features/external/external.dart';
-import 'package:office_schedule/app/features/infra/models/schedules/model/schedule_model.dart';
-
-import '../../../../../infra/datasources/datasources.dart';
+import '../../../../core/success/success.dart';
+import '../../domain/entities/entities.dart';
+import '../../infra/datasources/datasource.dart';
+import '../../infra/models/models.dart';
+import '../service/service.dart';
 
 class DioGetScheduleDatasource implements GetScheduleDatasource {
   final GetScheduleService getScheduleService;

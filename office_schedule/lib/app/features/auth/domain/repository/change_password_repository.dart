@@ -1,8 +1,9 @@
 import 'package:dartz/dartz.dart';
 
-import '../../entities/entities.dart';
-import '../../errors/errors.dart';
-import '../../success/success.dart';
+import 'package:office_schedule/app/core/errors/failure_error.dart';
+import 'package:office_schedule/app/core/success/successful_response.dart';
+
+import 'package:office_schedule/app/features/auth/domain/entities/entities.dart';
 
 abstract class ChangePasswordRepository {
   Future<Either<FailureError, Success>> changePasswordEmail(

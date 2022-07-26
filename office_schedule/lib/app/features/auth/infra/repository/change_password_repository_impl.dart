@@ -1,10 +1,10 @@
 import 'package:dartz/dartz.dart';
 
-import '../../../domain/entities/entities.dart';
-import '../../../domain/errors/errors.dart';
-import '../../../domain/repositories/respositories.dart';
-import '../../../domain/success/success.dart';
-import '../../datasources/datasources.dart';
+import 'package:office_schedule/app/core/errors/failure_error.dart';
+import 'package:office_schedule/app/core/success/success.dart';
+import 'package:office_schedule/app/features/auth/domain/entities/entities.dart';
+import 'package:office_schedule/app/features/auth/domain/repository/change_password_repository.dart';
+import 'package:office_schedule/app/features/auth/infra/datasources/change_password_datasource.dart';
 
 class ChangePasswordRepositoryImpl implements ChangePasswordRepository {
   final ChangePasswordDatasource datasource;

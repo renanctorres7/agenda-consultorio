@@ -1,8 +1,8 @@
 import 'package:dartz/dartz.dart';
-import 'package:office_schedule/app/features/domain/repositories/schedule/schedule.dart';
-
-import '../../entities/entities.dart';
-import '../../errors/errors.dart';
+import '../../../../core/errors/errors.dart';
+import '../../../../core/success/success.dart';
+import '../entities/entities.dart';
+import '../repository/repository.dart';
 
 abstract class SearchScheduleDateUsecase {
   Future<Either<FailureError, List<ScheduleEntity>>> call(

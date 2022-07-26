@@ -1,4 +1,4 @@
-import '../../../domain/success/success.dart';
+import '../../../../core/success/success.dart';
 
 abstract class DeleteClientDatasource {
   Future<Success> deleteClient(

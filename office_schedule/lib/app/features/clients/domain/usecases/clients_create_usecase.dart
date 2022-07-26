@@ -1,9 +1,9 @@
 import 'package:dartz/dartz.dart';
-import 'package:office_schedule/app/features/domain/entities/entities.dart';
-import 'package:office_schedule/app/features/domain/repositories/clients/clients.dart';
 
-import '../../errors/errors.dart';
-import '../../success/success.dart';
+import '../../../../core/errors/errors.dart';
+import '../../../../core/success/success.dart';
+import '../entities/entities.dart';
+import '../repository/repository.dart';
 
 abstract class ClientsCreateUsecase {
   Future<Either<FailureError, Success>> call(

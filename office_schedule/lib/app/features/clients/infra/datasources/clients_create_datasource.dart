@@ -1,5 +1,5 @@
-import '../../../domain/entities/entities.dart';
-import '../../../domain/success/success.dart';
+import '../../../../core/success/success.dart';
+import '../../domain/entities/entities.dart';
 
 abstract class ClientsCreateDatasource {
   Future<Success> createClient(

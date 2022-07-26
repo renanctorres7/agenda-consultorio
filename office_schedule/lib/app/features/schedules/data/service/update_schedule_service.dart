@@ -1,10 +1,9 @@
 import 'package:retrofit/retrofit.dart';
 import 'package:dio/dio.dart' hide Headers;
 
-import '../../../../../../core/endpoints/parse_endpoints.dart';
-import '../../../../../../core/environments/environments.dart';
-import '../../../../../../core/keys/parse_server/parse_headers.dart';
-import '../../../../../infra/models/models.dart';
+import '../../../../core/core.dart';
+import '../../../../core/endpoints/parse_endpoints.dart';
+import '../../infra/models/models.dart';
 
 part 'update_schedule_service.g.dart';
 

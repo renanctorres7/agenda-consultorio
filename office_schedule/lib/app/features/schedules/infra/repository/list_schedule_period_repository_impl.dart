@@ -1,10 +1,10 @@
-import 'package:office_schedule/app/features/domain/errors/failure_error.dart';
-import 'package:office_schedule/app/features/domain/entities/schedules/schedule_period_entity.dart';
-import 'package:office_schedule/app/features/domain/entities/schedules/schedule_entity.dart';
 import 'package:dartz/dartz.dart';
-import 'package:office_schedule/app/features/domain/repositories/respositories.dart';
 
-import '../../datasources/schedules/list_schedule_period_datasource.dart';
+import '../../../../core/errors/errors.dart';
+import '../../domain/repository/repository.dart';
+import '../datasources/datasource.dart';
+import '../../../../core/success/success.dart';
+import '../../domain/entities/entities.dart';
 
 class ListSchedulePeriodRepositoryImpl implements ListSchedulePeriodRepository {
   final ListSchedulePeriodDatasource datasource;

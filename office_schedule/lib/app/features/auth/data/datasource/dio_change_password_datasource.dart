@@ -1,5 +1,11 @@
 import 'package:dio/dio.dart';
 
+import '../../../../core/success/success.dart';
+import '../../domain/entities/entities.dart';
+import '../../infra/datasources/change_password_datasource.dart';
+import '../../infra/models/models.dart';
+import '../service/change_password_service.dart';
+
 class DioChangePasswordDatasource implements ChangePasswordDatasource {
   final ChangePasswordService changePasswordService;
 

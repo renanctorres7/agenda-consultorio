@@ -1,8 +1,8 @@
 import 'package:dartz/dartz.dart';
 
-import '../../../errors/errors.dart';
-import '../../../repositories/respositories.dart';
-import '../../../success/success.dart';
+import '../../../../core/errors/errors.dart';
+import '../../../../core/success/success.dart';
+import '../repository/repository.dart';
 
 abstract class DeleteStorageTokenUsecase {
   Future<Either<FailureError, Success>> call({required String key});

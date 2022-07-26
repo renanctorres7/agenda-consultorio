@@ -1,10 +1,10 @@
 import 'package:dio/dio.dart';
 
-import '../../../../../infra/datasources/datasources.dart';
-import '../../../../../domain/entities/entities.dart';
-
-import '../../../../../infra/models/models.dart';
-import '../../service/service.dart';
+import '../../../users/infra/models/user_model.dart';
+import '../../domain/entities/user_update_entity.dart';
+import '../../infra/datasources/update_profile_datasource.dart';
+import '../../infra/models/user_update_model.dart';
+import '../service/update_profile_service.dart';
 
 class DioUpdateProfileDatasource implements UpdateProfileDatasource {
   final UpdateProfileService updateProfileService;

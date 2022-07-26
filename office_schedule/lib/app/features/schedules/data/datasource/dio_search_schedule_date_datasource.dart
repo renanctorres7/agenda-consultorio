@@ -1,10 +1,10 @@
 import 'package:dio/dio.dart';
 
-import '../../../../../infra/datasources/datasources.dart';
-import '../../../../../domain/entities/entities.dart';
-
-import '../../../../../infra/models/models.dart';
-import '../../service/service.dart';
+import '../../../../core/success/success.dart';
+import '../../domain/entities/entities.dart';
+import '../../infra/datasources/datasource.dart';
+import '../../infra/models/models.dart';
+import '../service/service.dart';
 
 class DioSearchScheduleDateDatasource implements SearchScheduleDateDatasource {
   final SearchScheduleDateService searchScheduleDateService;

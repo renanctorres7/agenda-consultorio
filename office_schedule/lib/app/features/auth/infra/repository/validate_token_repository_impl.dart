@@ -1,11 +1,8 @@
-import 'package:office_schedule/app/features/domain/success/successful_response.dart';
-
-import 'package:office_schedule/app/features/domain/errors/failure_error.dart';
-
 import 'package:dartz/dartz.dart';
-import 'package:office_schedule/app/features/infra/datasources/authentication/validate_token_datasource.dart';
-
-import '../../../domain/repositories/respositories.dart';
+import 'package:office_schedule/app/core/errors/failure_error.dart';
+import 'package:office_schedule/app/core/success/success.dart';
+import 'package:office_schedule/app/features/auth/domain/repository/validate_token_repository.dart';
+import 'package:office_schedule/app/features/auth/infra/datasources/validate_token_datasource.dart';
 
 class ValidateTokenRepositoryImpl implements ValidateTokenRepository {
   final ValidateTokenDatasource datasource;

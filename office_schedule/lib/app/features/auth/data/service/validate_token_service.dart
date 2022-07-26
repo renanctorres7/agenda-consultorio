@@ -2,8 +2,8 @@ import 'package:dio/dio.dart' hide Headers;
 
 import 'package:retrofit/retrofit.dart';
 
-import '../../../../../../core/core.dart';
-import '../../../../../../core/endpoints/parse_endpoints.dart';
+import '../../../../core/core.dart';
+import '../../../../core/endpoints/parse_endpoints.dart';
 
 part 'validate_token_service.g.dart';
 

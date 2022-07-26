@@ -1,7 +1,7 @@
 import 'package:hive/hive.dart';
 import 'package:json_annotation/json_annotation.dart';
 
-import '../../../../domain/entities/entities.dart';
+import '../../../users/domain/entities/user_entity.dart';
 
 part 'user_profile_hive.g.dart';
 

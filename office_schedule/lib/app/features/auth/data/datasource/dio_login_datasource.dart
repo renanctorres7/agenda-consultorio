@@ -1,9 +1,9 @@
 import 'package:dio/dio.dart';
 
-import '../../../../../domain/entities/entities.dart';
-import '../../../../../infra/datasources/datasources.dart';
-import '../../../../../infra/models/models.dart';
-import '../../../remote.dart';
+import '../../domain/entities/entities.dart';
+import '../../infra/datasources/login_datasource.dart';
+import '../../infra/models/models.dart';
+import '../service/login_service.dart';
 
 class DioLoginDatasource implements LoginDatasource {
   final LoginService loginService;

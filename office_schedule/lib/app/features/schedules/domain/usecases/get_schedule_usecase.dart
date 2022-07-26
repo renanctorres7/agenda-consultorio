@@ -1,8 +1,9 @@
 import 'package:dartz/dartz.dart';
-import 'package:office_schedule/app/features/domain/entities/schedules/schedule_entity.dart';
 
-import '../../errors/errors.dart';
-import '../../repositories/respositories.dart';
+import '../../../../core/errors/errors.dart';
+
+import '../entities/entities.dart';
+import '../repository/repository.dart';
 
 abstract class GetScheduleUsecase {
   Future<Either<FailureError, ScheduleEntity>> call(

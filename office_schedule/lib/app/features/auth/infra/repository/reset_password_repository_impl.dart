@@ -1,9 +1,11 @@
 import 'package:dartz/dartz.dart';
 
-import '../../../domain/errors/errors.dart';
-import '../../../domain/repositories/respositories.dart';
-import '../../../domain/success/success.dart';
-import '../../datasources/datasources.dart';
+import 'package:office_schedule/app/core/errors/failure_error.dart';
+import 'package:office_schedule/app/features/auth/domain/repository/reset_password_repository.dart';
+import 'package:office_schedule/app/features/auth/infra/datasources/reset_password_datasource.dart';
+import 'package:office_schedule/app/core/success/successful_response.dart';
+
+
 
 class ResetPasswordRepositoryImpl implements ResetPasswordRepository {
   final ResetPasswordDatasource datasource;

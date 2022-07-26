@@ -1,8 +1,8 @@
 import 'package:dartz/dartz.dart';
-import 'package:office_schedule/app/features/domain/repositories/clients/get_client_repository.dart';
 
-import '../../entities/entities.dart';
-import '../../errors/errors.dart';
+import '../../../../core/errors/errors.dart';
+import '../entities/entities.dart';
+import '../repository/repository.dart';
 
 abstract class GetClientUsecase {
   Future<Either<FailureError, ClientsEntity>> call(

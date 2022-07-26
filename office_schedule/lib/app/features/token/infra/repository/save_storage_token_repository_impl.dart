@@ -1,9 +1,9 @@
 import 'package:dartz/dartz.dart';
-import 'package:office_schedule/app/features/infra/datasources/storage/token/save_storage_token_datasource.dart';
 
-import '../../../../domain/errors/errors.dart';
-import '../../../../domain/repositories/respositories.dart';
-import '../../../../domain/success/success.dart';
+import '../../../../core/errors/errors.dart';
+import '../../../../core/success/success.dart';
+import '../../domain/repository/repository.dart';
+import '../datasources/datasources.dart';
 
 class SaveStorageTokenRepositoryImpl implements SaveStorageTokenRepository {
   final SaveStorageTokenDatasource datasource;

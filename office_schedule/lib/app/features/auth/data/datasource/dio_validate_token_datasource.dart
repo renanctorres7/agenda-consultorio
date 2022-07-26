@@ -1,8 +1,8 @@
 import 'package:dio/dio.dart';
 
-import '../../../../../domain/success/success.dart';
-import '../../../../../infra/datasources/datasources.dart';
-import '../../service/service.dart';
+import '../../../../core/success/success.dart';
+import '../../infra/datasources/validate_token_datasource.dart';
+import '../service/validate_token_service.dart';
 
 class DioValidateTokenDatasource implements ValidateTokenDatasource {
   final ValidateTokenService validateTokenService;

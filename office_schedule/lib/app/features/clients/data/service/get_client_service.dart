@@ -1,9 +1,9 @@
 import 'package:dio/dio.dart' hide Headers;
-import 'package:office_schedule/app/features/infra/models/clients/clients_model.dart';
 import 'package:retrofit/retrofit.dart';
 
-import '../../../../../../core/core.dart';
-import '../../../../../../core/endpoints/parse_endpoints.dart';
+import '../../../../core/core.dart';
+import '../../../../core/endpoints/parse_endpoints.dart';
+import '../../infra/models/models.dart';
 
 part 'get_client_service.g.dart';
 
