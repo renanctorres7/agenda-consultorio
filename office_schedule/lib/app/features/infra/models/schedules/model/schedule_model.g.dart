@@ -11,6 +11,8 @@ ScheduleModel _$ScheduleModelFromJson(Map<String, dynamic> json) =>
       objectId: json['objectId'] as String,
       datetime: json['datetime'] as String,
       client: json['client'] as String,
+      registeredClient: json['registeredClient'] as String?,
+      description: json['description'] as String?,
       modifiedByModel:
           UserModel.fromJson(json['modifiedBy'] as Map<String, dynamic>),
       userModel: UserModel.fromJson(json['user'] as Map<String, dynamic>),
@@ -26,6 +28,8 @@ Map<String, dynamic> _$ScheduleModelToJson(ScheduleModel instance) =>
       'objectId': instance.objectId,
       'datetime': instance.datetime,
       'client': instance.client,
+      'registeredClient': instance.registeredClient,
+      'description': instance.description,
       'typePayment': instance.typePayment,
       'paymentStatus': instance.paymentStatus,
       'scheduleStatus': instance.scheduleStatus,

@@ -17,6 +17,8 @@ class ScheduleModel extends ScheduleEntity {
       {required super.objectId,
       required super.datetime,
       required super.client,
+      super.registeredClient,
+      super.description,
       required this.modifiedByModel,
       required this.userModel,
       required super.typePayment,

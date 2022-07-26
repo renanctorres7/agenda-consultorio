@@ -7,6 +7,7 @@ abstract class UserEntity {
   final String? specialty;
   final String? objectId;
   final String? token;
+  final String? profileImg;
 
   UserEntity(
       {this.email,
@@ -16,5 +17,6 @@ abstract class UserEntity {
       this.company,
       this.specialty,
       this.objectId,
-      this.token});
+      this.token,
+      this.profileImg});
 }

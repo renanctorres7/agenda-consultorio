@@ -2,6 +2,9 @@ import 'package:faker/faker.dart';
 import 'package:office_schedule/app/features/infra/models/models.dart';
 
 class MocksModels {
+  static final token = faker.guid.guid();
+  static final objectId = faker.guid.guid();
+
   static final signUpModel = SignUpModel(
       email: faker.internet.email(),
       password: faker.internet.password(),
@@ -70,4 +73,21 @@ class MocksModels {
 
   static final scheduleDateModel =
       ScheduleDateModel(startDate: "2022-03-02", endDate: "2022-03-02");
+
+  static final clientsCreateModel = ClientsCreateModel(
+      name: faker.person.name(), phone: faker.phoneNumber.us());
+
+  static final clientsUpdateModel = ClientsUpdateModel(
+      name: faker.person.name(),
+      phone: faker.phoneNumber.us(),
+      objectId: faker.guid.guid());
+
+  static final clientsModel = ClientsModel(
+      objectId: objectId,
+      name: 'name',
+      phone: 'phone',
+      createdByModel: usersModel,
+      modifiedByModel: usersModel,
+      createdAt: 'createdAt',
+      updatedAt: 'updatedAt');
 }

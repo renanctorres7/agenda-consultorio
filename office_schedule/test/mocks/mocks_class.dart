@@ -46,3 +46,11 @@ class ScheduleCreateEntityMock extends Mock implements ScheduleCreateEntity {}
 class UserUpdateModelMock extends Mock implements UserUpdateModel {}
 
 class FlutterSecureStorageMock extends Mock implements FlutterSecureStorage {}
+
+class ClientsCreateEntityMock extends Mock implements ClientsCreateEntity {}
+
+class ClientsUpdateEntityMock extends Mock implements ClientsUpdateEntity {}
+
+class ClientsEntityMock extends Mock implements ClientsEntity {}
+
+class ClientsListEntityMock extends Mock implements ClientsListEntity {}

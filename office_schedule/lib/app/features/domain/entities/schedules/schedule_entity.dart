@@ -4,6 +4,8 @@ abstract class ScheduleEntity {
   final String objectId;
   final String datetime;
   final String client;
+  final String? registeredClient;
+  final String? description;
 
   final UserEntity user;
 
@@ -20,6 +22,8 @@ abstract class ScheduleEntity {
       {required this.objectId,
       required this.datetime,
       required this.client,
+      this.registeredClient,
+      this.description,
       required this.user,
       required this.modifiedBy,
       required this.typePayment,

@@ -7,6 +7,8 @@ abstract class ScheduleFilterEntity {
   final String? scheduleStatus;
   final String? typePayment;
   final String? paymentStatus;
+  final String? description;
+  final String? registeredClient;
 
   ScheduleFilterEntity(
       {required this.page,
@@ -14,6 +16,8 @@ abstract class ScheduleFilterEntity {
       this.user,
       this.modifiedBy,
       this.client,
+      this.description,
+      this.registeredClient,
       this.scheduleStatus,
       this.typePayment,
       this.paymentStatus});
