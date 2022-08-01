@@ -1,9 +1,19 @@
 import 'package:flutter_secure_storage/flutter_secure_storage.dart';
 import 'package:mocktail/mocktail.dart';
-import 'package:office_schedule/app/features/domain/entities/entities.dart';
-import 'package:office_schedule/app/features/domain/repositories/respositories.dart';
-import 'package:office_schedule/app/features/infra/datasources/datasources.dart';
-import 'package:office_schedule/app/features/infra/models/models.dart';
+import 'package:office_schedule/app/features/auth/domain/entities/entities.dart';
+import 'package:office_schedule/app/features/auth/domain/repository/change_password_repository.dart';
+import 'package:office_schedule/app/features/auth/domain/repository/reset_password_repository.dart';
+import 'package:office_schedule/app/features/auth/infra/datasources/change_password_datasource.dart';
+import 'package:office_schedule/app/features/auth/infra/datasources/reset_password_datasource.dart';
+import 'package:office_schedule/app/features/clients/domain/entities/entities.dart';
+import 'package:office_schedule/app/features/profile/domain/entities/user_update_entity.dart';
+import 'package:office_schedule/app/features/profile/infra/datasources/update_profile_datasource.dart';
+import 'package:office_schedule/app/features/profile/infra/models/user_update_model.dart';
+import 'package:office_schedule/app/features/schedules/domain/entities/entities.dart';
+import 'package:office_schedule/app/features/schedules/domain/repository/repository.dart';
+import 'package:office_schedule/app/features/users/domain/entities/user_entity.dart';
+import 'package:office_schedule/app/features/users/domain/repository/repository.dart';
+import 'package:office_schedule/app/features/users/infra/datasources/datasources.dart';
 
 class LoginEntityMock extends Mock implements LoginEntity {}
 

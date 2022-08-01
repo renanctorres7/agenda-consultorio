@@ -1,5 +1,9 @@
 import 'package:faker/faker.dart';
-import 'package:office_schedule/app/features/infra/models/models.dart';
+import 'package:office_schedule/app/features/auth/infra/models/models.dart';
+import 'package:office_schedule/app/features/clients/infra/models/models.dart';
+import 'package:office_schedule/app/features/profile/infra/models/user_update_model.dart';
+import 'package:office_schedule/app/features/schedules/infra/models/models.dart';
+import 'package:office_schedule/app/features/users/infra/models/user_model.dart';
 
 class MocksModels {
   static final token = faker.guid.guid();
