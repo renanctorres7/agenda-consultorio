@@ -12,6 +12,7 @@ class ScheduleCreateModel extends ScheduleCreateEntity {
       required super.typePayment,
       required super.paymentStatus,
       required super.scheduleStatus,
+      super.registeredClient,
       super.description});
 
   factory ScheduleCreateModel.fromJson(Map<String, dynamic> json) =>
@@ -25,5 +26,6 @@ class ScheduleCreateModel extends ScheduleCreateEntity {
           typePayment: entity.typePayment,
           paymentStatus: entity.paymentStatus,
           scheduleStatus: entity.scheduleStatus,
+          registeredClient: entity.registeredClient,
           description: entity.description);
 }

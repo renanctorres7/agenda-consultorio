@@ -1,6 +1,5 @@
 import '../../../users/domain/entities/user_entity.dart';
 
-
 abstract class ScheduleEntity {
   final String objectId;
   final String datetime;

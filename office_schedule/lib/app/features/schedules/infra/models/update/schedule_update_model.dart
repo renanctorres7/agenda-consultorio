@@ -13,7 +13,8 @@ class ScheduleUpdateModel extends ScheduleUpdateEntity {
       super.typePayment,
       super.paymentStatus,
       super.scheduleStatus,
-      super.description});
+      super.description,
+      super.registeredClient});
 
   factory ScheduleUpdateModel.fromJson(Map<String, dynamic> json) =>
       _$ScheduleUpdateModelFromJson(json);
@@ -27,6 +28,7 @@ class ScheduleUpdateModel extends ScheduleUpdateEntity {
         typePayment: entity.typePayment,
         paymentStatus: entity.paymentStatus,
         scheduleStatus: entity.scheduleStatus,
+        registeredClient: entity.registeredClient,
         description: entity.description,
       );
 }

@@ -13,7 +13,9 @@ class ScheduleFilterModel extends ScheduleFilterEntity {
       super.client,
       super.scheduleStatus,
       super.typePayment,
-      super.paymentStatus});
+      super.paymentStatus,
+      super.description,
+      super.registeredClient});
 
   factory ScheduleFilterModel.fromJson(Map<String, dynamic> json) =>
       _$ScheduleFilterModelFromJson(json);
@@ -28,5 +30,7 @@ class ScheduleFilterModel extends ScheduleFilterEntity {
           client: entity.client,
           scheduleStatus: entity.scheduleStatus,
           typePayment: entity.typePayment,
-          paymentStatus: entity.paymentStatus);
+          paymentStatus: entity.paymentStatus,
+          description: entity.description,
+          registeredClient: entity.registeredClient);
 }
