@@ -24,9 +24,9 @@
       "args": [
         "--flavor",
         "dev",
-        "--dart-define=DEFINE_APPLICATION_ID=COLOCAR",
-        "--dart-define=DEFINE_REST_API=COLOCAR",
-        "--dart-define=DEFINE_BASE_URL=COLOCAR"
+        "--dart-define=DEFINE_APPLICATION_ID=cWBlZkjLVQCkB60UTpEmNND9Vfz7uxaUOl9Di5Fn",
+        "--dart-define=DEFINE_REST_API=Q79gGB91lrjddTPtMriYxhcuxcBSFPLu6GFJO7A4",
+        "--dart-define=DEFINE_BASE_URL=https://parseapi.back4app.com/parse/functions/"
       ],
       "program": "office_schedule/lib/main_dev.dart"
     }
