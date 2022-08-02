@@ -1,0 +1,34 @@
+{
+  // Use IntelliSense to learn about possible attributes.
+  // Hover to view descriptions of existing attributes.
+  // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "name": "prod",
+      "request": "launch",
+      "type": "dart",
+      "args": [
+        "--flavor",
+        "prod",
+        "--dart-define=DEFINE_APPLICATION_ID=COLOCAR",
+        "--dart-define=DEFINE_REST_API=COLOCAR",
+        "--dart-define=DEFINE_BASE_URL=COLOCAR"
+      ],
+      "program": "office_schedule/lib/main_prod.dart"
+    },
+    {
+      "name": "dev",
+      "request": "launch",
+      "type": "dart",
+      "args": [
+        "--flavor",
+        "dev",
+        "--dart-define=DEFINE_APPLICATION_ID=cWBlZkjLVQCkB60UTpEmNND9Vfz7uxaUOl9Di5Fn",
+        "--dart-define=DEFINE_REST_API=Q79gGB91lrjddTPtMriYxhcuxcBSFPLu6GFJO7A4",
+        "--dart-define=DEFINE_BASE_URL=https://parseapi.back4app.com/parse/functions/"
+      ],
+      "program": "office_schedule/lib/main_dev.dart"
+    }
+  ]
+}
