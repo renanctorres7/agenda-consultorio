@@ -41,7 +41,6 @@ dependencies:
   hive: ^2.2.3
   flutter_secure_storage: ^5.0.2
 
-  
   compass_foundation:
     git:
       url: https://github.com/renantorres-compass/flutter-core-ui-automation.git
@@ -53,6 +52,7 @@ dependencies:
   path_provider: ^2.0.11
   google_fonts: ^3.0.1
   flutter_svg: ^1.1.1+1
+  auto_size_text: ^3.0.0
 
 dev_dependencies:
   flutter_test:

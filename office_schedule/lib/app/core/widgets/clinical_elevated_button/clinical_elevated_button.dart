@@ -1,3 +1,4 @@
+import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
 import 'package:office_schedule/app/core/theme/theme.dart';
 
@@ -34,7 +35,7 @@ class ClinicalElevatedButton extends StatelessWidget {
             elevation: 4,
             shape:
                 RoundedRectangleBorder(borderRadius: BorderRadius.circular(5))),
-        child: Text(
+        child: AutoSizeText(
           buttonText,
           style: ClinicalTextTypes.boxButtonText,
         ),
