@@ -1,5 +1,6 @@
 import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:office_schedule/app/core/theme/theme.dart';
 
 enum ButtonColorEnum {
@@ -26,15 +27,15 @@ class ClinicalElevatedButton extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return SizedBox(
-      height: 33,
-      width: 103,
+      height: 33.h,
+      width: 103.w,
       child: ElevatedButton(
         onPressed: onPressed,
         style: ElevatedButton.styleFrom(
             primary: buttonColorEnum.color,
             elevation: 4,
-            shape:
-                RoundedRectangleBorder(borderRadius: BorderRadius.circular(5))),
+            shape: RoundedRectangleBorder(
+                borderRadius: BorderRadius.circular(5.r))),
         child: AutoSizeText(
           buttonText,
           style: ClinicalTextTypes.boxButtonText,
