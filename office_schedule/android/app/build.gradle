@@ -25,6 +25,22 @@ apply plugin: 'com.android.application'
 apply plugin: 'kotlin-android'
 apply from: "$flutterRoot/packages/flutter_tools/gradle/flutter.gradle"
 
+
+def dartEnvironmentVariables = [
+    DEFINE_APPLICATION_ID: 'applicationId',
+DEFINE_REST_API: 'restApi',
+DEFINE_BASE_URL: 'baseUrl'
+];
+
+if (project.hasProperty('dart-defines')) {
+    dartEnvironmentVariables = dartEnvironmentVariables + project.property('dart-defines')
+            .split(',')
+            .collectEntries { entry ->
+                def pair = new String(entry.decodeBase64(), 'UTF-8').split('=')
+                [(pair.first()): pair.last()]
+            }
+}
+
 android {
     compileSdkVersion flutter.compileSdkVersion
     ndkVersion flutter.ndkVersion
@@ -52,6 +68,24 @@ android {
         versionCode flutterVersionCode.toInteger()
         versionName flutterVersionName
     }
+
+    flavorDimensions "app"
+    productFlavors {
+ 
+        dev {
+            dimension "app"
+            applicationIdSuffix ".rctorres.office.schedule.dev"
+            resValue "string", "app_name", "[DEV] Agenda Clínica"
+        }
+ 
+        prod {
+            dimension "app"
+            applicationIdSuffix ".rctorres.office.schedule"
+            resValue "string", "app_name", "Agenda Clínica"
+        }
+
+    }
+
 
     buildTypes {
         release {
