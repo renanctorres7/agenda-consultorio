@@ -28,8 +28,8 @@ apply from: "$flutterRoot/packages/flutter_tools/gradle/flutter.gradle"
 
 def dartEnvironmentVariables = [
     DEFINE_APPLICATION_ID: 'applicationId',
-DEFINE_REST_API: 'restApi',
-DEFINE_BASE_URL: 'baseUrl'
+    DEFINE_REST_API: 'restApi',
+    DEFINE_BASE_URL: 'baseUrl'
 ];
 
 if (project.hasProperty('dart-defines')) {
