@@ -26,7 +26,7 @@ class _ClinicalFormInputDateState extends State<ClinicalFormInputDate> {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.only(bottom: 20),
+      padding: EdgeInsets.only(bottom: 20.h),
       child: SizedBox(
         width: context.screenSize.width,
         height: 66.h,
