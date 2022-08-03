@@ -28,7 +28,8 @@ class ClinicalFormInput extends StatefulWidget {
       this.validator,
       this.inputFormatters,
       this.enabled,
-      this.autovalidateMode})
+      this.autovalidateMode,
+      this.maxLines})
       : super(key: key);
 
   final ClinicalFormIconEnum clinicalFormIconEnum;
@@ -51,14 +52,13 @@ class ClinicalFormInput extends StatefulWidget {
   final List<TextInputFormatter>? inputFormatters;
   final bool? enabled;
   final AutovalidateMode? autovalidateMode;
+  final int? maxLines;
 
   @override
   State<ClinicalFormInput> createState() => _ClinicalFormInputState();
 }
 
 class _ClinicalFormInputState extends State<ClinicalFormInput> {
-  final int? maxLines = 1;
-
   @override
   Widget build(BuildContext context) {
     return SizedBox(
@@ -91,7 +91,7 @@ class _ClinicalFormInputState extends State<ClinicalFormInput> {
             autofocus: widget.autofocus ?? false,
             readOnly: widget.readOnly ?? false,
             obscureText: widget.obscureText ?? false,
-            maxLines: maxLines,
+            maxLines: widget.maxLines ?? 1,
             maxLength: widget.maxLength,
             onChanged: widget.onChanged,
             onTap: widget.onTap,

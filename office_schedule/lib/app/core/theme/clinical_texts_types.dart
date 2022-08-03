@@ -81,4 +81,21 @@ class ClinicalTextTypes {
       fontSize: 16.sp,
       fontWeight: FontWeight.w500,
       color: ClinicalColorsLightTheme.colorWhite);
+
+  ///datetimePickerItem
+
+  static final datetimePickerItem = GoogleFonts.poppins(
+      fontSize: 16.sp,
+      fontWeight: FontWeight.w700,
+      color: ClinicalColorsLightTheme.colorTextLight);
+
+  static final datetimePickerCancel = GoogleFonts.poppins(
+      fontSize: 16.sp,
+      fontWeight: FontWeight.w700,
+      color: ClinicalColorsLightTheme.dangerYellowDark);
+
+  static final datetimePickerConfirm = GoogleFonts.poppins(
+      fontSize: 16.sp,
+      fontWeight: FontWeight.w700,
+      color: ClinicalColorsLightTheme.primaryDark);
 }
