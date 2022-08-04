@@ -13,8 +13,7 @@ enum ClinicalFormHintTextEnum {
 
   pacient('Paciente'),
   phone('Telefone'),
-  specialty('Especialidade'),
-  statusSchedule('Consulta realizada?');
+  specialty('Especialidade');
 
   final String hintText;
   const ClinicalFormHintTextEnum(this.hintText);

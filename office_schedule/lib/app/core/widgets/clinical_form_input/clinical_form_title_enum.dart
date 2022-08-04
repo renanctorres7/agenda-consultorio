@@ -15,8 +15,7 @@ enum ClinicalFormTitleEnum {
 
   pacient('Paciente'),
   phone('Telefone'),
-  specialty('Especialidade'),
-  statusSchedule('Consulta realizada?');
+  specialty('Especialidade');
 
   final String title;
   const ClinicalFormTitleEnum(this.title);
