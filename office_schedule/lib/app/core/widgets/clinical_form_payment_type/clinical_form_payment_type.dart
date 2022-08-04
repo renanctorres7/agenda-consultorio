@@ -19,10 +19,14 @@ class ClinicalFormPaymentType extends StatefulWidget {
     Key? key,
     this.paymentTypeText,
     this.paymentStatusText,
+    this.onTapPaymentType,
+    this.onTapPaymentStatus,
   }) : super(key: key);
 
   final String? paymentTypeText;
   final String? paymentStatusText;
+  final Function()? onTapPaymentType;
+  final Function()? onTapPaymentStatus;
 
   @override
   State<ClinicalFormPaymentType> createState() =>
@@ -49,12 +53,14 @@ class _ClinicalFormPaymentTypeState extends State<ClinicalFormPaymentType> {
             Flexible(
                 child: _typePayment(
               initialValue: widget.paymentTypeText,
+              onTap: widget.onTapPaymentType,
             )),
             Flexible(
                 child: _statusPayment(
                     initialValue: widget.paymentStatusText,
                     paymentStatusColorEnum: _getColorOfPaymentStatus(
-                        widget.paymentStatusText ?? 'pendente'))),
+                        widget.paymentStatusText ?? 'pendente'),
+                    onTap: widget.onTapPaymentStatus)),
           ],
         ),
       ),
@@ -62,70 +68,77 @@ class _ClinicalFormPaymentTypeState extends State<ClinicalFormPaymentType> {
   }
 }
 
-Widget _typePayment({String? initialValue}) {
-  return Flex(
-    direction: Axis.vertical,
-    children: [
-      SizedBox(
-        height: 18.h,
-        child: Flex(
-          direction: Axis.horizontal,
-          mainAxisAlignment: MainAxisAlignment.start,
-          children: [
-            Padding(
-              padding: EdgeInsets.only(right: 10.w),
-              child: SvgPicture.asset(ClinicalIcons.formPaymentGray,
-                  width: 16.w, fit: BoxFit.fitWidth),
-            ),
-            Expanded(
-              child: Text(
-                'Tipo de pagamento',
-                style: ClinicalTextTypes.formTitleText,
+Widget _typePayment({String? initialValue, required Function()? onTap}) {
+  return GestureDetector(
+    onTap: onTap,
+    child: Flex(
+      direction: Axis.vertical,
+      children: [
+        SizedBox(
+          height: 18.h,
+          child: Flex(
+            direction: Axis.horizontal,
+            mainAxisAlignment: MainAxisAlignment.start,
+            children: [
+              Padding(
+                padding: EdgeInsets.only(right: 10.w),
+                child: SvgPicture.asset(ClinicalIcons.formPaymentGray,
+                    width: 16.w, fit: BoxFit.fitWidth),
               ),
-            ),
-          ],
+              Expanded(
+                child: Text(
+                  'Tipo de pagamento',
+                  style: ClinicalTextTypes.formTitleText,
+                ),
+              ),
+            ],
+          ),
         ),
-      ),
-      Container(
-          height: 44.h,
-          alignment: Alignment.bottomCenter,
-          padding: EdgeInsets.only(left: 20.w),
-          child: Text(initialValue ?? 'Não especificado',
-              style: ClinicalTextTypes.bodyText)),
-    ],
+        Container(
+            height: 44.h,
+            alignment: Alignment.bottomCenter,
+            padding: EdgeInsets.only(left: 20.w),
+            child: Text(initialValue ?? 'Não especificado',
+                style: ClinicalTextTypes.bodyText)),
+      ],
+    ),
   );
 }
 
 Widget _statusPayment(
     {String? initialValue,
-    required PaymentStatusColorEnum paymentStatusColorEnum}) {
-  return Flex(
-    direction: Axis.vertical,
-    children: [
-      SizedBox(
-        height: 18.h,
-        child: Text(
-          'Status pagamento',
-          style: ClinicalTextTypes.formTitleText,
+    required PaymentStatusColorEnum paymentStatusColorEnum,
+    required Function()? onTap}) {
+  return GestureDetector(
+    onTap: onTap,
+    child: Flex(
+      direction: Axis.vertical,
+      children: [
+        SizedBox(
+          height: 18.h,
+          child: Text(
+            'Status pagamento',
+            style: ClinicalTextTypes.formTitleText,
+          ),
         ),
-      ),
-      Container(
-          height: 44.h,
-          alignment: Alignment.bottomCenter,
-          child: Container(
-            height: 24.h,
-            padding: EdgeInsets.symmetric(horizontal: 10.w),
-            decoration: BoxDecoration(
-              color: paymentStatusColorEnum.color,
-            ),
-            child: Text(
-              initialValue ?? '',
-              style: paymentStatusColorEnum.name == "pago"
-                  ? ClinicalTextTypes.bodyText
-                  : ClinicalTextTypes.bodyTextWhite,
-            ),
-          )),
-    ],
+        Container(
+            height: 44.h,
+            alignment: Alignment.bottomCenter,
+            child: Container(
+              height: 24.h,
+              padding: EdgeInsets.symmetric(horizontal: 10.w),
+              decoration: BoxDecoration(
+                color: paymentStatusColorEnum.color,
+              ),
+              child: Text(
+                initialValue ?? '',
+                style: paymentStatusColorEnum.name == "pago"
+                    ? ClinicalTextTypes.bodyText
+                    : ClinicalTextTypes.bodyTextWhite,
+              ),
+            )),
+      ],
+    ),
   );
 }
 
