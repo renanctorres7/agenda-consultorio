@@ -13,9 +13,6 @@ enum ClinicalFormTitleEnum {
   description('Descrição'),
   address('Endereço'),
 
-  paymentType('Tipo de pagamento'),
-  paymentStatus('Status do pagamento'),
-
   pacient('Paciente'),
   phone('Telefone'),
   specialty('Especialidade'),
