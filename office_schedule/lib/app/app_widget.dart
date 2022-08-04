@@ -3,8 +3,7 @@ import 'package:flutter_localizations/flutter_localizations.dart';
 
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:office_schedule/app/app_config.dart';
-
-import 'core/theme/theme.dart';
+import 'package:office_schedule/app/features/test_page/presenter/test_page.dart';
 
 class AppWidget extends StatelessWidget {
   const AppWidget({Key? key}) : super(key: key);
@@ -26,14 +25,7 @@ class AppWidget extends StatelessWidget {
               Locale('pt', 'BR'), // English
             ],
             title: AppConfig.of(context).appName,
-            home: Scaffold(
-                appBar: AppBar(
-                  title: Text(
-                    AppConfig.of(context).appName,
-                    style: ClinicalTextTypes.bodyText,
-                  ),
-                ),
-                body: const Center()),
+            home: TestPage(),
           );
         });
   }

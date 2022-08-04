@@ -1,9 +1,8 @@
-import 'package:compass_foundation/foundation/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-import 'package:office_schedule/app/core/theme/clinical_texts_types.dart';
+import 'package:office_schedule/app/core/extensions/context.dart';
 
 import '../../theme/theme.dart';
 import 'exports.dart';
@@ -30,7 +29,8 @@ class ClinicalFormInput extends StatefulWidget {
       this.inputFormatters,
       this.enabled,
       this.autovalidateMode,
-      this.maxLines})
+      this.maxLines,
+      this.topTextButton})
       : super(key: key);
 
   final ClinicalFormIconEnum clinicalFormIconEnum;
@@ -54,6 +54,7 @@ class ClinicalFormInput extends StatefulWidget {
   final bool? enabled;
   final AutovalidateMode? autovalidateMode;
   final int? maxLines;
+  final Widget? topTextButton;
 
   @override
   State<ClinicalFormInput> createState() => _ClinicalFormInputState();
@@ -63,7 +64,7 @@ class _ClinicalFormInputState extends State<ClinicalFormInput> {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: EdgeInsets.only(bottom: 20.h),
+      padding: EdgeInsets.only(bottom: 20.h, left: 20.w, right: 20.w),
       child: SizedBox(
         width: context.screenSize.width,
         height: 66.h,
@@ -81,10 +82,13 @@ class _ClinicalFormInputState extends State<ClinicalFormInput> {
                     child: SvgPicture.asset(widget.clinicalFormIconEnum.icon,
                         width: 16.w, fit: BoxFit.fitWidth),
                   ),
-                  Text(
-                    widget.clinicalFormTitleEnum.title,
-                    style: ClinicalTextTypes.formTitleText,
-                  )
+                  Expanded(
+                    child: Text(
+                      widget.clinicalFormTitleEnum.title,
+                      style: ClinicalTextTypes.formTitleText,
+                    ),
+                  ),
+                  widget.topTextButton ?? const SizedBox()
                 ],
               ),
             ),

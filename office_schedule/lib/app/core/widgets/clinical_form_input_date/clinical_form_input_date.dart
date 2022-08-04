@@ -1,8 +1,8 @@
-import 'package:compass_foundation/foundation/foundation.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:office_schedule/app/core/extensions/context.dart';
 import 'package:office_schedule/app/core/icons/clinical_icons.dart';
 import 'package:office_schedule/app/core/theme/clinical_colors.dart';
 import 'package:office_schedule/app/core/theme/clinical_texts_types.dart';
@@ -13,10 +13,12 @@ class ClinicalFormInputDate extends StatefulWidget {
     Key? key,
     this.initialValue,
     required this.textEditingController,
+    this.topTextButton,
   }) : super(key: key);
 
   final String? initialValue;
   final TextEditingController textEditingController;
+  final Widget? topTextButton;
 
   @override
   State<ClinicalFormInputDate> createState() => _ClinicalFormInputDateState();
@@ -26,7 +28,7 @@ class _ClinicalFormInputDateState extends State<ClinicalFormInputDate> {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: EdgeInsets.only(bottom: 20.h),
+      padding: EdgeInsets.only(bottom: 20.h, left: 20.w, right: 20.w),
       child: SizedBox(
         width: context.screenSize.width,
         height: 66.h,
@@ -44,10 +46,13 @@ class _ClinicalFormInputDateState extends State<ClinicalFormInputDate> {
                     child: SvgPicture.asset(ClinicalIcons.formClockGray,
                         width: 16.w, fit: BoxFit.fitWidth),
                   ),
-                  Text(
-                    'Data e hora',
-                    style: ClinicalTextTypes.formTitleText,
-                  )
+                  Expanded(
+                    child: Text(
+                      'Data e hora',
+                      style: ClinicalTextTypes.formTitleText,
+                    ),
+                  ),
+                  widget.topTextButton ?? const SizedBox()
                 ],
               ),
             ),
