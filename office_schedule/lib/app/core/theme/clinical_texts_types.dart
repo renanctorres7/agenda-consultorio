@@ -16,15 +16,26 @@ class ClinicalTextTypes {
             offset: const Offset(0, 4))
       ]);
 
+  //body text
+
   static final bodyText = GoogleFonts.poppins(
       fontSize: 14.sp,
-      fontWeight: FontWeight.w500,
+      fontWeight: FontWeight.w600,
       color: ClinicalColorsLightTheme.colorTextLight);
+
+  static final bodyTextWhite = GoogleFonts.poppins(
+      fontSize: 14.sp,
+      fontWeight: FontWeight.w600,
+      color: ClinicalColorsLightTheme.colorWhite);
+
+  //form
 
   static final formTitleText = GoogleFonts.poppins(
       fontSize: 12.sp,
       fontWeight: FontWeight.w400,
       color: ClinicalColorsLightTheme.colorGray);
+
+  // buttons
 
   static final boxButtonText = GoogleFonts.poppins(
       fontSize: 14.sp,
@@ -35,6 +46,11 @@ class ClinicalTextTypes {
       fontSize: 14.sp,
       fontWeight: FontWeight.w600,
       color: ClinicalColorsLightTheme.colorWhite);
+
+  static final buttonTextCancel = GoogleFonts.poppins(
+      fontSize: 14.sp,
+      fontWeight: FontWeight.w700,
+      color: ClinicalColorsLightTheme.dangerYellowDark);
 
   ////tab bar
 
