@@ -52,6 +52,11 @@ class ClinicalTextTypes {
       fontWeight: FontWeight.w700,
       color: ClinicalColorsLightTheme.dangerYellowDark);
 
+  static final buttonTopText = GoogleFonts.poppins(
+      fontSize: 12.sp,
+      fontWeight: FontWeight.w400,
+      color: ClinicalColorsLightTheme.dangerYellowDark);
+
   ////tab bar
 
   static final tabBarTextBlue = GoogleFonts.poppins(

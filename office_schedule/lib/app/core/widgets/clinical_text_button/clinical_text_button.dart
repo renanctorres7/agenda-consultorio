@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
+
 import 'package:office_schedule/app/core/theme/theme.dart';
 
 class ClinicalTextButton extends StatefulWidget {
