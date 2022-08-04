@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:office_schedule/app/core/extensions/context.dart';
-import 'package:office_schedule/app/core/widgets/clinical_card_user/clinical_card_user.dart';
+import 'package:office_schedule/app/core/widgets/clinical_card_client/clinical_card_client.dart';
 
 class TestPage extends StatefulWidget {
   const TestPage({Key? key}) : super(key: key);
@@ -31,6 +31,9 @@ class _TestPageState extends State<TestPage> with TickerProviderStateMixin {
             SizedBox(
               height: 200.h,
             ),
+            const ClinicalCardClient(
+                clientFullName: 'Renan Campos Torres',
+                clientPhone: '(61) 9999-9999')
           ],
         ),
       ),

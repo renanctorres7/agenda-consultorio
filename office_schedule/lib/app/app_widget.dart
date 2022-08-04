@@ -25,7 +25,7 @@ class AppWidget extends StatelessWidget {
               Locale('pt', 'BR'), // English
             ],
             title: AppConfig.of(context).appName,
-            home: TestPage(),
+            home: const TestPage(),
           );
         });
   }
