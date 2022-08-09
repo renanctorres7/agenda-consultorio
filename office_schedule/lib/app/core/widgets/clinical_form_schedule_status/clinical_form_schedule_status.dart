@@ -7,11 +7,11 @@ import '../../icons/clinical_icons.dart';
 import '../../theme/theme.dart';
 
 enum ScheduleStatusColorEnum {
-  realizado(ClinicalColorsLightTheme.primaryLighter),
-  pendente(ClinicalColorsLightTheme.dangerYellow),
+  realizado(ClinicalColorsLightTheme.primary),
+  pendente(ClinicalColorsLightTheme.colorWhite),
   cancelado(ClinicalColorsLightTheme.dangerRed),
 
-  reagendado(ClinicalColorsLightTheme.secondaryLight);
+  reagendado(ClinicalColorsLightTheme.dangerYellow);
 
   final Color color;
   const ScheduleStatusColorEnum(this.color);
@@ -127,12 +127,12 @@ TextStyle _getTextStyleOfScheduleStatus({required String scheduleStatusText}) {
       return ClinicalTextTypes.bodyText;
 
     case "pendente":
-      return ClinicalTextTypes.bodyTextWhite;
+      return ClinicalTextTypes.bodyText;
     case "cancelado":
       return ClinicalTextTypes.bodyTextWhite;
     case "reagendado":
 
     default:
-      return ClinicalTextTypes.bodyText;
+      return ClinicalTextTypes.bodyTextWhite;
   }
 }

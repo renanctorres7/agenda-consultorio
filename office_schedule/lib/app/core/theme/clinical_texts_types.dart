@@ -119,4 +119,26 @@ class ClinicalTextTypes {
       fontSize: 16.sp,
       fontWeight: FontWeight.w700,
       color: ClinicalColorsLightTheme.primaryDark);
+
+  ////card DateTime
+
+  static final cardDateTimeBoldWhite = GoogleFonts.poppins(
+      fontSize: 12.sp,
+      fontWeight: FontWeight.w700,
+      color: ClinicalColorsLightTheme.colorWhite);
+
+  static final cardDateTimeWhite = GoogleFonts.poppins(
+      fontSize: 12.sp,
+      fontWeight: FontWeight.w500,
+      color: ClinicalColorsLightTheme.colorWhite);
+
+  static final cardDateTimeBoldBlack = GoogleFonts.poppins(
+      fontSize: 12.sp,
+      fontWeight: FontWeight.w700,
+      color: ClinicalColorsLightTheme.colorTextLight);
+
+  static final cardDateTimeBlack = GoogleFonts.poppins(
+      fontSize: 12.sp,
+      fontWeight: FontWeight.w500,
+      color: ClinicalColorsLightTheme.colorTextLight);
 }
