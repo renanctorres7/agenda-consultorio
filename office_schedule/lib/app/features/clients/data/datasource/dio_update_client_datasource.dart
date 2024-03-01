@@ -18,8 +18,9 @@ class DioUpdateClientDatasource implements ClientsUpdateDatasource {
       await updateClientService.updateClient(
           token, ClientsUpdateModel.fromEntity(clientsUpdateEntity));
       return SuccessfulResponse();
-    } on DioError catch (e) {
-      throw DioError(requestOptions: e.requestOptions, response: e.response);
+    } on DioException catch (e) {
+      throw DioException(
+          requestOptions: e.requestOptions, response: e.response);
     }
   }
 }

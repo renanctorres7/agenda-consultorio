@@ -34,7 +34,7 @@ void main() {
   });
 
   test('Should return DataSource Error if gets error', () async {
-    when(() => service.updateClient(any(), any())).thenThrow(DioError(
+    when(() => service.updateClient(any(), any())).thenThrow(DioException(
       requestOptions: RequestOptions(path: ''),
       response: Response(
         data: 'Something went wrong',
@@ -46,6 +46,6 @@ void main() {
     final result = datasource.updateClient(
         token: token, clientsUpdateEntity: clientsUpdateModel);
 
-    expect(result, throwsA(const TypeMatcher<DioError>()));
+    expect(result, throwsA(const TypeMatcher<DioException>()));
   });
 }

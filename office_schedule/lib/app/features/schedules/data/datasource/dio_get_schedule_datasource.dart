@@ -1,4 +1,5 @@
 import 'package:dio/dio.dart';
+
 import '../../infra/datasources/datasource.dart';
 import '../../infra/models/models.dart';
 import '../service/service.dart';
@@ -14,8 +15,9 @@ class DioGetScheduleDatasource implements GetScheduleDatasource {
     try {
       final result = await getScheduleService.getSchedule(token, mapObjectId);
       return result;
-    } on DioError catch (e) {
-      throw DioError(requestOptions: e.requestOptions, response: e.response);
+    } on DioException catch (e) {
+      throw DioException(
+          requestOptions: e.requestOptions, response: e.response);
     }
   }
 }

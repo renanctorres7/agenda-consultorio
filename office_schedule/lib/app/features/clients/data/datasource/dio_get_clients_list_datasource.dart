@@ -14,8 +14,9 @@ class DioGetClientsListDatasource implements GetClientsListDatasource {
     try {
       final result = await getClientsListService.getClientsList(token);
       return result ?? <ClientsListModel>[];
-    } on DioError catch (e) {
-      throw DioError(requestOptions: e.requestOptions, response: e.response);
+    } on DioException catch (e) {
+      throw DioException(
+          requestOptions: e.requestOptions, response: e.response);
     }
   }
 }

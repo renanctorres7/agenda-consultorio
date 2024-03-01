@@ -14,8 +14,9 @@ class DioGetUserDatasource implements GetUserDatasource {
     try {
       final result = await getUserService.getUserProfile(token, mapObjectId);
       return result;
-    } on DioError catch (e) {
-      throw DioError(requestOptions: e.requestOptions, response: e.response);
+    } on DioException catch (e) {
+      throw DioException(
+          requestOptions: e.requestOptions, response: e.response);
     }
   }
 }

@@ -7,7 +7,6 @@ import 'package:office_schedule/app/features/auth/infra/models/models.dart';
 
 import '../../../../../mocks/mocks.dart';
 
-
 class LoginServiceMock extends Mock implements LoginService {}
 
 class SignUpModelMock extends Mock implements SignUpModel {}
@@ -36,7 +35,7 @@ void main() {
   });
 
   test('Should throw a Dio Error if gets error', () async {
-    when(() => loginService.login(any())).thenThrow(DioError(
+    when(() => loginService.login(any())).thenThrow(DioException(
       requestOptions: RequestOptions(path: ''),
       response: Response(
         data: 'Something went wrong',
@@ -47,6 +46,6 @@ void main() {
 
     final result = dioDatasource.login(loginModel);
 
-    expect(result, throwsA(const TypeMatcher<DioError>()));
+    expect(result, throwsA(const TypeMatcher<DioException>()));
   });
 }

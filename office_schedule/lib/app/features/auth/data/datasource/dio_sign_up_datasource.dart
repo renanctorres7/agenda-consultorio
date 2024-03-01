@@ -15,8 +15,9 @@ class DioSignUpDatasource implements SignUpDatasource {
     try {
       final result = await signUpService.signUp(signUpModel);
       return result;
-    } on DioError catch (e) {
-      throw DioError(requestOptions: e.requestOptions, response: e.response);
+    } on DioException catch (e) {
+      throw DioException(
+          requestOptions: e.requestOptions, response: e.response);
     }
   }
 }

@@ -22,7 +22,7 @@ void main() {
   });
 
   test('Should throw a Dio Error if gets error', () async {
-    when(() => service.resetPassword(mapEmail)).thenThrow(DioError(
+    when(() => service.resetPassword(mapEmail)).thenThrow(DioException(
       requestOptions: RequestOptions(path: ''),
       response: Response(
         data: 'Something went wrong',
@@ -33,6 +33,6 @@ void main() {
 
     final result = datasource.resetPassword(email);
 
-    expect(result, throwsA(const TypeMatcher<DioError>()));
+    expect(result, throwsA(const TypeMatcher<DioException>()));
   });
 }

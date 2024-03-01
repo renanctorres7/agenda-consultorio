@@ -17,8 +17,9 @@ class DioUpdateProfileDatasource implements UpdateProfileDatasource {
       final result = await updateProfileService.updateProfile(
           token, UserUpdateModel.fromEntity(userUpdateEntity));
       return result;
-    } on DioError catch (e) {
-      throw DioError(requestOptions: e.requestOptions, response: e.response);
+    } on DioException catch (e) {
+      throw DioException(
+          requestOptions: e.requestOptions, response: e.response);
     }
   }
 }

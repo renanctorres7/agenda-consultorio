@@ -14,8 +14,9 @@ class DioValidateTokenDatasource implements ValidateTokenDatasource {
     try {
       await validateTokenService.validateToken(token);
       return SuccessfulResponse();
-    } on DioError catch (e) {
-      throw DioError(requestOptions: e.requestOptions, response: e.response);
+    } on DioException catch (e) {
+      throw DioException(
+          requestOptions: e.requestOptions, response: e.response);
     }
   }
 }

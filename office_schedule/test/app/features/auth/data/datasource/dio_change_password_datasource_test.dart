@@ -8,8 +8,6 @@ import 'package:office_schedule/app/features/auth/data/service/change_password_s
 
 import '../../../../../mocks/mocks.dart';
 
-
-
 class ChangePasswordServiceMock extends Mock implements ChangePasswordService {}
 
 void main() {
@@ -43,7 +41,7 @@ void main() {
 
   test('Should throw a Dio Error if gets error', () async {
     when(() => changePasswordServiceMock.changePasswordEmail(token, any()))
-        .thenThrow(DioError(
+        .thenThrow(DioException(
       requestOptions: RequestOptions(path: ''),
       response: Response(
         data: 'Something went wrong',
@@ -54,6 +52,6 @@ void main() {
 
     final result = datasource.changePasswordEmail(token, newPasswordModelMock);
 
-    expect(result, throwsA(const TypeMatcher<DioError>()));
+    expect(result, throwsA(const TypeMatcher<DioException>()));
   });
 }

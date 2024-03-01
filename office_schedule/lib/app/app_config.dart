@@ -6,11 +6,10 @@ class AppConfig extends InheritedWidget {
   final FlavorsType flavorsType;
 
   const AppConfig(
-      {Key? key,
+      {super.key,
       required this.appName,
       required this.flavorsType,
-      required Widget child})
-      : super(key: key, child: child);
+      required super.child});
 
   static AppConfig of(BuildContext context) {
     return context.dependOnInheritedWidgetOfExactType<AppConfig>()!;

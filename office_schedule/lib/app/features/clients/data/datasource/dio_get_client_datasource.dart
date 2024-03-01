@@ -15,8 +15,9 @@ class DioGetClientDatasource implements GetClientDatasource {
     try {
       final result = await getClientService.getClient(token, mapObjectId);
       return result;
-    } on DioError catch (e) {
-      throw DioError(requestOptions: e.requestOptions, response: e.response);
+    } on DioException catch (e) {
+      throw DioException(
+          requestOptions: e.requestOptions, response: e.response);
     }
   }
 }

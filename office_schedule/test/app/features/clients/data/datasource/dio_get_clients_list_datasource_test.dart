@@ -31,7 +31,7 @@ void main() {
   });
 
   test('Should return DataSource Error if gets error', () async {
-    when(() => service.getClientsList(token)).thenThrow(DioError(
+    when(() => service.getClientsList(token)).thenThrow(DioException(
       requestOptions: RequestOptions(path: ''),
       response: Response(
         data: 'Something went wrong',
@@ -42,6 +42,6 @@ void main() {
 
     final result = datasource.getClientsList(token: token);
 
-    expect(result, throwsA(const TypeMatcher<DioError>()));
+    expect(result, throwsA(const TypeMatcher<DioException>()));
   });
 }
