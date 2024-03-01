@@ -16,8 +16,9 @@ class DioScheduleFilterDatasource implements ListScheduleFilterDatasource {
       final result = await scheduleFilterService.getListScheduleByFilter(
           token, ScheduleFilterModel.fromEntity(scheduleFilterEntity));
       return result ?? <ScheduleModel>[];
-    } on DioError catch (e) {
-      throw DioError(requestOptions: e.requestOptions, response: e.response);
+    } on DioException catch (e) {
+      throw DioException(
+          requestOptions: e.requestOptions, response: e.response);
     }
   }
 }

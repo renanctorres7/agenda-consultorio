@@ -34,9 +34,9 @@ void main() {
     verify(() => serviceMock.deleteSchedule(token, objectIdMap)).called(1);
   });
 
-  test('Should throw a DioError if gets error', () async {
+  test('Should throw a DioException if gets error', () async {
     when(() => serviceMock.deleteSchedule(token, objectIdMap))
-        .thenThrow(DioError(
+        .thenThrow(DioException(
       requestOptions: RequestOptions(path: ''),
       response: Response(
         data: 'Something went wrong',
@@ -47,7 +47,7 @@ void main() {
 
     final result = datasource.deleteSchedule(token, objectId);
 
-    expect(result, throwsA(const TypeMatcher<DioError>()));
+    expect(result, throwsA(const TypeMatcher<DioException>()));
 
     verify(() => serviceMock.deleteSchedule(token, objectIdMap)).called(1);
   });

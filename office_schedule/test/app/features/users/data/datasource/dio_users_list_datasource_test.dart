@@ -38,7 +38,7 @@ void main() {
   });
 
   test('Should throws a Dio Error if gets error', () async {
-    when(() => getUsersListService.getUsersList(token)).thenThrow(DioError(
+    when(() => getUsersListService.getUsersList(token)).thenThrow(DioException(
       requestOptions: RequestOptions(path: ''),
       response: Response(
         data: 'Something went wrong',
@@ -49,6 +49,6 @@ void main() {
 
     final result = datasource.getUsersList(token);
 
-    expect(result, throwsA(const TypeMatcher<DioError>()));
+    expect(result, throwsA(const TypeMatcher<DioException>()));
   });
 }

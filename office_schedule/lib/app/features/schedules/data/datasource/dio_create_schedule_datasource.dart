@@ -17,8 +17,9 @@ class DioCreateScheduleDatasource implements CreateScheduleDatasource {
       await createScheduleService.createSchedule(
           token, ScheduleCreateModel.fromEntity(scheduleCreateEntity));
       return SuccessfulResponse();
-    } on DioError catch (e) {
-      throw DioError(requestOptions: e.requestOptions, response: e.response);
+    } on DioException catch (e) {
+      throw DioException(
+          requestOptions: e.requestOptions, response: e.response);
     }
   }
 }

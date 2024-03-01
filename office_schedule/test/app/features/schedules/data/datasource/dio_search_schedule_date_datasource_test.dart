@@ -56,9 +56,9 @@ void main() {
     expect(result, []);
   });
 
-  test('Should throw a DioError if gets error', () async {
+  test('Should throw a DioException if gets error', () async {
     when(() => searchScheduleDateService.searchScheduleFromDate(any(), any()))
-        .thenThrow(DioError(
+        .thenThrow(DioException(
       requestOptions: RequestOptions(path: ''),
       response: Response(
         data: 'Something went wrong',
@@ -69,6 +69,6 @@ void main() {
 
     final result = datasource.searchScheduleFromDate(token, scheduleDateModel);
 
-    expect(result, throwsA(const TypeMatcher<DioError>()));
+    expect(result, throwsA(const TypeMatcher<DioException>()));
   });
 }

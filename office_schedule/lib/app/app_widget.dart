@@ -7,7 +7,7 @@ import 'package:office_schedule/app/app_config.dart';
 import 'core/theme/theme.dart';
 
 class AppWidget extends StatelessWidget {
-  const AppWidget({Key? key}) : super(key: key);
+  const AppWidget({super.key});
 
   @override
   Widget build(BuildContext context) {

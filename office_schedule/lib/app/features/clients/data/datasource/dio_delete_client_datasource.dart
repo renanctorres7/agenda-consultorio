@@ -1,7 +1,7 @@
 import 'package:dio/dio.dart';
+
 import '../../../../core/success/success.dart';
 import '../../infra/datasources/datasource.dart';
-
 import '../service/service.dart';
 
 class DioDeleteClientDatasource implements DeleteClientDatasource {
@@ -15,8 +15,9 @@ class DioDeleteClientDatasource implements DeleteClientDatasource {
     try {
       await deleteClientService.deleteClient(token, mapObjectId);
       return SuccessfulResponse();
-    } on DioError catch (e) {
-      throw DioError(requestOptions: e.requestOptions, response: e.response);
+    } on DioException catch (e) {
+      throw DioException(
+          requestOptions: e.requestOptions, response: e.response);
     }
   }
 }

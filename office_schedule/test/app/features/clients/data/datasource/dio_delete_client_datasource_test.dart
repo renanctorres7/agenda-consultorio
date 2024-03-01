@@ -32,7 +32,7 @@ void main() {
   });
 
   test('Should return DataSource Error if gets error', () async {
-    when(() => service.deleteClient(any(), any())).thenThrow(DioError(
+    when(() => service.deleteClient(any(), any())).thenThrow(DioException(
       requestOptions: RequestOptions(path: ''),
       response: Response(
         data: 'Something went wrong',
@@ -43,6 +43,6 @@ void main() {
 
     final result = datasource.deleteClient(token: token, objectId: objectId);
 
-    expect(result, throwsA(const TypeMatcher<DioError>()));
+    expect(result, throwsA(const TypeMatcher<DioException>()));
   });
 }

@@ -13,8 +13,9 @@ class DioUsersListDatasource implements UsersListDatasource {
     try {
       final result = await getUsersListService.getUsersList(token);
       return result ?? <UserModel>[];
-    } on DioError catch (e) {
-      throw DioError(requestOptions: e.requestOptions, response: e.response);
+    } on DioException catch (e) {
+      throw DioException(
+          requestOptions: e.requestOptions, response: e.response);
     }
   }
 }

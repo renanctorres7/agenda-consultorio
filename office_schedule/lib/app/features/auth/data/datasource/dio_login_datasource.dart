@@ -16,8 +16,9 @@ class DioLoginDatasource implements LoginDatasource {
       final result = await loginService.login(loginModel);
 
       return result;
-    } on DioError catch (e) {
-      throw DioError(requestOptions: e.requestOptions, response: e.response);
+    } on DioException catch (e) {
+      throw DioException(
+          requestOptions: e.requestOptions, response: e.response);
     }
   }
 }

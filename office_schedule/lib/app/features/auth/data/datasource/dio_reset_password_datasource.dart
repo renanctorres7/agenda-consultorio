@@ -1,7 +1,6 @@
 import 'package:dio/dio.dart';
 
 import '../../../../core/success/success.dart';
-
 import '../../infra/datasources/reset_password_datasource.dart';
 import '../service/reset_password_service.dart';
 
@@ -15,8 +14,9 @@ class DioResetPasswordDatasource implements ResetPasswordDatasource {
     try {
       await resetPasswordService.resetPassword(mapEmail);
       return SuccessfulResponse();
-    } on DioError catch (e) {
-      throw DioError(requestOptions: e.requestOptions, response: e.response);
+    } on DioException catch (e) {
+      throw DioException(
+          requestOptions: e.requestOptions, response: e.response);
     }
   }
 }

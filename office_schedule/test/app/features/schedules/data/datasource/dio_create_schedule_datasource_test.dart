@@ -9,7 +9,6 @@ import 'package:office_schedule/app/features/schedules/infra/models/models.dart'
 
 import '../../../../../mocks/mocks.dart';
 
-
 class CreateScheduleServiceMock extends Mock implements CreateScheduleService {}
 
 class ScheduleCreateModelMock extends Mock implements ScheduleCreateModel {}
@@ -41,7 +40,7 @@ void main() {
   });
 
   test('Should return DataSource Error if gets error', () async {
-    when(() => service.createSchedule(any(), any())).thenThrow(DioError(
+    when(() => service.createSchedule(any(), any())).thenThrow(DioException(
       requestOptions: RequestOptions(path: ''),
       response: Response(
         data: 'Something went wrong',
@@ -52,6 +51,6 @@ void main() {
 
     final result = datasource.createSchedule(token, scheduleCreateModel);
 
-    expect(result, throwsA(const TypeMatcher<DioError>()));
+    expect(result, throwsA(const TypeMatcher<DioException>()));
   });
 }

@@ -17,8 +17,9 @@ class DioSchedulePeriodDatasource implements ListSchedulePeriodDatasource {
       final result = await schedulePeriodService.getScheduleListByPeriod(
           token, SchedulePeriodModel.fromEntity(schedulePeriodEntity));
       return result ?? <ScheduleModel>[];
-    } on DioError catch (e) {
-      throw DioError(requestOptions: e.requestOptions, response: e.response);
+    } on DioException catch (e) {
+      throw DioException(
+          requestOptions: e.requestOptions, response: e.response);
     }
   }
 }

@@ -18,8 +18,9 @@ class DioCreateClientDatasource implements ClientsCreateDatasource {
       await createClientService.createClient(
           token, ClientsCreateModel.fromEntity(clientsCreateEntity));
       return SuccessfulResponse();
-    } on DioError catch (e) {
-      throw DioError(requestOptions: e.requestOptions, response: e.response);
+    } on DioException catch (e) {
+      throw DioException(
+          requestOptions: e.requestOptions, response: e.response);
     }
   }
 }

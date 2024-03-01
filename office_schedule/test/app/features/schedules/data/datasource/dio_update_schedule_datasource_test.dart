@@ -40,9 +40,9 @@ void main() {
     verify(() => updateScheduleService.updateSchedule(any(), any())).called(1);
   });
 
-  test('Should throw a DioError when gets error', () async {
+  test('Should throw a DioException when gets error', () async {
     when(() => updateScheduleService.updateSchedule(any(), any()))
-        .thenThrow(DioError(
+        .thenThrow(DioException(
       requestOptions: RequestOptions(path: ''),
       response: Response(
         data: 'Something went wrong',
@@ -53,7 +53,7 @@ void main() {
 
     final result = datasource.updateSchedule(token, scheduleUpdateModel);
 
-    expect(result, throwsA(const TypeMatcher<DioError>()));
+    expect(result, throwsA(const TypeMatcher<DioException>()));
     verify(() => updateScheduleService.updateSchedule(any(), any())).called(1);
   });
 }
