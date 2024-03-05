@@ -3,11 +3,31 @@ import 'package:flutter_localizations/flutter_localizations.dart';
 
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:office_schedule/app/app_config.dart';
+import 'package:office_schedule/app/core/icons/clinical_icons.dart';
+import 'package:office_schedule/app/core/icons/clinical_images.dart';
 
 import 'core/theme/theme.dart';
 
-class AppWidget extends StatelessWidget {
+class AppWidget extends StatefulWidget {
   const AppWidget({super.key});
+
+  @override
+  State<AppWidget> createState() => _AppWidgetState();
+}
+
+class _AppWidgetState extends State<AppWidget> {
+  _initiliazeApp() async {
+    ClinicalIcons.loadImages();
+    if (mounted) {
+      ClinicalImages.loadImages(context);
+    }
+  }
+
+  @override
+  void initState() {
+    super.initState();
+    _initiliazeApp();
+  }
 
   @override
   Widget build(BuildContext context) {

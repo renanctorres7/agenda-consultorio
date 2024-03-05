@@ -1,19 +1,20 @@
-import 'package:compass_foundation/foundation/foundation.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:office_schedule/app/core/extensions/context.dart';
 import 'package:office_schedule/app/core/icons/clinical_icons.dart';
-import 'package:office_schedule/app/core/theme/clinical_colors.dart';
 import 'package:office_schedule/app/core/theme/clinical_texts_types.dart';
 import 'package:office_schedule/app/core/utils/datetime_format/datetime_format_util.dart';
 
+import '../../theme/app_colors.dart';
+
 class ClinicalFormInputDate extends StatefulWidget {
   const ClinicalFormInputDate({
-    Key? key,
+    super.key,
     this.initialValue,
     required this.textEditingController,
-  }) : super(key: key);
+  });
 
   final String? initialValue;
   final TextEditingController textEditingController;
@@ -65,12 +66,12 @@ class _ClinicalFormInputDateState extends State<ClinicalFormInputDate> {
                 style: ClinicalTextTypes.bodyText,
                 initialValue: widget.initialValue,
                 decoration: InputDecoration(
-                  enabledBorder: const UnderlineInputBorder(
+                  enabledBorder: UnderlineInputBorder(
                       borderSide: BorderSide(
-                          color: ClinicalColorsLightTheme.colorGrayLight)),
-                  focusedBorder: const UnderlineInputBorder(
+                          color: AppColors.getTheme().colorGrayLight)),
+                  focusedBorder: UnderlineInputBorder(
                       borderSide: BorderSide(
-                          color: ClinicalColorsLightTheme.colorGrayLight)),
+                          color: AppColors.getTheme().colorGrayLight)),
                   contentPadding: EdgeInsets.only(left: 25.w),
                 ),
               ),
@@ -95,13 +96,13 @@ _showDialog(
               bottom: MediaQuery.of(context).viewInsets.bottom,
             ),
             // Provide a background color for the popup.
-            color: ClinicalColorsLightTheme.colorWhite,
+            color: AppColors.getTheme().colorWhite,
             // Use a SafeArea widget to avoid system overlaps.
             child: SafeArea(
               top: false,
               child: CupertinoDatePicker(
                 initialDateTime: DateTime.now(),
-                backgroundColor: ClinicalColorsLightTheme.colorWhite,
+                backgroundColor: AppColors.getTheme().colorWhite,
                 mode: CupertinoDatePickerMode.dateAndTime,
                 use24hFormat: true,
                 // This is called when the user changes the date.

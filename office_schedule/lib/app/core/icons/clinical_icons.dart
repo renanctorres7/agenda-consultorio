@@ -1,4 +1,3 @@
-import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
 const String _path = 'assets/svg';
@@ -31,91 +30,38 @@ class ClinicalIcons {
   static const String schedulesCalendarWhite =
       '$_path/schedulesCalendarWhite.svg';
 
-  static loadImages(BuildContext context) async {
-    Future.wait([
-      precachePicture(
-          ExactAssetPicture(SvgPicture.svgStringDecoderBuilder, blueSearch),
-          null),
-      precachePicture(
-          ExactAssetPicture(SvgPicture.svgStringDecoderBuilder, cardClockBlack),
-          null),
-      precachePicture(
-          ExactAssetPicture(SvgPicture.svgStringDecoderBuilder, cardClockWhite),
-          null),
-      precachePicture(
-          ExactAssetPicture(
-              SvgPicture.svgStringDecoderBuilder, dropdownCircleBlack),
-          null),
-      precachePicture(
-          ExactAssetPicture(
-              SvgPicture.svgStringDecoderBuilder, dropdownCircleWhite),
-          null),
-      precachePicture(
-          ExactAssetPicture(SvgPicture.svgStringDecoderBuilder, formClockGray),
-          null),
-      precachePicture(
-          ExactAssetPicture(
-              SvgPicture.svgStringDecoderBuilder, formCompanyGray),
-          null),
-      precachePicture(
-          ExactAssetPicture(SvgPicture.svgStringDecoderBuilder, formEmailGray),
-          null),
-      precachePicture(
-          ExactAssetPicture(SvgPicture.svgStringDecoderBuilder, formLockGray),
-          null),
-      precachePicture(
-          ExactAssetPicture(SvgPicture.svgStringDecoderBuilder, formNotesGray),
-          null),
-      precachePicture(
-          ExactAssetPicture(
-              SvgPicture.svgStringDecoderBuilder, formPaymentGray),
-          null),
-      precachePicture(
-          ExactAssetPicture(SvgPicture.svgStringDecoderBuilder, formPersonGray),
-          null),
-      precachePicture(
-          ExactAssetPicture(SvgPicture.svgStringDecoderBuilder, formPhoneGray),
-          null),
-      precachePicture(
-          ExactAssetPicture(
-              SvgPicture.svgStringDecoderBuilder, formSpecialtyGray),
-          null),
-      precachePicture(
-          ExactAssetPicture(
-              SvgPicture.svgStringDecoderBuilder, formStatusScheduleGray),
-          null),
-      precachePicture(
-          ExactAssetPicture(SvgPicture.svgStringDecoderBuilder, menuCalendar),
-          null),
-      precachePicture(
-          ExactAssetPicture(
-              SvgPicture.svgStringDecoderBuilder, menuCalendarFulFill),
-          null),
-      precachePicture(
-          ExactAssetPicture(SvgPicture.svgStringDecoderBuilder, menuNotes),
-          null),
-      precachePicture(
-          ExactAssetPicture(
-              SvgPicture.svgStringDecoderBuilder, menuNotesFulfill),
-          null),
-      precachePicture(
-          ExactAssetPicture(SvgPicture.svgStringDecoderBuilder, menuSettings),
-          null),
-      precachePicture(
-          ExactAssetPicture(
-              SvgPicture.svgStringDecoderBuilder, menuSettingsFulfill),
-          null),
-      precachePicture(
-          ExactAssetPicture(SvgPicture.svgStringDecoderBuilder, menuUsers),
-          null),
-      precachePicture(
-          ExactAssetPicture(
-              SvgPicture.svgStringDecoderBuilder, menuUsersFulfill),
-          null),
-      precachePicture(
-          ExactAssetPicture(
-              SvgPicture.svgStringDecoderBuilder, schedulesCalendarWhite),
-          null),
-    ]);
+  static List<String> get _allIcons => [
+        blueSearch,
+        cardClockBlack,
+        cardClockWhite,
+        dropdownCircleBlack,
+        dropdownCircleWhite,
+        formClockGray,
+        formCompanyGray,
+        formEmailGray,
+        formLockGray,
+        formNotesGray,
+        formPaymentGray,
+        formPersonGray,
+        formPhoneGray,
+        formSpecialtyGray,
+        formStatusScheduleGray,
+        menuCalendar,
+        menuCalendarFulFill,
+        menuNotes,
+        menuNotesFulfill,
+        menuSettings,
+        menuSettingsFulfill,
+        menuUsers,
+        menuUsersFulfill,
+        schedulesCalendarWhite,
+      ];
+
+  static loadImages() async {
+    for (var icon in _allIcons) {
+      var loader = SvgAssetLoader(icon);
+      await svg.cache
+          .putIfAbsent(loader.cacheKey(null), () => loader.loadBytes(null));
+    }
   }
 }

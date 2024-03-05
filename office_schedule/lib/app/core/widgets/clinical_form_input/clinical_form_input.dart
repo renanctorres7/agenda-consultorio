@@ -1,16 +1,16 @@
-import 'package:compass_foundation/foundation/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-import 'package:office_schedule/app/core/theme/clinical_texts_types.dart';
+import 'package:office_schedule/app/core/extensions/context.dart';
 
+import '../../theme/app_colors.dart';
 import '../../theme/theme.dart';
 import 'exports.dart';
 
 class ClinicalFormInput extends StatefulWidget {
   const ClinicalFormInput(
-      {Key? key,
+      {super.key,
       required this.clinicalFormIconEnum,
       required this.clinicalFormTitleEnum,
       this.initialValue,
@@ -30,8 +30,7 @@ class ClinicalFormInput extends StatefulWidget {
       this.inputFormatters,
       this.enabled,
       this.autovalidateMode,
-      this.maxLines})
-      : super(key: key);
+      this.maxLines});
 
   final ClinicalFormIconEnum clinicalFormIconEnum;
   final ClinicalFormTitleEnum clinicalFormTitleEnum;
@@ -111,12 +110,12 @@ class _ClinicalFormInputState extends State<ClinicalFormInput> {
                   style: ClinicalTextTypes.bodyText,
                   initialValue: widget.initialValue,
                   decoration: InputDecoration(
-                      enabledBorder: const UnderlineInputBorder(
+                      enabledBorder: UnderlineInputBorder(
                           borderSide: BorderSide(
-                              color: ClinicalColorsLightTheme.colorGrayLight)),
-                      focusedBorder: const UnderlineInputBorder(
+                              color: AppColors.getTheme().colorGrayLight)),
+                      focusedBorder: UnderlineInputBorder(
                           borderSide: BorderSide(
-                              color: ClinicalColorsLightTheme.colorGrayLight)),
+                              color: AppColors.getTheme().colorGrayLight)),
                       contentPadding: EdgeInsets.only(left: 25.w),
                       hintText: widget.initialValue != null
                           ? ''

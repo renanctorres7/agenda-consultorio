@@ -3,22 +3,27 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:office_schedule/app/core/theme/theme.dart';
 
-enum ButtonColorEnum {
-  primary(ClinicalColorsLightTheme.primary),
-  secondary(ClinicalColorsLightTheme.secondary);
+import '../../theme/app_colors.dart';
 
-  final Color color;
+enum ButtonColorEnum { primary, secondary }
 
-  const ButtonColorEnum(this.color);
+extension ButtonColorEnumExtension on ButtonColorEnum {
+  Color get color {
+    switch (this) {
+      case ButtonColorEnum.primary:
+        return AppColors.getTheme().primary;
+      case ButtonColorEnum.secondary:
+        return AppColors.getTheme().secondary;
+    }
+  }
 }
 
 class ClinicalElevatedButton extends StatelessWidget {
   const ClinicalElevatedButton(
-      {Key? key,
+      {super.key,
       required this.buttonColorEnum,
       required this.buttonText,
-      required this.onPressed})
-      : super(key: key);
+      required this.onPressed});
 
   final ButtonColorEnum buttonColorEnum;
   final String buttonText;
@@ -32,7 +37,7 @@ class ClinicalElevatedButton extends StatelessWidget {
       child: ElevatedButton(
         onPressed: onPressed,
         style: ElevatedButton.styleFrom(
-            primary: buttonColorEnum.color,
+            backgroundColor: buttonColorEnum.color,
             elevation: 4,
             shape: RoundedRectangleBorder(
                 borderRadius: BorderRadius.circular(5.r))),

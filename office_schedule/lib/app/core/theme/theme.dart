@@ -1,2 +1,3 @@
 export './clinical_texts_types.dart';
-export './clinical_colors.dart';
+export './theme_light.dart';
+export './theme_dark.dart';
