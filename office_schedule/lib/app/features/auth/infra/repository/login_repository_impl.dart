@@ -10,13 +10,20 @@ class LoginRepositoryImpl implements LoginRepository {
 
   LoginRepositoryImpl(this.datasource);
   @override
-  Future<Either<FailureError, SignUpEntity>> login(
-      LoginEntity loginEntity) async {
+  Future<void> login(
+      LoginEntity loginEntity,
+      Function(SignUpEntity response)? onLoginSuccess,
+      Function(String error)? onLoginError) async {
     try {
-      final result = await datasource.login(loginEntity);
-      return result != null ? Right(result) : Left(NullError());
+      await datasource.login(loginEntity, (response) {
+        onLoginSuccess!(response);
+        return response;
+      }, (error) {
+        onLoginError!('error');
+        return null;
+      });
     } catch (e) {
-      return Left(DataSourceError());
+      onLoginError!(e.toString());
     }
   }
 }

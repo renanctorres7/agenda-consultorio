@@ -6,7 +6,10 @@ import 'package:office_schedule/app/features/auth/domain/entities/entities.dart'
 import 'package:office_schedule/app/features/auth/domain/repository/login_repository.dart';
 
 abstract class LoginUsecase {
-  Future<Either<FailureError, SignUpEntity>> call(LoginEntity entity);
+  Future<void> login(
+      LoginEntity entity,
+      Function(SignUpEntity response)? onLoginSuccess,
+      Function(String error)? onLoginError);
 }
 
 class LoginUsecaseImpl implements LoginUsecase {
@@ -14,8 +17,10 @@ class LoginUsecaseImpl implements LoginUsecase {
 
   LoginUsecaseImpl(this.repository);
   @override
-  Future<Either<FailureError, SignUpEntity>> call(LoginEntity entity) async {
-    final result = await repository.login(entity);
-    return result;
+  Future<void> login(
+      LoginEntity entity,
+      Function(SignUpEntity response)? onLoginSuccess,
+      Function(String error)? onLoginError) async {
+    await repository.login(entity, onLoginSuccess, onLoginError);
   }
 }

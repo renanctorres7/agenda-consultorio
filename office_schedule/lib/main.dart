@@ -5,10 +5,12 @@ import 'app/app_config.dart';
 import 'app/app_widget.dart';
 import 'app/core/configs/flavors/flavors.dart';
 import 'app/core/core.dart';
+import 'app/core/dependency_creator/dependency_creator.dart';
 
 void main() async {
   final configuredApp = getFlavorConfig();
   await initHive();
+  await DependencyCreator.init();
   runApp(configuredApp);
 }
 

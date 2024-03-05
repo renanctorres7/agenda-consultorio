@@ -2,9 +2,11 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:get/get.dart';
 import 'package:office_schedule/app/app_config.dart';
 import 'package:office_schedule/app/core/core.dart';
 
+import 'core/routes/app_pages.dart';
 import 'core/theme/clinical_theme/theme.dart';
 
 class AppWidget extends StatefulWidget {
@@ -34,7 +36,7 @@ class _AppWidgetState extends State<AppWidget> {
         designSize: const Size(390, 844),
         minTextAdapt: true,
         builder: (context, child) {
-          return MaterialApp(
+          return GetMaterialApp(
             debugShowCheckedModeBanner: false,
             locale: const Locale('pt', 'BR'),
             localizationsDelegates: const [
@@ -45,17 +47,9 @@ class _AppWidgetState extends State<AppWidget> {
             supportedLocales: const [
               Locale('pt', 'BR'), // English
             ],
+            getPages: AppPages.pages,
+            defaultTransition: Transition.fade,
             title: AppConfig.of(context).appName,
-            home: Scaffold(
-                appBar: AppBar(
-                  title: Text(
-                    AppConfig.of(context).appName,
-                    style: ClinicalTextTypes.bodyText,
-                  ),
-                ),
-                body: const Center(
-                  child: Text(Environments.baseUrl),
-                )),
           );
         });
   }

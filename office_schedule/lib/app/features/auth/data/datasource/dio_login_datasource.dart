@@ -10,15 +10,17 @@ class DioLoginDatasource implements LoginDatasource {
 
   DioLoginDatasource({required this.loginService});
   @override
-  Future<SignUpModel?> login(LoginEntity loginEntity) async {
+  Future<void> login(
+      LoginEntity loginEntity,
+      Function(SignUpModel response)? onLoginSuccess,
+      Function(String error)? onLoginError) async {
     LoginModel loginModel = LoginModel.fromEntity(loginEntity);
     try {
       final result = await loginService.login(loginModel);
 
-      return result;
+      onLoginSuccess!(result);
     } on DioException catch (e) {
-      throw DioException(
-          requestOptions: e.requestOptions, response: e.response);
+      onLoginError!(e.message!);
     }
   }
 }
