@@ -35,6 +35,7 @@ class _AppWidgetState extends State<AppWidget> {
         minTextAdapt: true,
         builder: (context, child) {
           return MaterialApp(
+            debugShowCheckedModeBanner: false,
             locale: const Locale('pt', 'BR'),
             localizationsDelegates: const [
               GlobalMaterialLocalizations.delegate,

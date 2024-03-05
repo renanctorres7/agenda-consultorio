@@ -11,7 +11,6 @@ import 'exports.dart';
 class ClinicalFormInput extends StatefulWidget {
   const ClinicalFormInput(
       {super.key,
-      required this.clinicalFormIconEnum,
       required this.clinicalFormTitleEnum,
       this.initialValue,
       this.clinicalFormHintTextEnum,
@@ -32,7 +31,6 @@ class ClinicalFormInput extends StatefulWidget {
       this.autovalidateMode,
       this.maxLines});
 
-  final ClinicalFormIconEnum clinicalFormIconEnum;
   final ClinicalFormTitleEnum clinicalFormTitleEnum;
   final String? initialValue;
   final ClinicalFormHintTextEnum? clinicalFormHintTextEnum;
@@ -77,7 +75,7 @@ class _ClinicalFormInputState extends State<ClinicalFormInput> {
                 children: [
                   Padding(
                     padding: EdgeInsets.only(right: 10.w),
-                    child: SvgPicture.asset(widget.clinicalFormIconEnum.icon,
+                    child: SvgPicture.asset(widget.clinicalFormTitleEnum.icon,
                         width: 16.w, fit: BoxFit.fitWidth),
                   ),
                   Text(
