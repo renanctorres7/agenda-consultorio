@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:office_schedule/app/core/theme/app_colors.dart';
+import 'package:office_schedule/app/core/theme/clinical_theme/app_colors.dart';
 
-class ThemeDark extends AppColors {
+class ThemeLight extends AppColors {
   //colors blue primary
   @override
   Color primaryDark = const Color(0xFF1C6BA4);

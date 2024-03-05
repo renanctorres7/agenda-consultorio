@@ -72,6 +72,7 @@ android {
             dimension "app"
             applicationIdSuffix ".rctorres.office.schedule.dev"
             resValue "string", "app_name", "[DEV] Agenda Clínica"
+            
         }
  
         prod {

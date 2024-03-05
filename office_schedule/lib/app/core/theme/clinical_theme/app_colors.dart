@@ -1,13 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:hive/hive.dart';
 
+import '../../core.dart';
 import 'theme.dart';
 
 abstract class AppColors {
-  static final _box = Hive.box('isDarkTheme');
+  static final _box = Hive.box<bool>(dbTheme);
 
   static AppColors getTheme() {
-    final isDarkTheme = _box.get('isDarkTheme', defaultValue: false);
+    final isDarkTheme = _box.get(dbTheme) ?? false;
     return isDarkTheme ? ThemeDark() : ThemeLight();
   }
 

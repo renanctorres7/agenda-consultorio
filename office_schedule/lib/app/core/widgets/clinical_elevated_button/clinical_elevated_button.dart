@@ -1,9 +1,9 @@
 import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:office_schedule/app/core/theme/theme.dart';
+import 'package:office_schedule/app/core/theme/clinical_theme/theme.dart';
 
-import '../../theme/app_colors.dart';
+import '../../theme/clinical_theme/app_colors.dart';
 
 enum ButtonColorEnum { primary, secondary }
 

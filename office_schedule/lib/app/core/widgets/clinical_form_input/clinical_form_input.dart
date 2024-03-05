@@ -4,8 +4,8 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:office_schedule/app/core/extensions/context.dart';
 
-import '../../theme/app_colors.dart';
-import '../../theme/theme.dart';
+import '../../theme/clinical_theme/app_colors.dart';
+import '../../theme/clinical_theme/theme.dart';
 import 'exports.dart';
 
 class ClinicalFormInput extends StatefulWidget {

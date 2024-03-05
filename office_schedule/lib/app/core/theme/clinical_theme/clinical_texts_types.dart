@@ -1,8 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-
 import 'package:google_fonts/google_fonts.dart';
-import 'package:office_schedule/app/core/theme/app_colors.dart';
+import 'package:office_schedule/app/core/theme/clinical_theme/app_colors.dart';
 
 class ClinicalTextTypes {
   static final appTitleText = GoogleFonts.poppins(

@@ -43,7 +43,7 @@ void main() async {
   group('User Profile Database group test', () {
     test('Should save User Profile Hive model value on User Profile database',
         () async {
-      when(() => hiveInterfaceMock.openBox(DatabaseBoxName.dbUserProfile))
+      when(() => hiveInterfaceMock.openBox(dbUserProfile))
           .thenAnswer((_) async => hiveBoxMock);
       when(() => hiveBoxMock.put(0, profile)).thenAnswer((_) async => profile);
       final result = await UserProfileDatabase.saveUserProfile(profile);
@@ -52,7 +52,7 @@ void main() async {
 
     test('Should return a User Profile Hive model from User Profile database',
         () async {
-      when(() => hiveInterfaceMock.openBox(DatabaseBoxName.dbUserProfile))
+      when(() => hiveInterfaceMock.openBox(dbUserProfile))
           .thenAnswer((_) async => hiveBoxMock);
       when(() => hiveBoxMock.get(0)).thenAnswer((_) async => profile);
       final result = await UserProfileDatabase.getUserProfile();
@@ -60,7 +60,7 @@ void main() async {
     });
 
     test('Should clear all values from database', () async {
-      when(() => hiveInterfaceMock.openBox(DatabaseBoxName.dbUserProfile))
+      when(() => hiveInterfaceMock.openBox(dbUserProfile))
           .thenAnswer((_) async => hiveBoxMock);
       when(() => hiveBoxMock.clear()).thenAnswer((_) async => 0);
       final result = await UserProfileDatabase.clearUserProfile();
@@ -68,7 +68,7 @@ void main() async {
     });
 
     test('Should return null if get null value from database', () async {
-      when(() => hiveInterfaceMock.openBox(DatabaseBoxName.dbUserProfile))
+      when(() => hiveInterfaceMock.openBox(dbUserProfile))
           .thenAnswer((_) async => hiveBoxMock);
       when(() => hiveBoxMock.get(0)).thenAnswer((_) async => null);
       final result = await UserProfileDatabase.getUserProfile();

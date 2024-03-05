@@ -1,4 +1,3 @@
-abstract class DatabaseBoxName {
-  static const String dbToken = "dbToken";
-  static const String dbUserProfile = "dbUserProfile";
-}
+const String dbToken = "dbToken";
+const String dbUserProfile = "dbUserProfile";
+const String dbTheme = "isDarkTheme";

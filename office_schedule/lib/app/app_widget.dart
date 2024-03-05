@@ -1,12 +1,11 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
-
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:office_schedule/app/app_config.dart';
-import 'package:office_schedule/app/core/icons/clinical_icons.dart';
-import 'package:office_schedule/app/core/icons/clinical_images.dart';
+import 'package:office_schedule/app/core/core.dart';
 
-import 'core/theme/theme.dart';
+import 'core/theme/clinical_theme/theme.dart';
 
 class AppWidget extends StatefulWidget {
   const AppWidget({super.key});
@@ -17,9 +16,9 @@ class AppWidget extends StatefulWidget {
 
 class _AppWidgetState extends State<AppWidget> {
   _initiliazeApp() async {
-    ClinicalIcons.loadImages();
+    // ClinicalIcons.loadImages();
     if (mounted) {
-      ClinicalImages.loadImages(context);
+//      ClinicalImages.loadImages(context);
     }
   }
 
@@ -53,7 +52,9 @@ class _AppWidgetState extends State<AppWidget> {
                     style: ClinicalTextTypes.bodyText,
                   ),
                 ),
-                body: const Center()),
+                body: const Center(
+                  child: Text(Environments.baseUrl),
+                )),
           );
         });
   }

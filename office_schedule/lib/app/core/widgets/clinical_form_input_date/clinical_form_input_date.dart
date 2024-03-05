@@ -4,10 +4,10 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:office_schedule/app/core/extensions/context.dart';
 import 'package:office_schedule/app/core/icons/clinical_icons.dart';
-import 'package:office_schedule/app/core/theme/clinical_texts_types.dart';
+import 'package:office_schedule/app/core/theme/clinical_theme/clinical_texts_types.dart';
 import 'package:office_schedule/app/core/utils/datetime_format/datetime_format_util.dart';
 
-import '../../theme/app_colors.dart';
+import '../../theme/clinical_theme/app_colors.dart';
 
 class ClinicalFormInputDate extends StatefulWidget {
   const ClinicalFormInputDate({
