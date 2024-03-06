@@ -4,7 +4,7 @@ const String _path = 'assets/images';
 
 class ClinicalImages {
   static const String psychologistIllustration =
-      '$_path/ psychologistIllustration.png';
+      '$_path/psychologistIllustration.png';
 
   static loadImages(BuildContext context) async {
     Future.wait([
