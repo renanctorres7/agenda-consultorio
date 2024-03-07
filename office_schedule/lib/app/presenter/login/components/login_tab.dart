@@ -28,9 +28,12 @@ class LoginTab extends StatelessWidget {
               fit: BoxFit.fitWidth,
             ),
           ),
-          Text(
-            'Agenda Clínica',
-            style: ClinicalTextTypes.appTitleText,
+          Padding(
+            padding: EdgeInsets.only(bottom: 52.0.h),
+            child: Text(
+              'Agenda Clínica',
+              style: ClinicalTextTypes.appTitleText,
+            ),
           ),
           const LoginTabBar(),
         ],

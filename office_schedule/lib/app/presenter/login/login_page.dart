@@ -24,20 +24,22 @@ class _LoginPageState extends State<LoginPage> with TickerProviderStateMixin {
 
   @override
   Widget build(BuildContext context) {
-    return StatusBarWidget(
-      color: AppColors.getTheme().primary,
-      child: SizedBox(
-        width: context.screenSize.width,
-        height: context.screenSize.height,
-        child: SizedBox(
-          width: context.screenSize.width,
-          height: context.screenSize.height,
-          child: TabBarView(
-            controller: _loginController.tabController,
-            children: _loginController.tabsChildren,
+    return Obx(() => StatusBarWidget(
+          color: _loginController.tabIndex.value == 0
+              ? AppColors.getTheme().primary
+              : AppColors.getTheme().secondaryDark,
+          child: SizedBox(
+            width: context.screenSize.width,
+            height: context.screenSize.height,
+            child: SizedBox(
+              width: context.screenSize.width,
+              height: context.screenSize.height,
+              child: TabBarView(
+                controller: _loginController.tabController,
+                children: _loginController.tabsChildren,
+              ),
+            ),
           ),
-        ),
-      ),
-    );
+        ));
   }
 }

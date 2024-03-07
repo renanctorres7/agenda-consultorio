@@ -18,6 +18,8 @@ class LoginController extends GetxController {
     const SignUpTab(),
   ];
 
+  RxInt tabIndex = 0.obs;
+
   Future<void> login(String email, String password) async {
     await _loginUsecase.login(LoginModel(email: email, password: password),
         (value) {
