@@ -6,6 +6,7 @@ enum ClinicalFormHintTextEnum {
 
   password('Digite sua senha'),
   passwordNew('Digite sua nova senha'),
+  passwordConfirm('Digite novamente sua senha'),
 
   notes('Observações'),
   description('Descrição'),

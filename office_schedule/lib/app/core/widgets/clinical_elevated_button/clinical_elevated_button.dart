@@ -39,6 +39,7 @@ class ClinicalElevatedButton extends StatelessWidget {
         style: ElevatedButton.styleFrom(
             backgroundColor: buttonColorEnum.color,
             elevation: 4,
+            padding: EdgeInsets.zero,
             shape: RoundedRectangleBorder(
                 borderRadius: BorderRadius.circular(5.r))),
         child: AutoSizeText(

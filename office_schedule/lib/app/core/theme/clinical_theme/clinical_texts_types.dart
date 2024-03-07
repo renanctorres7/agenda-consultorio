@@ -22,7 +22,7 @@ class ClinicalTextTypes {
 
   static final formTitleText = GoogleFonts.poppins(
       fontSize: 12.sp,
-      fontWeight: FontWeight.w400,
+      fontWeight: FontWeight.normal,
       color: AppColors.getTheme().colorGray);
 
   static final boxButtonText = GoogleFonts.poppins(

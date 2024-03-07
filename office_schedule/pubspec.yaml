@@ -51,6 +51,7 @@ dependencies:
   auto_size_text: ^3.0.0
   flutter_screenutil: ^5.9.0
   get: ^4.6.6
+  fluentui_system_icons: ^1.1.230
 
 dev_dependencies:
   flutter_test:

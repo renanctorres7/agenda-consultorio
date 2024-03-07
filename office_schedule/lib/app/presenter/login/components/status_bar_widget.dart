@@ -16,9 +16,12 @@ class StatusBarWidget extends StatelessWidget {
             systemNavigationBarColor: color,
             //  systemNavigationBarDividerColor: Colors.grey[100],
             systemNavigationBarIconBrightness: Brightness.light),
-        child: Container(
-            color: color,
-            child: SafeArea(
-                child: Scaffold(backgroundColor: color, body: child))));
+        child: GestureDetector(
+          onTap: () => FocusScope.of(context).unfocus(),
+          child: Container(
+              color: color,
+              child: SafeArea(
+                  child: Scaffold(backgroundColor: color, body: child))),
+        ));
   }
 }

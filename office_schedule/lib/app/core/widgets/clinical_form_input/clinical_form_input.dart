@@ -29,7 +29,8 @@ class ClinicalFormInput extends StatefulWidget {
       this.inputFormatters,
       this.enabled,
       this.autovalidateMode,
-      this.maxLines});
+      this.maxLines,
+      this.suffixIcon});
 
   final ClinicalFormTitleEnum clinicalFormTitleEnum;
   final String? initialValue;
@@ -51,6 +52,7 @@ class ClinicalFormInput extends StatefulWidget {
   final bool? enabled;
   final AutovalidateMode? autovalidateMode;
   final int? maxLines;
+  final Widget? suffixIcon;
 
   @override
   State<ClinicalFormInput> createState() => _ClinicalFormInputState();
@@ -76,7 +78,7 @@ class _ClinicalFormInputState extends State<ClinicalFormInput> {
                   Padding(
                     padding: EdgeInsets.only(right: 10.w),
                     child: SvgPicture.asset(widget.clinicalFormTitleEnum.icon,
-                        width: 16.w, fit: BoxFit.fitWidth),
+                        width: 16.w, fit: BoxFit.contain),
                   ),
                   Text(
                     widget.clinicalFormTitleEnum.title,
@@ -108,6 +110,7 @@ class _ClinicalFormInputState extends State<ClinicalFormInput> {
                   style: ClinicalTextTypes.bodyText,
                   initialValue: widget.initialValue,
                   decoration: InputDecoration(
+                      suffixIcon: widget.suffixIcon,
                       enabledBorder: UnderlineInputBorder(
                           borderSide: BorderSide(
                               color: AppColors.getTheme().colorGrayLight)),

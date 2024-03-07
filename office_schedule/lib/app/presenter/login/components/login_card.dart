@@ -1,0 +1,82 @@
+import 'package:fluentui_system_icons/fluentui_system_icons.dart';
+import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:office_schedule/app/core/theme/clinical_theme/app_colors.dart';
+import 'package:office_schedule/app/core/widgets/clinical_elevated_button/clinical_elevated_button.dart';
+import 'package:office_schedule/app/core/widgets/clinical_form_input/clinical_form_input.dart';
+
+import '../../../core/widgets/clinical_form_input/exports.dart';
+
+class LoginCard extends StatefulWidget {
+  const LoginCard({super.key});
+
+  @override
+  State<LoginCard> createState() => _LoginCardState();
+}
+
+class _LoginCardState extends State<LoginCard> {
+  TextEditingController emailController = TextEditingController();
+  TextEditingController passwordController = TextEditingController();
+
+  bool obscureText = true;
+
+  @override
+  void dispose() {
+    emailController.dispose();
+    passwordController.dispose();
+    super.dispose();
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      height: 284.h,
+      margin: EdgeInsets.only(left: 20.w, right: 20.w),
+      decoration: AppColors.getTheme().cardDecoration,
+      child: Column(
+        children: [
+          Padding(
+            padding: EdgeInsets.only(top: 34.h, left: 25.w, right: 25.w),
+            child: ClinicalFormInput(
+              clinicalFormTitleEnum: ClinicalFormTitleEnum.email,
+              textEditingController: emailController,
+              clinicalFormHintTextEnum: ClinicalFormHintTextEnum.email,
+            ),
+          ),
+          Padding(
+            padding: EdgeInsets.only(left: 25.w, right: 25.w),
+            child: ClinicalFormInput(
+              clinicalFormTitleEnum: ClinicalFormTitleEnum.password,
+              clinicalFormHintTextEnum: ClinicalFormHintTextEnum.password,
+              textEditingController: passwordController,
+              obscureText: obscureText,
+              suffixIcon: IconButton(
+                icon: Icon(
+                  obscureText
+                      ? FluentIcons.eye_off_16_filled
+                      : FluentIcons.eye_16_regular,
+                  color: AppColors.getTheme().primary,
+                ),
+                onPressed: () {
+                  setState(() {
+                    obscureText = !obscureText;
+                  });
+                },
+              ),
+            ),
+          ),
+          Expanded(
+            child: Container(
+              alignment: Alignment.bottomRight,
+              child: ClinicalElevatedButton(
+                buttonText: 'login',
+                onPressed: () {},
+                buttonColorEnum: ButtonColorEnum.secondary,
+              ),
+            ),
+          ),
+        ],
+      ),
+    );
+  }
+}
