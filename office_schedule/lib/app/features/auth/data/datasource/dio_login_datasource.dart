@@ -1,7 +1,8 @@
 import 'package:dio/dio.dart';
+import 'package:office_schedule/app/features/auth/infra/datasources/login_datasource.dart';
 
 import '../../domain/entities/entities.dart';
-import '../../infra/datasources/login_datasource.dart';
+
 import '../../infra/models/models.dart';
 import '../service/login_service.dart';
 

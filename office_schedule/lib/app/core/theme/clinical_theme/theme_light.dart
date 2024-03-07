@@ -50,4 +50,17 @@ class ThemeLight extends AppColors {
 
   @override
   Color colorWhite = const Color(0xFFFFFFFF);
+
+  @override
+  List<BoxShadow>? cardBoxShadow = [
+    BoxShadow(
+      color: Colors.black.withOpacity(0.15),
+      spreadRadius: 0,
+      blurRadius: 14,
+      offset: const Offset(0, 4),
+    ),
+  ];
+
+  @override
+  Color cardColor = const Color(0xFFFFFFFF);
 }

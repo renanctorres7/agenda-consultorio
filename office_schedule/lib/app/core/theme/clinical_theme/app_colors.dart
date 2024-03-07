@@ -41,4 +41,8 @@ abstract class AppColors {
   Color get colorGrayLight;
 
   Color get colorWhite;
+
+  Color get cardColor;
+
+  List<BoxShadow>? get cardBoxShadow;
 }
