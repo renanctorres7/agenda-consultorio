@@ -7,5 +7,12 @@ abstract class ParseHeaders {
     'Content-Type': 'application/json'
   };
 
+  static const Map<String, dynamic> loginHeader = {
+    'X-Parse-Application-Id': Environments.applicationId,
+    'X-Parse-REST-API-Key': Environments.restApi,
+    'X-Parse-Revocable-Session': '1',
+    'Content-Type': 'application/json'
+  };
+
   static const sessionTokenTitle = 'X-Parse-Session-Token';
 }

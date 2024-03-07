@@ -15,7 +15,7 @@ class LoginController extends GetxController {
   Future<void> login({required String email, required String password}) async {
     LoginModel loginModel = LoginModel(email: email, password: password);
     await _loginUsecase.login(loginModel, (value) {
-      print(value);
+      print(value.company);
     }, (error) {
       print(error);
     });

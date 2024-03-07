@@ -1,27 +1,55 @@
-import 'package:json_annotation/json_annotation.dart';
-
 import 'package:office_schedule/app/features/auth/domain/entities/entities.dart';
 
-part 'sign_up_model.g.dart';
-
-@JsonSerializable()
 class SignUpModel extends SignUpEntity {
-  SignUpModel(
-      {super.email,
-      super.password,
-      super.fullName,
-      super.phone,
-      super.company,
-      super.specialty,
-      super.objectId,
-      super.token,
-      this.profileImg});
+  SignUpModel({
+    this.sessionToken,
+    this.profileImg,
+    this.createdAt,
+    this.updatedAt,
+    super.email,
+    super.password,
+    super.fullName,
+    super.phone,
+    super.company,
+    super.specialty,
+    super.objectId,
+  });
 
-  String? profileImg;
+  final String? sessionToken;
+  final String? profileImg;
+  final String? createdAt;
+  final String? updatedAt;
 
-  factory SignUpModel.fromJson(Map<String, dynamic> json) =>
-      _$SignUpModelFromJson(json);
-  Map<String, dynamic> toJson() => _$SignUpModelToJson(this);
+  factory SignUpModel.fromJson(Map<String, dynamic> json) {
+    return SignUpModel(
+        company: json['company'],
+        email: json['email'],
+        fullName: json['fullName'],
+        password: json['password'],
+        phone: json['phone'],
+        specialty: json['specialty'],
+        objectId: json['objectId'],
+        sessionToken: json['sessionToken'],
+        profileImg: json['profileImg'],
+        createdAt: json['createdAt'],
+        updatedAt: json['updatedAt']);
+  }
+
+  Map<String, dynamic> toJson() {
+    return {
+      'company': company,
+      'email': email,
+      'fullName': fullName,
+      'password': password,
+      'phone': phone,
+      'specialty': specialty,
+      'objectId': objectId,
+      'sessionToken': sessionToken,
+      'profileImg': profileImg,
+      'createdAt': createdAt,
+      'updatedAt': updatedAt
+    };
+  }
 
   factory SignUpModel.fromEntity(SignUpEntity entity) {
     return SignUpModel(
@@ -31,7 +59,7 @@ class SignUpModel extends SignUpEntity {
         password: entity.password,
         phone: entity.phone,
         specialty: entity.specialty,
-        token: entity.token,
+        sessionToken: entity.token,
         objectId: entity.objectId);
   }
 }

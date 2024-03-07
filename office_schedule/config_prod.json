@@ -1,6 +1,7 @@
 {
   "APPLICATION_ID": "cWBlZkjLVQCkB60UTpEmNND9Vfz7uxaUOl9Di5Fn",
   "REST_API": "Q79gGB91lrjddTPtMriYxhcuxcBSFPLu6GFJO7A4",
-  "BASE_URL": "https://parseapi.back4app.com/parse/functions/",
+  "CLIENT_KEY": "LO7xbQKVXAjVkvTM97IlruEhFWKhhM8OVtFvwCRY",
+  "BASE_URL": "https://parseapi.back4app.com",
   "FLAVOR_CONFIG": "prod"
 }

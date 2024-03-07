@@ -7,21 +7,20 @@ import '../../infra/models/models.dart';
 import '../service/login_service.dart';
 
 class DioLoginDatasource implements LoginDatasource {
-  final LoginService loginService;
-
-  DioLoginDatasource({required this.loginService});
   @override
   Future<void> login(
       LoginEntity loginEntity,
-      Function(SignUpModel response)? onLoginSuccess,
-      Function(String error)? onLoginError) async {
+      Function(SignUpModel response) onLoginSuccess,
+      Function(String error) onLoginError) async {
     LoginModel loginModel = LoginModel.fromEntity(loginEntity);
     try {
-      final result = await loginService.login(loginModel);
-
-      onLoginSuccess!(result);
+      await LoginService.login(
+        loginModel: loginModel,
+        onLoginSuccess: (response) => onLoginSuccess(response),
+        onLoginError: (error) => onLoginError(error),
+      );
     } on DioException catch (e) {
-      onLoginError!(e.message!);
+      onLoginError(e.message ?? 'error');
     }
   }
 }

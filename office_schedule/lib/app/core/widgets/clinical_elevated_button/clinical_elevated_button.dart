@@ -62,8 +62,13 @@ class _ClinicalElevatedButtonState extends State<ClinicalElevatedButton> {
                         widget.buttonText,
                         style: ClinicalTextTypes.boxButtonText,
                       )
-                    : const CircularProgressIndicator(
-                        valueColor: AlwaysStoppedAnimation<Color>(Colors.white),
+                    : SizedBox(
+                        height: 20.w,
+                        width: 20.w,
+                        child: const CircularProgressIndicator(
+                          valueColor:
+                              AlwaysStoppedAnimation<Color>(Colors.white),
+                        ),
                       )),
           );
         });

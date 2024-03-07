@@ -13,9 +13,9 @@ class LoginBindings implements Bindings {
   @override
   void dependencies() {
     Get.put(Dio());
-    Get.put(LoginService(Get.find()));
+    Get.put(LoginService());
 
-    Get.put<LoginDatasource>(DioLoginDatasource(loginService: Get.find()));
+    Get.put<LoginDatasource>(DioLoginDatasource());
     Get.put<LoginRepository>(LoginRepositoryImpl(Get.find()));
     Get.put<LoginUsecase>(LoginUsecaseImpl(Get.find()));
     Get.put(LoginController());

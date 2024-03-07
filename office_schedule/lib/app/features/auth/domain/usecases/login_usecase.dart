@@ -8,8 +8,8 @@ import 'package:office_schedule/app/features/auth/domain/repository/login_reposi
 abstract class LoginUsecase {
   Future<void> login(
       LoginEntity entity,
-      Function(SignUpEntity response)? onLoginSuccess,
-      Function(String error)? onLoginError);
+      Function(SignUpEntity response) onLoginSuccess,
+      Function(String error) onLoginError);
 }
 
 class LoginUsecaseImpl implements LoginUsecase {
@@ -19,8 +19,8 @@ class LoginUsecaseImpl implements LoginUsecase {
   @override
   Future<void> login(
       LoginEntity entity,
-      Function(SignUpEntity response)? onLoginSuccess,
-      Function(String error)? onLoginError) async {
+      Function(SignUpEntity response) onLoginSuccess,
+      Function(String error) onLoginError) async {
     await repository.login(entity, onLoginSuccess, onLoginError);
   }
 }

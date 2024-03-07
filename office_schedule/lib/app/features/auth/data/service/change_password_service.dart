@@ -1,7 +1,7 @@
 import 'package:dio/dio.dart' hide Headers;
 import 'package:office_schedule/app/core/endpoints/parse_endpoints.dart';
 import 'package:office_schedule/app/core/environments/environments.dart';
-import 'package:office_schedule/app/core/keys/parse_server/parse_headers.dart';
+import 'package:office_schedule/app/core/parse_server/parse_headers/parse_headers.dart';
 
 import 'package:retrofit/retrofit.dart';
 
