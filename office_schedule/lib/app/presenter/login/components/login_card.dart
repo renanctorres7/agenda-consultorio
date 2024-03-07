@@ -1,11 +1,13 @@
 import 'package:fluentui_system_icons/fluentui_system_icons.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:get/get.dart';
 import 'package:office_schedule/app/core/theme/clinical_theme/app_colors.dart';
 import 'package:office_schedule/app/core/widgets/clinical_elevated_button/clinical_elevated_button.dart';
 import 'package:office_schedule/app/core/widgets/clinical_form_input/clinical_form_input.dart';
 
 import '../../../core/widgets/clinical_form_input/exports.dart';
+import '../login_controller.dart';
 
 class LoginCard extends StatefulWidget {
   const LoginCard({super.key});
@@ -15,6 +17,7 @@ class LoginCard extends StatefulWidget {
 }
 
 class _LoginCardState extends State<LoginCard> {
+  final _loginController = Get.put(LoginController());
   TextEditingController emailController = TextEditingController();
   TextEditingController passwordController = TextEditingController();
 
@@ -70,7 +73,11 @@ class _LoginCardState extends State<LoginCard> {
               alignment: Alignment.bottomRight,
               child: ClinicalElevatedButton(
                 buttonText: 'login',
-                onPressed: () {},
+                onPressed: () async {
+                  await _loginController.login(
+                      email: emailController.text,
+                      password: passwordController.text);
+                },
                 buttonColorEnum: ButtonColorEnum.secondary,
               ),
             ),

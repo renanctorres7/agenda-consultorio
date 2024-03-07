@@ -18,7 +18,7 @@ extension ButtonColorEnumExtension on ButtonColorEnum {
   }
 }
 
-class ClinicalElevatedButton extends StatelessWidget {
+class ClinicalElevatedButton extends StatefulWidget {
   const ClinicalElevatedButton(
       {super.key,
       required this.buttonColorEnum,
@@ -27,26 +27,45 @@ class ClinicalElevatedButton extends StatelessWidget {
 
   final ButtonColorEnum buttonColorEnum;
   final String buttonText;
-  final Function() onPressed;
+  final Function()? onPressed;
 
   @override
+  State<ClinicalElevatedButton> createState() => _ClinicalElevatedButtonState();
+}
+
+class _ClinicalElevatedButtonState extends State<ClinicalElevatedButton> {
+  ValueNotifier<bool> isLoading = ValueNotifier<bool>(false);
+  @override
   Widget build(BuildContext context) {
-    return SizedBox(
-      height: 33.h,
-      width: 103.w,
-      child: ElevatedButton(
-        onPressed: onPressed,
-        style: ElevatedButton.styleFrom(
-            backgroundColor: buttonColorEnum.color,
-            elevation: 4,
-            padding: EdgeInsets.zero,
-            shape: RoundedRectangleBorder(
-                borderRadius: BorderRadius.circular(5.r))),
-        child: AutoSizeText(
-          buttonText,
-          style: ClinicalTextTypes.boxButtonText,
-        ),
-      ),
-    );
+    return ValueListenableBuilder<bool>(
+        valueListenable: isLoading,
+        builder: (context, value, child) {
+          return SizedBox(
+            height: 33.h,
+            width: 103.w,
+            child: ElevatedButton(
+                onPressed: isLoading.value == false
+                    ? () async {
+                        isLoading.value = true;
+                        await widget.onPressed?.call();
+                        isLoading.value = false;
+                      }
+                    : null,
+                style: ElevatedButton.styleFrom(
+                    backgroundColor: widget.buttonColorEnum.color,
+                    elevation: 4,
+                    padding: EdgeInsets.zero,
+                    shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(5.r))),
+                child: isLoading.value == false
+                    ? AutoSizeText(
+                        widget.buttonText,
+                        style: ClinicalTextTypes.boxButtonText,
+                      )
+                    : const CircularProgressIndicator(
+                        valueColor: AlwaysStoppedAnimation<Color>(Colors.white),
+                      )),
+          );
+        });
   }
 }

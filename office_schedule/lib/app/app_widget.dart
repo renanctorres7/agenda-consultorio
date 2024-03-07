@@ -4,10 +4,8 @@ import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 import 'package:office_schedule/app/app_config.dart';
-import 'package:office_schedule/app/core/core.dart';
 
 import 'core/routes/app_pages.dart';
-import 'core/theme/clinical_theme/theme.dart';
 
 class AppWidget extends StatefulWidget {
   const AppWidget({super.key});

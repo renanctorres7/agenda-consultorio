@@ -12,9 +12,9 @@ class LoginController extends GetxController {
 
   RxInt tabIndex = 0.obs;
 
-  Future<void> login(String email, String password) async {
-    await _loginUsecase.login(LoginModel(email: email, password: password),
-        (value) {
+  Future<void> login({required String email, required String password}) async {
+    LoginModel loginModel = LoginModel(email: email, password: password);
+    await _loginUsecase.login(loginModel, (value) {
       print(value);
     }, (error) {
       print(error);
