@@ -2,6 +2,7 @@ import 'package:fluentui_system_icons/fluentui_system_icons.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
+import 'package:office_schedule/app/core/localization/languages.dart';
 import 'package:office_schedule/app/core/theme/clinical_theme/app_colors.dart';
 import 'package:office_schedule/app/core/theme/clinical_theme/clinical_texts_types.dart';
 import 'package:office_schedule/app/core/widgets/clinical_text_button/clinical_text_button.dart';
@@ -53,7 +54,8 @@ class DialogError extends StatelessWidget {
                         size: 20.sp,
                       ),
                     ),
-                    Text('Erro!', style: ClinicalTextTypes.dialogErrorTitle),
+                    Text(Languages.of(context).dialogErrorTitle,
+                        style: ClinicalTextTypes.dialogErrorTitle),
                   ],
                 ),
               ),

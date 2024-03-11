@@ -12,6 +12,9 @@ class LanguagesPortugues extends Languages {
   String get signUp => 'Cadastrar';
 
   @override
+  String get signUpButton => 'confirmar';
+
+  @override
   String get email => 'E-mail';
 
   @override
@@ -34,9 +37,6 @@ class LanguagesPortugues extends Languages {
 
   @override
   String get loginButton => 'Entrar';
-
-  @override
-  String get signUpButton => 'Cadastrar';
 
   @override
   String get fullName => 'Nome completo';
@@ -82,4 +82,48 @@ class LanguagesPortugues extends Languages {
 
   @override
   String get phoneError => 'Telefone inválido';
+
+  /// CLINICAL FORM
+  @override
+  String get createdBy => 'Criado por';
+
+  @override
+  String get modifiedBy => 'Modificado por';
+
+  @override
+  String get notes => 'Observações';
+
+  @override
+  String get description => 'Descrição';
+
+  @override
+  String get address => 'Endereço';
+
+  @override
+  String get paymentType => 'Tipo de pagamento';
+
+  @override
+  String get paymentStatus => 'Status do pagamento';
+
+  @override
+  String get pacient => 'Paciente';
+
+  @override
+  String get statusSchedule => 'Consulta realizada?';
+
+  @override
+  String get clock => 'Data e hora';
+
+  @override
+  String get status => 'Status';
+
+  /// DIALOG ERROR
+  @override
+  String get dialogErrorTitle => 'Erro!';
+
+  @override
+  String get dialogErrorButton => 'fechar';
+
+  @override
+  String get dialogErrorInitialMessage => 'Ocorreu um erro inesperado: ';
 }

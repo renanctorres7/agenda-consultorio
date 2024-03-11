@@ -28,7 +28,7 @@ class LoginTabBar extends StatelessWidget {
           ),
           child: TabBar(
             controller: _loginController.tabController,
-            tabs: labelTabs,
+            tabs: labelTabs(context),
             indicatorSize: TabBarIndicatorSize.tab,
             onTap: (value) {
               _loginController.tabIndex.value = value;

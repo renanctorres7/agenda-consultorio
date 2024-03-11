@@ -2,11 +2,14 @@ import 'package:fluentui_system_icons/fluentui_system_icons.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
+import 'package:office_schedule/app/core/localization/languages.dart';
 import 'package:office_schedule/app/core/theme/clinical_theme/app_colors.dart';
+import 'package:office_schedule/app/core/utils/call_dialog.dart';
 import 'package:office_schedule/app/core/widgets/clinical_elevated_button/clinical_elevated_button.dart';
 import 'package:office_schedule/app/core/widgets/clinical_form_input/clinical_form_input.dart';
 
 import '../../../core/widgets/clinical_form_input/exports.dart';
+import '../../../core/widgets/dialog_error/dialog_error.dart';
 import '../login_controller.dart';
 
 class LoginCard extends StatefulWidget {
@@ -72,11 +75,21 @@ class _LoginCardState extends State<LoginCard> {
             child: Container(
               alignment: Alignment.bottomRight,
               child: ClinicalElevatedButton(
-                buttonText: 'login',
+                buttonText: Languages.of(context).login.toLowerCase(),
                 onPressed: () async {
                   await _loginController.login(
                       email: emailController.text,
-                      password: passwordController.text);
+                      password: passwordController.text,
+                      onSuccess: () {},
+                      onError: () {
+                        callErrorDialog(
+                            context: context,
+                            child: DialogError(
+                              textMessage: Languages.of(context)
+                                  .dialogErrorInitialMessage,
+                              textHighlight: 'usuário ou senha inválidos!',
+                            ));
+                      });
                 },
                 buttonColorEnum: ButtonColorEnum.secondary,
               ),

@@ -42,4 +42,24 @@ abstract class Languages {
 
   String get company;
   String get companyHint;
+
+  /// CLINICAL FORM
+
+  String get createdBy;
+  String get modifiedBy;
+  String get notes;
+  String get description;
+  String get address;
+  String get paymentType;
+  String get paymentStatus;
+  String get pacient;
+  String get statusSchedule;
+  String get clock;
+  String get status;
+
+  /// DIALOG ERROR
+
+  String get dialogErrorTitle;
+  String get dialogErrorButton;
+  String get dialogErrorInitialMessage;
 }

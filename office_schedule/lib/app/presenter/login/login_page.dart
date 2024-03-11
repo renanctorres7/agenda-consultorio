@@ -78,7 +78,7 @@ class _LoginPageState extends State<LoginPage> with TickerProviderStateMixin {
                       Padding(
                         padding: EdgeInsets.only(bottom: 46.0.h),
                         child: Text(
-                          'Agenda Clínica',
+                          Languages.of(context).appName,
                           style: ClinicalTextTypes.appTitleText,
                         ),
                       ),
@@ -101,10 +101,6 @@ class _LoginPageState extends State<LoginPage> with TickerProviderStateMixin {
                               ),
                             )
                           : const SizedBox(),
-                      const DialogError(
-                        textMessage: '',
-                        textHighlight: '',
-                      )
                     ],
                   );
                 }),

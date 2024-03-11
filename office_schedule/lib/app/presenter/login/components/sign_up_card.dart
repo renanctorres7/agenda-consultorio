@@ -1,6 +1,7 @@
 import 'package:fluentui_system_icons/fluentui_system_icons.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:office_schedule/app/core/localization/languages.dart';
 import 'package:office_schedule/app/core/theme/clinical_theme/app_colors.dart';
 import 'package:office_schedule/app/core/widgets/clinical_elevated_button/clinical_elevated_button.dart';
 import 'package:office_schedule/app/core/widgets/clinical_form_input/clinical_form_input.dart';
@@ -139,7 +140,7 @@ class _SignUpCardState extends State<SignUpCard> {
             child: Container(
               alignment: Alignment.bottomRight,
               child: ClinicalElevatedButton(
-                buttonText: 'confirmar',
+                buttonText: Languages.of(context).signUpButton,
                 onPressed: () {},
                 buttonColorEnum: ButtonColorEnum.primary,
               ),

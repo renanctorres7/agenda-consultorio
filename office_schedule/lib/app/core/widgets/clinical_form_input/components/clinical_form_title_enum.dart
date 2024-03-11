@@ -1,4 +1,6 @@
+import 'package:get/get.dart';
 import 'package:office_schedule/app/core/icons/clinical_icons.dart';
+import 'package:office_schedule/app/core/localization/languages.dart';
 
 enum ClinicalFormTitleEnum {
   clock,
@@ -24,39 +26,39 @@ extension ClinicalFormTitleExtension on ClinicalFormTitleEnum {
   String get title {
     switch (this) {
       case ClinicalFormTitleEnum.clock:
-        return 'Data e hora';
+        return Languages.of(Get.context!).clock;
       case ClinicalFormTitleEnum.company:
-        return 'Empresa';
+        return Languages.of(Get.context!).company;
       case ClinicalFormTitleEnum.fullName:
-        return 'Nome completo';
+        return Languages.of(Get.context!).fullName;
       case ClinicalFormTitleEnum.createdBy:
-        return 'Criado por';
+        return Languages.of(Get.context!).createdBy;
       case ClinicalFormTitleEnum.modifiedBy:
-        return 'Modificado por';
+        return Languages.of(Get.context!).modifiedBy;
       case ClinicalFormTitleEnum.email:
-        return 'E-mail';
+        return Languages.of(Get.context!).email;
       case ClinicalFormTitleEnum.password:
-        return 'Senha';
+        return Languages.of(Get.context!).password;
       case ClinicalFormTitleEnum.passwordConfirm:
-        return 'Confirmar Senha';
+        return Languages.of(Get.context!).passwordConfirm;
       case ClinicalFormTitleEnum.notes:
-        return 'Observações';
+        return Languages.of(Get.context!).notes;
       case ClinicalFormTitleEnum.description:
-        return 'Descrição';
+        return Languages.of(Get.context!).description;
       case ClinicalFormTitleEnum.address:
-        return 'Endereço';
+        return Languages.of(Get.context!).address;
       case ClinicalFormTitleEnum.paymentType:
-        return 'Tipo de pagamento';
+        return Languages.of(Get.context!).paymentType;
       case ClinicalFormTitleEnum.paymentStatus:
-        return 'Status do pagamento';
+        return Languages.of(Get.context!).paymentStatus;
       case ClinicalFormTitleEnum.pacient:
-        return 'Paciente';
+        return Languages.of(Get.context!).pacient;
       case ClinicalFormTitleEnum.phone:
-        return 'Telefone';
+        return Languages.of(Get.context!).phone;
       case ClinicalFormTitleEnum.specialty:
-        return 'Especialidade';
+        return Languages.of(Get.context!).specialty;
       case ClinicalFormTitleEnum.statusSchedule:
-        return 'Consulta realizada?';
+        return Languages.of(Get.context!).statusSchedule;
       default:
         return '';
     }
