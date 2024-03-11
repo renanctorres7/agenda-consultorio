@@ -4,6 +4,7 @@ import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 import 'package:office_schedule/app/app_config.dart';
+import 'package:office_schedule/app/core/localization/localization_delegates.dart';
 
 import 'core/routes/app_pages.dart';
 
@@ -38,6 +39,7 @@ class _AppWidgetState extends State<AppWidget> {
             debugShowCheckedModeBanner: false,
             locale: const Locale('pt', 'BR'),
             localizationsDelegates: const [
+              AppLocalizationDelegates(),
               GlobalMaterialLocalizations.delegate,
               GlobalWidgetsLocalizations.delegate,
               GlobalCupertinoLocalizations.delegate,

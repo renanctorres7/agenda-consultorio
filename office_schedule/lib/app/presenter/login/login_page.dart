@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
+import 'package:office_schedule/app/core/localization/languages.dart';
 import 'package:office_schedule/app/core/theme/clinical_theme/app_colors.dart';
 import 'package:office_schedule/app/core/widgets/dialog_error/dialog_error.dart';
 import 'package:office_schedule/app/presenter/login/components/login_card.dart';
@@ -95,7 +96,7 @@ class _LoginPageState extends State<LoginPage> with TickerProviderStateMixin {
                               alignment: Alignment.center,
                               margin: EdgeInsets.only(top: 55.h),
                               child: Text(
-                                'Esqueceu a senha?',
+                                Languages.of(context).forgotPassword,
                                 style: ClinicalTextTypes.forgotPasswordText,
                               ),
                             )
