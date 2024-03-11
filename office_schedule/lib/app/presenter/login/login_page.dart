@@ -3,6 +3,7 @@ import 'package:flutter/widgets.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 import 'package:office_schedule/app/core/theme/clinical_theme/app_colors.dart';
+import 'package:office_schedule/app/core/widgets/dialog_error/dialog_error.dart';
 import 'package:office_schedule/app/presenter/login/components/login_card.dart';
 import 'package:office_schedule/app/presenter/login/components/sign_up_card.dart';
 import 'package:office_schedule/app/presenter/login/components/status_bar_widget.dart';
@@ -98,7 +99,11 @@ class _LoginPageState extends State<LoginPage> with TickerProviderStateMixin {
                                 style: ClinicalTextTypes.forgotPasswordText,
                               ),
                             )
-                          : const SizedBox()
+                          : const SizedBox(),
+                      const DialogError(
+                        textMessage: '',
+                        textHighlight: '',
+                      )
                     ],
                   );
                 }),

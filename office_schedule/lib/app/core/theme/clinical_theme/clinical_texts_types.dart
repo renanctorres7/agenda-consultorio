@@ -97,4 +97,16 @@ class ClinicalTextTypes {
       fontSize: 16.sp,
       fontWeight: FontWeight.w700,
       color: AppColors.getTheme().primaryDark);
+
+  /// dialog
+  ///
+  static final dialogErrorTitle = GoogleFonts.poppins(
+      fontSize: 14.sp,
+      fontWeight: FontWeight.w700,
+      color: AppColors.getTheme().dangerYellowDark);
+
+  static final dialogErrorHighlight = GoogleFonts.poppins(
+      fontSize: 14.sp,
+      fontWeight: FontWeight.w700,
+      color: AppColors.getTheme().colorText);
 }
