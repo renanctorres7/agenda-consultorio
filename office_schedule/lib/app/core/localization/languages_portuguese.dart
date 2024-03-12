@@ -63,7 +63,7 @@ class LanguagesPortugues extends Languages {
   String get companyHint => 'Digite o nome da sua empresa';
 
   @override
-  String get loginError => 'Erro ao fazer login';
+  String get loginError => 'usuário ou senha inválidos!';
 
   @override
   String get loginSuccess => 'Login feito com sucesso';
@@ -135,4 +135,8 @@ class LanguagesPortugues extends Languages {
 
   @override
   String get dialogErrorInitialMessage => 'Ocorreu um erro inesperado: ';
+
+  /// API ERROR
+  @override
+  String get validationFailed => 'Erro de validação no servidor';
 }

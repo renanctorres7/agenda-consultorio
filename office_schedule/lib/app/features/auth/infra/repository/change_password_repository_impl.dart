@@ -17,7 +17,7 @@ class ChangePasswordRepositoryImpl implements ChangePasswordRepository {
       final result = await datasource.changePasswordEmail(token, newPassword);
       return Right(result);
     } catch (e) {
-      return Left(DataSourceError());
+      return Left(DataSourceError(e.toString()));
     }
   }
 }

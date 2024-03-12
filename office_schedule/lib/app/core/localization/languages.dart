@@ -68,4 +68,7 @@ abstract class Languages {
   String get dialogErrorTitle;
   String get dialogErrorButton;
   String get dialogErrorInitialMessage;
+
+  /// API ERROR
+  String get validationFailed;
 }

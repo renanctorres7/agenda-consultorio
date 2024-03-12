@@ -1,27 +1,12 @@
 import 'dart:convert';
 
-import 'package:dio/dio.dart' hide Headers;
 import 'package:flutter/widgets.dart';
-import 'package:get/get.dart';
-import 'package:office_schedule/app/core/endpoints/parse_endpoints.dart';
-import 'package:office_schedule/app/features/auth/infra/models/sign_up/sign_up_model.dart';
+import 'package:office_schedule/app/core/debug_print_color/debug_print_color.dart';
+import 'package:office_schedule/app/core/errors/failure_error.dart';
+
 import 'package:parse_server_sdk_flutter/parse_server_sdk_flutter.dart';
 
-import 'package:retrofit/retrofit.dart';
-
-import '../../../../core/core.dart';
 import '../../infra/models/models.dart';
-
-part 'login_service.g.dart';
-
-// @RestApi(baseUrl: Environments.baseUrl)
-// abstract class LoginService {
-//   factory LoginService(Dio dio) => _LoginService(dio);
-
-//   @POST(ParseEndpoints.login)
-//   @Headers(ParseHeaders.header)
-//   Future<SignUpModel> login(@Body() LoginModel loginModel);
-// }
 
 class LoginService {
   static Future<void> login(
@@ -40,11 +25,10 @@ class LoginService {
       decodedResponse =
           jsonDecode(response.result.toString()) as Map<String, dynamic>;
 
-      debugPrint('PARSE SERVICE SUCCESS: login');
       onLoginSuccess(SignUpModel.fromJson(decodedResponse));
     } else {
-      debugPrint(response.result.toString());
-      onLoginError('Usuário ou senha inválidos ${response.statusCode}');
+      ServiceError(response.error?.message, response.statusCode);
+      onLoginError('${response.error?.message} ${response.statusCode}');
     }
   }
 }

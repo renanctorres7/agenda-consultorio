@@ -20,7 +20,7 @@ class DioLoginDatasource implements LoginDatasource {
         onLoginError: (error) => onLoginError(error),
       );
     } on DioException catch (e) {
-      onLoginError(e.message ?? 'error');
+      onLoginError(e.message ?? e.error.toString());
     }
   }
 }

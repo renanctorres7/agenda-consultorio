@@ -92,13 +92,14 @@ class _LoginCardState extends State<LoginCard> {
                           email: emailController.text,
                           password: passwordController.text,
                           onSuccess: () {},
-                          onError: () {
+                          onError: (error) {
                             callErrorDialog(
                                 context: context,
                                 child: DialogError(
                                   textMessage: Languages.of(context)
                                       .dialogErrorInitialMessage,
-                                  textHighlight: 'usuário ou senha inválidos!',
+                                  textHighlight:
+                                      error ?? 'usuário ou senha inválidos!',
                                 ));
                           });
                     }

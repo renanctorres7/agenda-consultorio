@@ -18,7 +18,7 @@ class LoginRepositoryImpl implements LoginRepository {
       await datasource.login(
           loginEntity,
           (response) => onLoginSuccess(response),
-          (error) => onLoginError('error'));
+          (error) => onLoginError(error));
     } catch (e) {
       onLoginError(e.toString());
     }
