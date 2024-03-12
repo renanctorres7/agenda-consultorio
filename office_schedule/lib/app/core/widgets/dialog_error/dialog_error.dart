@@ -21,7 +21,7 @@ class DialogError extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-        margin: EdgeInsets.symmetric(horizontal: 20.w),
+        margin: EdgeInsets.symmetric(horizontal: 30.w),
         padding:
             EdgeInsets.only(top: 16.h, bottom: 12.h, left: 20.w, right: 20.w),
         decoration: BoxDecoration(

@@ -65,7 +65,6 @@ class _ClinicalFormInputState extends State<ClinicalFormInput> {
       padding: EdgeInsets.only(bottom: 20.h),
       child: SizedBox(
         width: context.screenSize.width,
-        height: 66.h,
         child: Flex(
           direction: Axis.vertical,
           children: [
@@ -88,41 +87,42 @@ class _ClinicalFormInputState extends State<ClinicalFormInput> {
               ),
             ),
             SizedBox(
-                height: 48.h,
                 child: TextFormField(
-                  controller: widget.textEditingController,
-                  keyboardType: widget.keyboardType,
-                  autofocus: widget.autofocus ?? false,
-                  readOnly: widget.readOnly ?? false,
-                  obscureText: widget.obscureText ?? false,
-                  maxLines: widget.maxLines ?? 1,
-                  maxLength: widget.maxLength,
-                  onChanged: widget.onChanged,
-                  onTap: widget.onTap,
-                  onEditingComplete: widget.onEditingComplete,
-                  onFieldSubmitted: widget.onFieldSubmitted,
-                  onSaved: widget.onSaved,
-                  validator: widget.validator,
-                  inputFormatters: widget.inputFormatters,
-                  enabled: widget.enabled,
-                  autovalidateMode: widget.autovalidateMode,
-                  scrollPadding: EdgeInsets.zero,
-                  style: ClinicalTextTypes.bodyText,
-                  initialValue: widget.initialValue,
-                  decoration: InputDecoration(
-                      suffixIcon: widget.suffixIcon,
-                      enabledBorder: UnderlineInputBorder(
-                          borderSide: BorderSide(
-                              color: AppColors.getTheme().colorGrayLight)),
-                      focusedBorder: UnderlineInputBorder(
-                          borderSide: BorderSide(
-                              color: AppColors.getTheme().colorGrayLight)),
-                      contentPadding: EdgeInsets.only(left: 25.w),
-                      hintText: widget.initialValue != null
-                          ? ''
-                          : widget.clinicalFormHintTextEnum?.hintText ?? '',
-                      hintStyle: ClinicalTextTypes.bodyText),
-                )),
+              controller: widget.textEditingController,
+              keyboardType: widget.keyboardType,
+              autofocus: widget.autofocus ?? false,
+              readOnly: widget.readOnly ?? false,
+              obscureText: widget.obscureText ?? false,
+              maxLines: widget.maxLines ?? 1,
+              maxLength: widget.maxLength,
+              onChanged: widget.onChanged,
+              onTap: widget.onTap,
+              onEditingComplete: widget.onEditingComplete,
+              onFieldSubmitted: widget.onFieldSubmitted,
+              onSaved: widget.onSaved,
+              validator: widget.validator,
+              inputFormatters: widget.inputFormatters,
+              enabled: widget.enabled,
+              autovalidateMode: widget.autovalidateMode,
+              scrollPadding: EdgeInsets.zero,
+              style: ClinicalTextTypes.bodyText,
+              initialValue: widget.initialValue,
+              decoration: InputDecoration(
+                  suffixIcon: widget.suffixIcon,
+                  suffixIconConstraints:
+                      BoxConstraints(maxWidth: 30.w, maxHeight: 30.h),
+                  enabledBorder: UnderlineInputBorder(
+                      borderSide: BorderSide(
+                          color: AppColors.getTheme().colorGrayLight)),
+                  focusedBorder: UnderlineInputBorder(
+                      borderSide: BorderSide(
+                          color: AppColors.getTheme().colorGrayLight)),
+                  contentPadding: EdgeInsets.only(left: 25.w),
+                  hintText: widget.initialValue != null
+                      ? ''
+                      : widget.clinicalFormHintTextEnum?.hintText ?? '',
+                  hintStyle: ClinicalTextTypes.bodyText),
+            )),
           ],
         ),
       ),

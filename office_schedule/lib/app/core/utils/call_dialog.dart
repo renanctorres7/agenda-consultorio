@@ -7,6 +7,6 @@ void callErrorDialog({
     showDialog(
       context: context,
       builder: (BuildContext context) {
-        return child;
+        return Center(child: child);
       },
     );

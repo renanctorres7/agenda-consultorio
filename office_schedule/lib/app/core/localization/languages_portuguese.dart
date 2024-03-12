@@ -72,7 +72,16 @@ class LanguagesPortugues extends Languages {
   String get emailError => 'E-mail inválido';
 
   @override
+  String get emailEmptyError => 'Insira seu e-mail';
+
+  @override
   String get passwordError => 'Senha inválida';
+
+  @override
+  String get passwordEmptyError => 'Insira sua senha';
+
+  @override
+  String get passwordErrorLength => 'Sua senha deve ter no mínimo 6 caracteres';
 
   @override
   String get passwordConfirmError => 'Senhas não conferem';

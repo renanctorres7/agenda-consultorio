@@ -16,14 +16,20 @@ abstract class Languages {
 
   String get email;
   String get emailHint;
+  String get emailError;
+  String get emailEmptyError;
+
   String get password;
   String get passwordConfirm;
   String get forgotPassword;
   String get passwordHint;
   String get passwordConfirmHint;
   String get passwordConfirmError;
-  String get emailError;
+
   String get passwordError;
+  String get passwordEmptyError;
+  String get passwordErrorLength;
+
   String get signUp;
   String get signUpButton;
 
