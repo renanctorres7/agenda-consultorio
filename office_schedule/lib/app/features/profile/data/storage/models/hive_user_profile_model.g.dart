@@ -1,22 +1,22 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 
-part of 'user_profile_hive.dart';
+part of 'hive_user_profile_model.dart';
 
 // **************************************************************************
 // TypeAdapterGenerator
 // **************************************************************************
 
-class UserProfileHiveAdapter extends TypeAdapter<UserProfileHive> {
+class HiveUserProfileModelAdapter extends TypeAdapter<HiveUserProfileModel> {
   @override
   final int typeId = 0;
 
   @override
-  UserProfileHive read(BinaryReader reader) {
+  HiveUserProfileModel read(BinaryReader reader) {
     final numOfFields = reader.readByte();
     final fields = <int, dynamic>{
       for (int i = 0; i < numOfFields; i++) reader.readByte(): reader.read(),
     };
-    return UserProfileHive(
+    return HiveUserProfileModel(
       fullName: fields[1] as String,
       phone: fields[2] as String,
       company: fields[3] as String,
@@ -27,7 +27,7 @@ class UserProfileHiveAdapter extends TypeAdapter<UserProfileHive> {
   }
 
   @override
-  void write(BinaryWriter writer, UserProfileHive obj) {
+  void write(BinaryWriter writer, HiveUserProfileModel obj) {
     writer
       ..writeByte(6)
       ..writeByte(0)
@@ -50,7 +50,7 @@ class UserProfileHiveAdapter extends TypeAdapter<UserProfileHive> {
   @override
   bool operator ==(Object other) =>
       identical(this, other) ||
-      other is UserProfileHiveAdapter &&
+      other is HiveUserProfileModelAdapter &&
           runtimeType == other.runtimeType &&
           typeId == other.typeId;
 }
@@ -59,8 +59,9 @@ class UserProfileHiveAdapter extends TypeAdapter<UserProfileHive> {
 // JsonSerializableGenerator
 // **************************************************************************
 
-UserProfileHive _$UserProfileHiveFromJson(Map<String, dynamic> json) =>
-    UserProfileHive(
+HiveUserProfileModel _$HiveUserProfileModelFromJson(
+        Map<String, dynamic> json) =>
+    HiveUserProfileModel(
       fullName: json['fullName'] as String,
       phone: json['phone'] as String,
       company: json['company'] as String,
@@ -69,7 +70,8 @@ UserProfileHive _$UserProfileHiveFromJson(Map<String, dynamic> json) =>
       email: json['email'] as String,
     );
 
-Map<String, dynamic> _$UserProfileHiveToJson(UserProfileHive instance) =>
+Map<String, dynamic> _$HiveUserProfileModelToJson(
+        HiveUserProfileModel instance) =>
     <String, dynamic>{
       'email': instance.email,
       'fullName': instance.fullName,

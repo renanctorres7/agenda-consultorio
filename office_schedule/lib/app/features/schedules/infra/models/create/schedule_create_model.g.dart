@@ -13,6 +13,7 @@ ScheduleCreateModel _$ScheduleCreateModelFromJson(Map<String, dynamic> json) =>
       typePayment: json['typePayment'] as String,
       paymentStatus: json['paymentStatus'] as String,
       scheduleStatus: json['scheduleStatus'] as String,
+      registeredClient: json['registeredClient'] as String?,
       description: json['description'] as String?,
     );
 
@@ -21,6 +22,7 @@ Map<String, dynamic> _$ScheduleCreateModelToJson(
     <String, dynamic>{
       'datetime': instance.datetime,
       'client': instance.client,
+      'registeredClient': instance.registeredClient,
       'typePayment': instance.typePayment,
       'paymentStatus': instance.paymentStatus,
       'scheduleStatus': instance.scheduleStatus,

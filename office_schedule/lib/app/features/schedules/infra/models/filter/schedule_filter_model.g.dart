@@ -16,6 +16,8 @@ ScheduleFilterModel _$ScheduleFilterModelFromJson(Map<String, dynamic> json) =>
       scheduleStatus: json['scheduleStatus'] as String?,
       typePayment: json['typePayment'] as String?,
       paymentStatus: json['paymentStatus'] as String?,
+      description: json['description'] as String?,
+      registeredClient: json['registeredClient'] as String?,
     );
 
 Map<String, dynamic> _$ScheduleFilterModelToJson(
@@ -29,4 +31,6 @@ Map<String, dynamic> _$ScheduleFilterModelToJson(
       'scheduleStatus': instance.scheduleStatus,
       'typePayment': instance.typePayment,
       'paymentStatus': instance.paymentStatus,
+      'description': instance.description,
+      'registeredClient': instance.registeredClient,
     };

@@ -15,6 +15,7 @@ ScheduleUpdateModel _$ScheduleUpdateModelFromJson(Map<String, dynamic> json) =>
       paymentStatus: json['paymentStatus'] as String?,
       scheduleStatus: json['scheduleStatus'] as String?,
       description: json['description'] as String?,
+      registeredClient: json['registeredClient'] as String?,
     );
 
 Map<String, dynamic> _$ScheduleUpdateModelToJson(
@@ -23,6 +24,7 @@ Map<String, dynamic> _$ScheduleUpdateModelToJson(
       'objectId': instance.objectId,
       'datetime': instance.datetime,
       'client': instance.client,
+      'registeredClient': instance.registeredClient,
       'typePayment': instance.typePayment,
       'paymentStatus': instance.paymentStatus,
       'scheduleStatus': instance.scheduleStatus,
