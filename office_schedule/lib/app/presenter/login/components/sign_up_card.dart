@@ -6,7 +6,8 @@ import 'package:office_schedule/app/core/theme/clinical_theme/app_colors.dart';
 import 'package:office_schedule/app/core/widgets/clinical_elevated_button/clinical_elevated_button.dart';
 import 'package:office_schedule/app/core/widgets/clinical_form_input/clinical_form_input.dart';
 
-import '../../../core/widgets/clinical_form_input/exports.dart';
+import '../../../core/enums/clinical_form_hint_text_enum.dart';
+import '../../../core/enums/clinical_form_title_enum.dart';
 
 class SignUpCard extends StatefulWidget {
   const SignUpCard({super.key});

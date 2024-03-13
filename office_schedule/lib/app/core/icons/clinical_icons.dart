@@ -1,4 +1,5 @@
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:office_schedule/app/core/debug_print_color/debug_print_color.dart';
 
 const String _path = 'assets/svg';
 
@@ -57,11 +58,15 @@ class ClinicalIcons {
         schedulesCalendarWhite,
       ];
 
-  static loadImages() async {
+  static Future<void> loadImages() async {
     for (var icon in _allIcons) {
       var loader = SvgAssetLoader(icon);
-      await svg.cache
-          .putIfAbsent(loader.cacheKey(null), () => loader.loadBytes(null));
+      try {
+        await svg.cache
+            .putIfAbsent(loader.cacheKey(null), () => loader.loadBytes(null));
+      } catch (e) {
+        debugPrintError(e.toString());
+      }
     }
   }
 }

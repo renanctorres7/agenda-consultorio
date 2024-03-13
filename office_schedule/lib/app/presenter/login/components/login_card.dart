@@ -1,6 +1,5 @@
 import 'package:fluentui_system_icons/fluentui_system_icons.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 import 'package:office_schedule/app/core/localization/languages.dart';
@@ -10,7 +9,8 @@ import 'package:office_schedule/app/core/utils/form_validator.dart';
 import 'package:office_schedule/app/core/widgets/clinical_elevated_button/clinical_elevated_button.dart';
 import 'package:office_schedule/app/core/widgets/clinical_form_input/clinical_form_input.dart';
 
-import '../../../core/widgets/clinical_form_input/exports.dart';
+import '../../../core/enums/clinical_form_hint_text_enum.dart';
+import '../../../core/enums/clinical_form_title_enum.dart';
 import '../../../core/widgets/dialog_error/dialog_error.dart';
 import '../login_controller.dart';
 
@@ -91,7 +91,9 @@ class _LoginCardState extends State<LoginCard> {
                       await _loginController.login(
                           email: emailController.text,
                           password: passwordController.text,
-                          onSuccess: () {},
+                          onSuccess: (response) {
+                            Get.offAllNamed('/home', arguments: response);
+                          },
                           onError: (error) {
                             callErrorDialog(
                                 context: context,

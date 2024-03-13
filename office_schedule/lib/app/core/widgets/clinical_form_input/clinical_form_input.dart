@@ -4,9 +4,10 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:office_schedule/app/core/extensions/context.dart';
 
+import '../../enums/clinical_form_hint_text_enum.dart';
+import '../../enums/clinical_form_title_enum.dart';
 import '../../theme/clinical_theme/app_colors.dart';
 import '../../theme/clinical_theme/theme.dart';
-import 'exports.dart';
 
 class ClinicalFormInput extends StatefulWidget {
   const ClinicalFormInput(

@@ -1,4 +1,5 @@
 import 'package:get/get.dart';
+
 import 'package:office_schedule/app/presenter/home/home_bindings.dart';
 
 import '../../presenter/home/home_page.dart';
@@ -19,7 +20,9 @@ class AppPages {
 
     GetPage(
         name: AppRoutes.home,
-        page: () => const HomePage(),
+        page: () => HomePage(
+              userProfileModel: Get.arguments,
+            ),
         binding: HomeBindings()),
   ];
 }

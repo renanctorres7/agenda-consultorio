@@ -16,17 +16,9 @@ class AppWidget extends StatefulWidget {
 }
 
 class _AppWidgetState extends State<AppWidget> {
-  _initiliazeApp() async {
-    // ClinicalIcons.loadImages();
-    if (mounted) {
-//      ClinicalImages.loadImages(context);
-    }
-  }
-
   @override
   void initState() {
     super.initState();
-    _initiliazeApp();
   }
 
   @override
