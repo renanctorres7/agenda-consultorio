@@ -39,78 +39,80 @@ class _LoginCardState extends State<LoginCard> {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      height: 284.h,
-      margin: EdgeInsets.only(left: 20.w, right: 20.w),
-      decoration: AppColors.getTheme().cardDecoration,
-      child: Form(
-        key: _formKey,
-        child: Column(
-          children: [
-            Padding(
-              padding: EdgeInsets.only(top: 34.h, left: 25.w, right: 25.w),
-              child: ClinicalFormInput(
-                clinicalFormTitleEnum: ClinicalFormTitleEnum.email,
-                textEditingController: emailController,
-                clinicalFormHintTextEnum: ClinicalFormHintTextEnum.email,
-                validator: emailValidator,
+    return IntrinsicHeight(
+      child: Container(
+        margin: EdgeInsets.only(left: 20.w, right: 20.w),
+        decoration: AppColors.getTheme().cardDecoration,
+        child: Form(
+          key: _formKey,
+          child: Column(
+            children: [
+              Padding(
+                padding: EdgeInsets.only(top: 34.h, left: 25.w, right: 25.w),
+                child: ClinicalFormInput(
+                  clinicalFormTitleEnum: ClinicalFormTitleEnum.email,
+                  textEditingController: emailController,
+                  clinicalFormHintTextEnum: ClinicalFormHintTextEnum.email,
+                  validator: emailValidator,
+                  keyboardType: TextInputType.emailAddress,
+                ),
               ),
-            ),
-            Padding(
-              padding: EdgeInsets.only(left: 25.w, right: 25.w),
-              child: ClinicalFormInput(
-                clinicalFormTitleEnum: ClinicalFormTitleEnum.password,
-                clinicalFormHintTextEnum: ClinicalFormHintTextEnum.password,
-                textEditingController: passwordController,
-                obscureText: obscureText,
-                validator: passwordValidator,
-                suffixIcon: IconButton(
-                  padding: EdgeInsets.zero,
-                  icon: Icon(
-                    obscureText
-                        ? FluentIcons.eye_off_16_filled
-                        : FluentIcons.eye_16_regular,
-                    color: AppColors.getTheme().primary,
-                    size: 20.sp,
+              Padding(
+                padding: EdgeInsets.only(left: 25.w, right: 25.w),
+                child: ClinicalFormInput(
+                  clinicalFormTitleEnum: ClinicalFormTitleEnum.password,
+                  clinicalFormHintTextEnum: ClinicalFormHintTextEnum.password,
+                  textEditingController: passwordController,
+                  obscureText: obscureText,
+                  validator: passwordValidator,
+                  suffixIcon: IconButton(
+                    padding: EdgeInsets.zero,
+                    icon: Icon(
+                      obscureText
+                          ? FluentIcons.eye_off_16_filled
+                          : FluentIcons.eye_16_regular,
+                      color: AppColors.getTheme().primary,
+                      size: 20.sp,
+                    ),
+                    onPressed: () {
+                      setState(() {
+                        obscureText = !obscureText;
+                      });
+                    },
                   ),
-                  onPressed: () {
-                    setState(() {
-                      obscureText = !obscureText;
-                    });
-                  },
                 ),
               ),
-            ),
-            Expanded(
-              child: Container(
-                alignment: Alignment.bottomRight,
-                child: ClinicalElevatedButton(
-                  buttonText: Languages.of(context).login.toLowerCase(),
-                  onPressed: () async {
-                    if (_formKey.currentState!.validate()) {
-                      await _loginController.login(
-                          email: emailController.text,
-                          password: passwordController.text,
-                          onSuccess: (response) {
-                            Get.offAllNamed('/home', arguments: response);
-                          },
-                          onError: (error) {
-                            callErrorDialog(
-                                context: context,
-                                child: DialogError(
-                                  textMessage: Languages.of(context)
-                                      .dialogErrorInitialMessage,
-                                  textHighlight:
-                                      error ?? 'usuário ou senha inválidos!',
-                                ));
-                          });
-                    }
-                  },
-                  buttonColorEnum: ButtonColorEnum.secondary,
+              Expanded(
+                child: Container(
+                  alignment: Alignment.bottomRight,
+                  child: ClinicalElevatedButton(
+                    buttonText: Languages.of(context).login.toLowerCase(),
+                    onPressed: () async {
+                      if (_formKey.currentState!.validate()) {
+                        await _loginController.login(
+                            email: emailController.text,
+                            password: passwordController.text,
+                            onSuccess: (response) {
+                              Get.offAllNamed('/home', arguments: response);
+                            },
+                            onError: (error) {
+                              callErrorDialog(
+                                  context: context,
+                                  child: DialogError(
+                                    textMessage: Languages.of(context)
+                                        .dialogErrorInitialMessage,
+                                    textHighlight:
+                                        error ?? 'usuário ou senha inválidos!',
+                                  ));
+                            });
+                      }
+                    },
+                    buttonColorEnum: ButtonColorEnum.secondary,
+                  ),
                 ),
               ),
-            ),
-          ],
+            ],
+          ),
         ),
       ),
     );

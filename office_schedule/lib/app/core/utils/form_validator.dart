@@ -30,3 +30,29 @@ String? passwordConfirmValidator(String? value, String? password) {
   }
   return null;
 }
+
+String? fullNameValidator(String? value) {
+  if (value == null || value.isEmpty) {
+    return Languages.of(Get.context!).fullNameHint;
+  }
+  return null;
+}
+
+String? phoneValidator(String? value) {
+  if (value == null) {
+    return Languages.of(Get.context!).phoneHint;
+  }
+
+  if (value.length < 11) {
+    return Languages.of(Get.context!).phoneError;
+  }
+
+  return null;
+}
+
+String? genericValidator(String? value) {
+  if (value == null || value.isEmpty) {
+    return Languages.of(Get.context!).validationEmptyError;
+  }
+  return null;
+}

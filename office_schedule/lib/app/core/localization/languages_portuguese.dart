@@ -48,7 +48,7 @@ class LanguagesPortugues extends Languages {
   String get phone => 'Telefone';
 
   @override
-  String get phoneHint => 'Digite seu telefone';
+  String get phoneHint => 'Digite seu telefone, ex: (99) 99999-9999';
 
   @override
   String get specialty => 'Especialidade';
@@ -91,6 +91,9 @@ class LanguagesPortugues extends Languages {
 
   @override
   String get phoneError => 'Telefone inválido';
+
+  @override
+  String get validationEmptyError => 'Campo obrigatório';
 
   /// CLINICAL FORM
   @override

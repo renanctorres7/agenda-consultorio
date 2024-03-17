@@ -49,6 +49,8 @@ abstract class Languages {
   String get company;
   String get companyHint;
 
+  String get validationEmptyError;
+
   /// CLINICAL FORM
 
   String get createdBy;
