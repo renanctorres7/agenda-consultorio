@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-void callErrorDialog({
+void callDialog({
   required BuildContext context,
   required Widget child,
 }) =>

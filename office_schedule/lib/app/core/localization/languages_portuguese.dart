@@ -15,6 +15,13 @@ class LanguagesPortugues extends Languages {
   String get signUpButton => 'confirmar';
 
   @override
+  String get signUpError => 'erro ao cadastrar usuário!';
+
+  @override
+  String get signUpSuccess =>
+      'Cadastro feito com sucesso! Enviamos um e-mail de confirmação para você!';
+
+  @override
   String get email => 'E-mail';
 
   @override
@@ -139,7 +146,14 @@ class LanguagesPortugues extends Languages {
   @override
   String get dialogErrorInitialMessage => 'Ocorreu um erro inesperado: ';
 
+  /// DIALOG SUCCESS
+  @override
+  String get dialogSuccessTitle => 'Sucesso!';
+
   /// API ERROR
   @override
   String get validationFailed => 'Erro de validação no servidor';
+
+  @override
+  String get usernameAlreadyExists => 'usuário já cadastrado!';
 }

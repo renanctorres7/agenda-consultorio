@@ -32,6 +32,8 @@ abstract class Languages {
 
   String get signUp;
   String get signUpButton;
+  String get signUpError;
+  String get signUpSuccess;
 
   String get fullName;
   String get fullNameHint;
@@ -71,6 +73,11 @@ abstract class Languages {
   String get dialogErrorButton;
   String get dialogErrorInitialMessage;
 
+  /// DIALOG SUCCESS
+
+  String get dialogSuccessTitle;
+
   /// API ERROR
   String get validationFailed;
+  String get usernameAlreadyExists;
 }

@@ -1,15 +1,21 @@
 import 'package:fluentui_system_icons/fluentui_system_icons.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/widgets.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:get/get.dart';
 import 'package:mask_text_input_formatter/mask_text_input_formatter.dart';
 import 'package:office_schedule/app/core/localization/languages.dart';
 import 'package:office_schedule/app/core/theme/clinical_theme/app_colors.dart';
 import 'package:office_schedule/app/core/widgets/clinical_elevated_button/clinical_elevated_button.dart';
 import 'package:office_schedule/app/core/widgets/clinical_form_input/clinical_form_input.dart';
+import 'package:office_schedule/app/core/widgets/dialog_success/dialog_success.dart';
 
 import '../../../core/enums/clinical_form_hint_text_enum.dart';
 import '../../../core/enums/clinical_form_title_enum.dart';
+import '../../../core/utils/call_dialog.dart';
 import '../../../core/utils/form_validator.dart';
+import '../../../core/widgets/dialog_error/dialog_error.dart';
+import '../login_controller.dart';
 
 class SignUpCard extends StatefulWidget {
   const SignUpCard({super.key});
@@ -19,6 +25,7 @@ class SignUpCard extends StatefulWidget {
 }
 
 class _SignUpCardState extends State<SignUpCard> {
+  final _loginController = Get.put(LoginController());
   TextEditingController emailController = TextEditingController();
   TextEditingController passwordController = TextEditingController();
   TextEditingController passwordConfirmController = TextEditingController();
@@ -35,6 +42,24 @@ class _SignUpCardState extends State<SignUpCard> {
       mask: "(##) #####-####",
       filter: {"#": RegExp(r'[0-9]')},
       type: MaskAutoCompletionType.lazy);
+
+  FocusNode? focus;
+
+  _clearValues() {
+    emailController.clear();
+    passwordController.clear();
+    passwordConfirmController.clear();
+    fullNameController.clear();
+    phoneController.clear();
+    specialtyController.clear();
+    companyController.clear();
+  }
+
+  @override
+  void initState() {
+    super.initState();
+    focus = FocusNode();
+  }
 
   @override
   void dispose() {
@@ -168,8 +193,47 @@ class _SignUpCardState extends State<SignUpCard> {
                   alignment: Alignment.bottomRight,
                   child: ClinicalElevatedButton(
                     buttonText: Languages.of(context).signUpButton,
-                    onPressed: () {
-                      if (_formKey.currentState!.validate()) {}
+                    onPressed: () async {
+                      //  FocusScope.of(context).unfocus();
+
+                      if (_formKey.currentState!.validate()) {
+                        _loginController.setSignUpModel(
+                            fullName: fullNameController.text,
+                            email: emailController.text,
+                            password: passwordController.text,
+                            phone: phoneController.text,
+                            specialty: specialtyController.text,
+                            company: companyController.text);
+                        await _loginController.signUp(
+                          onSuccess: () {
+                            callDialog(
+                                context: context,
+                                child: DialogSuccess(
+                                    textMessage:
+                                        Languages.of(context).signUpSuccess,
+                                    onPressed: () {
+                                      _loginController.tabController?.animateTo(
+                                          0,
+                                          duration:
+                                              const Duration(milliseconds: 350),
+                                          curve: Curves.easeIn);
+                                      _loginController.tabIndex.value = 0;
+                                      _clearValues();
+                                      Get.back();
+                                    }));
+                          },
+                          onError: (error) {
+                            callDialog(
+                                context: context,
+                                child: DialogError(
+                                  textMessage: Languages.of(context)
+                                      .dialogErrorInitialMessage,
+                                  textHighlight: error ??
+                                      Languages.of(context).signUpError,
+                                ));
+                          },
+                        );
+                      }
                     },
                     buttonColorEnum: ButtonColorEnum.primary,
                   ),

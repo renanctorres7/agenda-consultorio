@@ -6,18 +6,19 @@ import '../../infra/models/models.dart';
 import '../service/sign_up_service.dart';
 
 class DioSignUpDatasource implements SignUpDatasource {
-  final SignUpService signUpService;
-
-  DioSignUpDatasource({required this.signUpService});
   @override
-  Future<SignUpModel?> signUp(SignUpEntity entity) async {
+  Future<void> signUp(
+      SignUpEntity entity,
+      Function(SignUpModel response) onSignUpSuccess,
+      Function(String error) onSignUpError) async {
     SignUpModel signUpModel = SignUpModel.fromEntity(entity);
     try {
-      final result = await signUpService.signUp(signUpModel);
-      return result;
+      await SignUpService.signUp(
+          signUpModel: signUpModel,
+          onSignUpSuccess: (response) => onSignUpSuccess(response),
+          onSignUpError: (error) => onSignUpError(error));
     } on DioException catch (e) {
-      throw DioException(
-          requestOptions: e.requestOptions, response: e.response);
+      onSignUpError(e.message ?? e.error.toString());
     }
   }
 }

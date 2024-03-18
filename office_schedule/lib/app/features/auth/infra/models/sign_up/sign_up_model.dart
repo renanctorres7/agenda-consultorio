@@ -1,3 +1,5 @@
+import 'dart:math';
+
 import 'package:office_schedule/app/features/auth/domain/entities/entities.dart';
 
 class SignUpModel extends SignUpEntity {
@@ -6,6 +8,7 @@ class SignUpModel extends SignUpEntity {
     this.profileImg,
     this.createdAt,
     this.updatedAt,
+    this.username,
     super.email,
     super.password,
     super.fullName,
@@ -19,11 +22,13 @@ class SignUpModel extends SignUpEntity {
   final String? profileImg;
   final String? createdAt;
   final String? updatedAt;
+  final String? username;
 
   factory SignUpModel.fromJson(Map<String, dynamic> json) {
     return SignUpModel(
         company: json['company'],
         email: json['email'],
+        username: json['username'],
         fullName: json['fullName'],
         password: json['password'],
         phone: json['phone'],
@@ -47,7 +52,8 @@ class SignUpModel extends SignUpEntity {
       'sessionToken': sessionToken,
       'profileImg': profileImg,
       'createdAt': createdAt,
-      'updatedAt': updatedAt
+      'updatedAt': updatedAt,
+      'username': username
     };
   }
 
@@ -60,6 +66,7 @@ class SignUpModel extends SignUpEntity {
         phone: entity.phone,
         specialty: entity.specialty,
         sessionToken: entity.token,
+        username: entity.email,
         objectId: entity.objectId);
   }
 }

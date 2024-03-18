@@ -109,4 +109,9 @@ class ClinicalTextTypes {
       fontSize: 14.sp,
       fontWeight: FontWeight.w700,
       color: AppColors.getTheme().colorText);
+
+  static final dialogSuccessTitle = GoogleFonts.poppins(
+      fontSize: 14.sp,
+      fontWeight: FontWeight.w700,
+      color: AppColors.getTheme().primary);
 }

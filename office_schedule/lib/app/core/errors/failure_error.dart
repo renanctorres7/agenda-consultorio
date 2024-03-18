@@ -2,41 +2,53 @@ import 'package:equatable/equatable.dart';
 
 import '../debug_print_color/debug_print_color.dart';
 
-abstract class FailureError extends Equatable {}
+abstract class FailureError extends Equatable {
+  final String? message;
+
+  const FailureError(this.message);
+}
 
 class DomainError extends FailureError {
   @override
-  List<Object?> get props => [];
+  List<Object?> get props => [
+        message,
+      ];
 
-  DomainError([String? error]) {
-    debugPrintError('CacheError -  ${error ?? ''}');
+  DomainError(super.message) {
+    debugPrintError('CacheError -  ${message ?? ''}');
   }
 }
 
 class NullError extends FailureError {
   @override
-  List<Object?> get props => [];
+  List<Object?> get props => [
+        message,
+      ];
 
-  NullError([String? error]) {
-    debugPrintError('NullError -  ${error ?? ''}');
+  NullError([super.message]) {
+    debugPrintError('NullError -  ${message ?? ''}');
   }
 }
 
 class DataSourceError extends FailureError {
   @override
-  List<Object?> get props => [];
+  List<Object?> get props => [
+        message,
+      ];
 
-  DataSourceError([String? error]) {
-    debugPrintError('DataSourceError - $error');
+  DataSourceError([super.message]) {
+    debugPrintError('DataSourceError - $message');
   }
 }
 
 class ServiceError extends FailureError {
   @override
-  List<Object?> get props => [];
+  List<Object?> get props => [
+        message,
+      ];
 
-  ServiceError([String? error, int? statusCode]) {
+  ServiceError(super.message, int? statusCode) {
     debugPrintError(
-        'ServerError - erro: ${error ?? ''} statusCode: ${statusCode ?? ''}');
+        'ServerError - erro: ${message ?? ''} statusCode: ${statusCode ?? ''}');
   }
 }

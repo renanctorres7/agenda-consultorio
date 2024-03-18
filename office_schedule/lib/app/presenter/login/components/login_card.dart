@@ -96,13 +96,13 @@ class _LoginCardState extends State<LoginCard> {
                               Get.offAllNamed('/home', arguments: response);
                             },
                             onError: (error) {
-                              callErrorDialog(
+                              callDialog(
                                   context: context,
                                   child: DialogError(
                                     textMessage: Languages.of(context)
                                         .dialogErrorInitialMessage,
-                                    textHighlight:
-                                        error ?? 'usuário ou senha inválidos!',
+                                    textHighlight: error ??
+                                        Languages.of(context).loginError,
                                   ));
                             });
                       }
