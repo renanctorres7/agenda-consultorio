@@ -19,10 +19,6 @@ class AppPages {
         binding: LoginBindings()),
 
     GetPage(
-        name: AppRoutes.home,
-        page: () => HomePage(
-              userProfileModel: Get.arguments,
-            ),
-        binding: HomeBindings()),
+        name: AppRoutes.home, page: () => HomePage(), binding: HomeBindings()),
   ];
 }

@@ -1,7 +1,7 @@
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:office_schedule/app/core/debug_print_color/debug_print_color.dart';
 
-const String _path = 'assets/svg';
+const String _path = 'assets/svg/clinical_icons';
 
 class ClinicalIcons {
   static const String blueSearch = '$_path/blueSearch.svg';
