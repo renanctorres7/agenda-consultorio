@@ -60,7 +60,7 @@ class _ClinicalBottomNavigationBarState
           _barItem(ClinicalBottomNavigationIconsEnum.calendar),
           _barItem(ClinicalBottomNavigationIconsEnum.schedule),
           _barItem(ClinicalBottomNavigationIconsEnum.users),
-          _barItem(ClinicalBottomNavigationIconsEnum.config),
+          _barItem(ClinicalBottomNavigationIconsEnum.settings),
         ],
       ),
     );
