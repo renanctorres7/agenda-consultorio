@@ -80,4 +80,13 @@ abstract class Languages {
   /// API ERROR
   String get validationFailed;
   String get usernameAlreadyExists;
+
+  /// CALENDAR
+  String get month;
+  String get week;
+  String get day;
+  String get today;
+
+  /// WELCOME
+  String get hello;
 }

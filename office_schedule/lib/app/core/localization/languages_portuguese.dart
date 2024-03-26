@@ -156,4 +156,21 @@ class LanguagesPortugues extends Languages {
 
   @override
   String get usernameAlreadyExists => 'usuário já cadastrado!';
+
+  /// CALENDAR
+  @override
+  String get month => 'Mês';
+
+  @override
+  String get week => 'Semana';
+
+  @override
+  String get day => 'Dia';
+
+  @override
+  String get today => 'Hoje';
+
+  /// WELCOME
+  @override
+  String get hello => 'Olá!';
 }

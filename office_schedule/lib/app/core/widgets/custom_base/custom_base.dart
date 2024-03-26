@@ -24,6 +24,7 @@ class CustomBase extends StatelessWidget {
           systemNavigationBarIconBrightness:
               statusBarIconIsDark ? Brightness.dark : Brightness.light,
         ),
-        child: Scaffold(backgroundColor: statusBarColor, body: child));
+        child: SafeArea(
+            child: Scaffold(backgroundColor: statusBarColor, body: child)));
   }
 }

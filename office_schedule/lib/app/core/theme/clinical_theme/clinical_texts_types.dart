@@ -73,7 +73,7 @@ class ClinicalTextTypes {
 
   static final nameTitle = GoogleFonts.poppins(
       fontSize: 16.sp,
-      fontWeight: FontWeight.w500,
+      fontWeight: FontWeight.w600,
       color: AppColors.getTheme().colorText);
 
   static final nameTitleWhite = GoogleFonts.poppins(
