@@ -98,6 +98,11 @@ class ClinicalTextTypes {
       fontWeight: FontWeight.w700,
       color: AppColors.getTheme().primaryDark);
 
+  static final datetimeTitle = GoogleFonts.poppins(
+      fontSize: 16.sp,
+      fontWeight: FontWeight.w500,
+      color: AppColors.getTheme().colorTextLight);
+
   /// dialog
   ///
   static final dialogErrorTitle = GoogleFonts.poppins(
