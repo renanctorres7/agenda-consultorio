@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:office_schedule/app/core/theme/clinical_theme/app_colors.dart';
 
 class CustomBase extends StatelessWidget {
   final bool statusBarIconIsDark;
@@ -15,7 +16,7 @@ class CustomBase extends StatelessWidget {
   Widget build(BuildContext context) {
     return AnnotatedRegion<SystemUiOverlayStyle>(
         value: SystemUiOverlayStyle(
-          systemNavigationBarColor: statusBarColor,
+          systemNavigationBarColor: AppColors.getTheme().colorWhite,
           statusBarColor: statusBarColor,
           systemNavigationBarDividerColor: Colors.grey[200],
           statusBarBrightness:
@@ -23,6 +24,6 @@ class CustomBase extends StatelessWidget {
           systemNavigationBarIconBrightness:
               statusBarIconIsDark ? Brightness.dark : Brightness.light,
         ),
-        child: child);
+        child: Scaffold(backgroundColor: statusBarColor, body: child));
   }
 }

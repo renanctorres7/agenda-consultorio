@@ -8,9 +8,13 @@ import '../../enums/clinical_bottom_navigation_icons_enum.dart';
 class ClinicalBottomNavigationBar extends StatefulWidget {
   final int bottomBarIndex;
   final Function(int) bottomBarOnTap;
+  final Color statusBarColor;
 
   const ClinicalBottomNavigationBar(
-      {super.key, required this.bottomBarIndex, required this.bottomBarOnTap});
+      {super.key,
+      required this.bottomBarIndex,
+      required this.bottomBarOnTap,
+      required this.statusBarColor});
 
   @override
   State<ClinicalBottomNavigationBar> createState() =>
@@ -36,32 +40,35 @@ class _ClinicalBottomNavigationBarState
   @override
   Widget build(BuildContext context) {
     return Container(
-      height: 82.h,
-      decoration: BoxDecoration(
-          color: AppColors.getTheme().colorWhite,
-          boxShadow: [
-            BoxShadow(
-                color: Colors.black.withOpacity(0.25),
-                blurRadius: 20.r,
-                offset: const Offset(0, 1),
-                spreadRadius: -3)
+      color: widget.statusBarColor,
+      child: Container(
+        height: 82.h,
+        decoration: BoxDecoration(
+            color: AppColors.getTheme().colorWhite,
+            boxShadow: [
+              BoxShadow(
+                  color: Colors.black.withOpacity(0.25),
+                  blurRadius: 20.r,
+                  offset: const Offset(0, 1),
+                  spreadRadius: -3)
+            ],
+            borderRadius: BorderRadius.only(
+              topLeft: Radius.circular(20.r),
+              topRight: Radius.circular(20.r),
+            )),
+        child: BottomNavigationBar(
+          currentIndex: widget.bottomBarIndex,
+          onTap: widget.bottomBarOnTap,
+          backgroundColor: Colors.transparent,
+          elevation: 0,
+          type: BottomNavigationBarType.fixed,
+          items: [
+            _barItem(ClinicalBottomNavigationIconsEnum.calendar),
+            _barItem(ClinicalBottomNavigationIconsEnum.schedule),
+            _barItem(ClinicalBottomNavigationIconsEnum.users),
+            _barItem(ClinicalBottomNavigationIconsEnum.settings),
           ],
-          borderRadius: BorderRadius.only(
-            topLeft: Radius.circular(20.r),
-            topRight: Radius.circular(20.r),
-          )),
-      child: BottomNavigationBar(
-        currentIndex: widget.bottomBarIndex,
-        onTap: widget.bottomBarOnTap,
-        backgroundColor: Colors.transparent,
-        elevation: 0,
-        type: BottomNavigationBarType.fixed,
-        items: [
-          _barItem(ClinicalBottomNavigationIconsEnum.calendar),
-          _barItem(ClinicalBottomNavigationIconsEnum.schedule),
-          _barItem(ClinicalBottomNavigationIconsEnum.users),
-          _barItem(ClinicalBottomNavigationIconsEnum.settings),
-        ],
+        ),
       ),
     );
   }
