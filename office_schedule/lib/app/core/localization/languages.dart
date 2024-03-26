@@ -89,4 +89,17 @@ abstract class Languages {
 
   /// WELCOME
   String get hello;
+
+  /// SCHEDULE SITUATION
+  ///
+  String get pending;
+  String get completed;
+  String get canceled;
+  String get rescheduled;
+
+  /// CLINICAL CARD CALENDAR
+
+  String get patient;
+  String get service;
+  String get situation;
 }

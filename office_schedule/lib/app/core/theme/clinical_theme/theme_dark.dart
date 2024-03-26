@@ -63,6 +63,16 @@ class ThemeDark extends AppColors {
   ];
 
   @override
+  List<BoxShadow>? cardCalendarBoxShadow = [
+    BoxShadow(
+      color: Colors.black.withOpacity(0.15),
+      spreadRadius: 0,
+      blurRadius: 24,
+      offset: const Offset(0, 4),
+    ),
+  ];
+
+  @override
   Color cardColor = const Color(0xFFFFFFFF);
 
   @override

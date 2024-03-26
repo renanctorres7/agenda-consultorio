@@ -114,4 +114,15 @@ class ClinicalTextTypes {
       fontSize: 14.sp,
       fontWeight: FontWeight.w700,
       color: AppColors.getTheme().primary);
+
+  /// CLINICAL CARD CALENDAR
+
+  static clinicalCardTitle(Color color) => GoogleFonts.poppins(
+      fontSize: 10.sp, fontWeight: FontWeight.w300, color: color);
+
+  static clinicalCardBodyBold(Color color) => GoogleFonts.poppins(
+      fontSize: 12.sp, fontWeight: FontWeight.w700, color: color);
+
+  static clinicalCardBody(Color color) => GoogleFonts.poppins(
+      fontSize: 12.sp, fontWeight: FontWeight.w500, color: color);
 }

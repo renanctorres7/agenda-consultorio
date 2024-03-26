@@ -173,4 +173,26 @@ class LanguagesPortugues extends Languages {
   /// WELCOME
   @override
   String get hello => 'Olá!';
+
+  /// SCHEDULE SITUATION
+  ///
+  @override
+  String get pending => 'Pendente';
+  @override
+  String get completed => 'Concluído';
+  @override
+  String get canceled => 'Cancelado';
+  @override
+  String get rescheduled => 'Reagendado';
+
+  /// CLINICAL CARD CALENDAR
+  ///
+  @override
+  String get patient => 'Paciente';
+
+  @override
+  String get service => 'Atendimento';
+
+  @override
+  String get situation => 'Consulta';
 }
